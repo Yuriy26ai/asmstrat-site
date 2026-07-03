@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" font-family="Georgia, 'Times New Roman', serif">
+  <!-- Главное окно -->
+  <rect x="60" y="50" width="600" height="430" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <line x1="60" y1="98" x2="660" y2="98" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="88" cy="74" r="6" fill="#1D4D7A"/>
+  <circle cx="112" cy="74" r="6" fill="#37A3D7"/>
+  <circle cx="136" cy="74" r="6" fill="#C7CDD4"/>
+
+  <!-- Оргсхема -->
+  <rect x="170" y="120" width="120" height="44" rx="8" fill="#1D4D7A"/>
+  <rect x="186" y="134" width="88" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="186" y="146" width="56" height="5" rx="2.5" fill="#FFFFFF" opacity="0.6"/>
+  <line x1="230" y1="164" x2="230" y2="184" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="120" y1="184" x2="340" y2="184" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="120" y1="184" x2="120" y2="196" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="230" y1="184" x2="230" y2="196" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="340" y1="184" x2="340" y2="196" stroke="#C9D6E2" stroke-width="2"/>
+  <rect x="75" y="196" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="185" y="196" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="295" y="196" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="89" y="210" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="199" y="210" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="309" y="210" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <line x1="120" y1="234" x2="120" y2="266" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="230" y1="234" x2="230" y2="266" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="340" y1="234" x2="340" y2="266" stroke="#C9D6E2" stroke-width="2"/>
+  <rect x="75" y="266" width="90" height="32" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="185" y="266" width="90" height="32" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="295" y="266" width="90" height="32" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="89" y="278" width="52" height="6" rx="3" fill="#C7CDD4"/>
+  <rect x="199" y="278" width="52" height="6" rx="3" fill="#C7CDD4"/>
+  <rect x="309" y="278" width="52" height="6" rx="3" fill="#C7CDD4"/>
+
+  <!-- Карточки показателей -->
+  <rect x="420" y="120" width="220" height="66" rx="10" fill="#F4F5F3"/>
+  <text x="438" y="163" font-size="26" fill="#0C1B2A">20+</text>
+  <rect x="520" y="140" width="100" height="8" rx="4" fill="#C7CDD4"/>
+  <rect x="520" y="156" width="68" height="6" rx="3" fill="#DDE1E6"/>
+  <rect x="420" y="198" width="220" height="66" rx="10" fill="#F4F5F3"/>
+  <text x="438" y="241" font-size="26" fill="#1D4D7A">−80%</text>
+  <rect x="532" y="218" width="88" height="8" rx="4" fill="#C7CDD4"/>
+  <rect x="532" y="234" width="60" height="6" rx="3" fill="#DDE1E6"/>
+  <rect x="420" y="276" width="220" height="66" rx="10" fill="#F4F5F3"/>
+  <text x="438" y="319" font-size="26" fill="#37A3D7">×1,5</text>
+  <rect x="520" y="296" width="100" height="8" rx="4" fill="#C7CDD4"/>
+  <rect x="520" y="312" width="68" height="6" rx="3" fill="#DDE1E6"/>
+
+  <!-- График-тренд внизу окна -->
+  <polygon points="80,460 80,440 160,412 240,426 320,382 400,396 480,352 545,332 545,460" fill="#37A3D7" opacity="0.12"/>
+  <polyline points="80,440 160,412 240,426 320,382 400,396 480,352 545,332" fill="none" stroke="#37A3D7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="80" y1="460" x2="545" y2="460" stroke="#DDE1E6" stroke-width="1.5"/>
+
+  <!-- Плавающая карточка: столбчатая диаграмма -->
+  <rect x="560" y="300" width="290" height="280" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="584" y="324" width="130" height="9" rx="4.5" fill="#C7CDD4"/>
+  <rect x="592" y="480" width="28" height="60" rx="4" fill="#66BEE2"/>
+  <rect x="634" y="450" width="28" height="90" rx="4" fill="#37A3D7"/>
+  <rect x="676" y="465" width="28" height="75" rx="4" fill="#66BEE2"/>
+  <rect x="718" y="420" width="28" height="120" rx="4" fill="#37A3D7"/>
+  <rect x="760" y="435" width="28" height="105" rx="4" fill="#66BEE2"/>
+  <rect x="802" y="390" width="28" height="150" rx="4" fill="#1D4D7A"/>
+  <line x1="584" y1="540" x2="830" y2="540" stroke="#DDE1E6" stroke-width="1.5"/>
+
+  <!-- Плавающий чип: выполненная задача -->
+  <rect x="600" y="120" width="212" height="64" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="632" cy="152" r="15" fill="#37A3D7"/>
+  <path d="M625 152 l5 5 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="658" y="140" width="122" height="8" rx="4" fill="#C7CDD4"/>
+  <rect x="658" y="156" width="82" height="6" rx="3" fill="#DDE1E6"/>
+
+  <!-- Плавающий чип слева -->
+  <rect x="28" y="396" width="182" height="58" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="58" cy="425" r="13" fill="#1D4D7A"/>
+  <path d="M52 425 l4 4 l9 -9" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="82" y="414" width="104" height="8" rx="4" fill="#C7CDD4"/>
+  <rect x="82" y="430" width="70" height="6" rx="3" fill="#DDE1E6"/>
+</svg>

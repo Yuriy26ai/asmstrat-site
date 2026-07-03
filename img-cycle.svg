@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560">
+  <circle cx="380" cy="280" r="185" fill="none" stroke="#C9D6E2" stroke-width="2" stroke-dasharray="4 7"/>
+
+  <g fill="#37A3D7">
+    <polygon points="-7,-5 9,0 -7,5" transform="translate(489,130) rotate(36)"/>
+    <polygon points="-7,-5 9,0 -7,5" transform="translate(556,337) rotate(108)"/>
+    <polygon points="-7,-5 9,0 -7,5" transform="translate(380,465) rotate(180)"/>
+    <polygon points="-7,-5 9,0 -7,5" transform="translate(204,337) rotate(252)"/>
+    <polygon points="-7,-5 9,0 -7,5" transform="translate(271,130) rotate(324)"/>
+  </g>
+
+  <circle cx="380" cy="280" r="92" fill="#0C1B2A"/>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#FFFFFF" font-size="19" text-anchor="middle">
+    <text x="380" y="262">Регулярный</text>
+    <text x="380" y="288">управленческий</text>
+    <text x="380" y="314">цикл</text>
+  </g>
+
+  <g>
+    <rect x="263" y="66" width="234" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="285" y="100" font-family="Georgia, serif" font-size="15" fill="#37A3D7">01</text>
+    <text x="313" y="100" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0C1B2A">Исполнительный совет</text>
+
+    <rect x="439" y="194" width="234" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="461" y="228" font-family="Georgia, serif" font-size="15" fill="#37A3D7">02</text>
+    <text x="489" y="228" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0C1B2A">Координации по задачам</text>
+
+    <rect x="400" y="401" width="234" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="422" y="435" font-family="Georgia, serif" font-size="15" fill="#37A3D7">04</text>
+    <text x="450" y="435" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0C1B2A">Управленческие комитеты</text>
+
+    <rect x="126" y="401" width="234" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="148" y="435" font-family="Georgia, serif" font-size="15" fill="#37A3D7">03</text>
+    <text x="176" y="435" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0C1B2A">Рекомендательный совет</text>
+
+    <rect x="87" y="194" width="234" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="109" y="228" font-family="Georgia, serif" font-size="15" fill="#37A3D7">05</text>
+    <text x="137" y="228" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#0C1B2A">Финансовое планирование</text>
+  </g>
+</svg>

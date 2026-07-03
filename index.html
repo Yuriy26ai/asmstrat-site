@@ -99,6 +99,10 @@
 
   /* HERO */
   .hero{padding:104px 0 88px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
+  .hero-art{width:100%;height:auto;display:block;}
+  @media(max-width:940px){.hero-grid{grid-template-columns:1fr;}.hero-art{display:none;}}
+  .path-img{width:100%;height:auto;display:block;margin:-6px 0 50px;}
   .hero .eyebrow{display:block;margin-bottom:30px;}
   .hero h1{font-size:clamp(38px,5.6vw,72px);line-height:1.06;max-width:18ch;margin-bottom:30px;}
   .hero p{font-size:clamp(18px,1.9vw,21px);color:var(--body);max-width:62ch;margin-bottom:40px;}
@@ -234,14 +238,17 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow rv">ASM Strategy · Бизнес-архитекторы</span>
-        <h1 class="rv">Превращаем растущий бизнес в управляемую систему</h1>
-        <p class="rv">Помогаем собственникам выйти из операционной перегрузки: <b>выстраиваем систему управления, при которой компания растёт руками управленческой команды — без ежедневного участия владельца.</b></p>
-        <div class="actions rv">
-          <a href="#contacts" class="btn btn-primary">Получить диагностику</a>
-          <a href="#services" class="btn btn-ghost">Что мы делаем</a>
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow rv">ASM Strategy · Бизнес-архитекторы</span>
+          <h1 class="rv">Превращаем растущий бизнес в управляемую систему</h1>
+          <p class="rv">Помогаем собственникам выйти из операционной перегрузки: <b>выстраиваем систему управления, при которой компания растёт руками управленческой команды — без ежедневного участия владельца.</b></p>
+          <div class="actions rv">
+            <a href="#contacts" class="btn btn-primary">Получить диагностику</a>
+            <a href="#services" class="btn btn-ghost">Что мы делаем</a>
+          </div>
         </div>
+        <img class="hero-art rv" src="/img-hero.svg" alt="Система управления компанией: оргструктура, показатели эффективности и управленческие дашборды" width="900" height="640">
       </div>
     </section>
 
@@ -262,6 +269,7 @@
           <h2>Полный цикл построения системы управления</h2>
           <p>Мы не продаём отдельные услуги — мы ведём компанию по пути: от диагностики к системе, от системы к развитию. Каждый этап усиливает предыдущий.</p>
         </div>
+        <img class="path-img rv" src="/img-path.svg" alt="Путь клиента ASM Strategy: понять — диагностика и стратегические сессии; выстроить — систематизация и реинжиниринг; сопровождать — советник и совет директоров; развивать — партнёрства, M&A и обучение" width="1100" height="250">
 
         <!-- ГРУППА 1 -->
         <div class="grp rv">
