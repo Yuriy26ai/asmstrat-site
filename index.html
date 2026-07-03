@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================= -->
+<!--  ГЛАВНАЯ СТРАНИЦА ASM STRATEGY                                 -->
+<!--  Услуги сгруппированы: Понять → Выстроить → Сопровождать →    -->
+<!--  Развивать. Ссылки на внутренние страницы появятся по мере    -->
+<!--  их создания (/diagnostika, /sovetnik и т.д.).                -->
+<!-- ============================================================= -->
+
+<title>ASM Strategy — систематизация бизнеса и управленческий консалтинг</title>
+<meta name="description" content="ASM Strategy — бизнес-архитекторы: диагностика и аудит системы управления, стратегические сессии, систематизация бизнеса, реинжиниринг, советник по системному управлению, независимые директора, партнёрские соглашения совладельцев, M&A, обучение управлению (mini-MBA). Выводим собственника из операционной перегрузки.">
+
+<link rel="canonical" href="https://asmstrat.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="verification" content="f612c7d25f5690ad41496fcfdbf8d1">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASM Strategy — систематизация бизнеса и системное управление">
+<meta property="og:description" content="Бизнес-архитекторы: превращаем растущий бизнес в управляемую систему. Диагностика, систематизация, советник по управлению, совет директоров, обучение владельцев.">
+<meta property="og:url" content="https://asmstrat.com/">
+<meta property="og:image" content="https://asmstrat.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+<!-- Структурированные данные: компания -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ASM Strategy",
+  "alternateName": "АСМ Стратегии",
+  "url": "https://asmstrat.com/",
+  "description": "Управленческий консалтинг и систематизация бизнеса: диагностика и аудит системы управления, стратегические сессии, внедрение инструментов управления, реинжиниринг, советник по системному управлению, независимые директора, партнёрские соглашения совладельцев, сделки M&A, обучение управлению.",
+  "email": "sales@asmstrat.com",
+  "telephone": "+79777000755",
+  "sameAs": ["https://t.me/asmstrat"],
+  "knowsAbout": ["Систематизация бизнеса","Управленческий консалтинг","Управленческая диагностика","Аудит системы управления","Стратегические сессии","Организационная структура","Управленческий учёт","Реинжиниринг системы управления","Советник по системному управлению","Независимый директор","Совет директоров","Партнёрское соглашение совладельцев","Слияния и поглощения","Обучение управлению","Mini-MBA","Снижение операционной нагрузки на собственника"]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --paper:#F4F5F3;
+    --ink:#0C1B2A;
+    --body:#3A4654;
+    --muted:#697585;
+    --accent:#1D4D7A;
+    --accent2:#37A3D7;
+    --line:rgba(12,27,42,0.14);
+    --line-soft:rgba(12,27,42,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--body);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:17px;line-height:1.65;font-weight:400;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:#fff;}
+  .serif{font-family:'Newsreader',Georgia,serif;}
+
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 44px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);}
+
+  h1,h2,h3{color:var(--ink);font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-0.01em;}
+
+  /* ШАПКА */
+  .head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;transition:border-color .3s;}
+  .head.scrolled{border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;text-decoration:none;}
+  .brand img{height:46px;width:auto;display:block;}
+  .nav-r{display:flex;gap:28px;align-items:center;}
+  .nav-r a{font-size:14px;color:var(--body);text-decoration:none;transition:color .2s;}
+  .nav-r a:hover{color:var(--accent);}
+  .nav-cta{font-weight:600;color:#fff !important;background:var(--accent);padding:9px 18px;border-radius:3px;transition:background .2s;}
+  .nav-cta:hover{background:#163C5F;}
+  @media(max-width:880px){.nav-r a:not(.nav-cta){display:none;}}
+
+  /* HERO */
+  .hero{padding:104px 0 88px;}
+  .hero .eyebrow{display:block;margin-bottom:30px;}
+  .hero h1{font-size:clamp(38px,5.6vw,72px);line-height:1.06;max-width:18ch;margin-bottom:30px;}
+  .hero p{font-size:clamp(18px,1.9vw,21px);color:var(--body);max-width:62ch;margin-bottom:40px;}
+  .hero p b{color:var(--ink);font-weight:600;}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;text-decoration:none;padding:15px 30px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:#163C5F;transform:translateY(-1px);box-shadow:0 10px 26px rgba(29,77,122,0.25);}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* статистика-полоса */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper);}
+  .strip-in{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:38px 0;}
+  @media(max-width:760px){.strip-in{grid-template-columns:1fr;gap:22px;}}
+  .strip .n{font-family:'Newsreader',serif;font-size:40px;color:var(--ink);line-height:1;}
+  .strip .l{font-size:14.5px;color:var(--muted);margin-top:8px;}
+
+  /* СЕКЦИИ */
+  section.block{padding:96px 0;}
+  section.alt{background:var(--paper);}
+  .sec-head{max-width:64ch;margin-bottom:54px;}
+  .sec-head .eyebrow{display:block;margin-bottom:18px;}
+  .sec-head h2{font-size:clamp(28px,3.6vw,44px);line-height:1.14;margin-bottom:18px;}
+  .sec-head p{color:var(--muted);font-size:18px;max-width:58ch;}
+
+  /* УСЛУГИ ГРУППАМИ */
+  .grp{margin-bottom:56px;}
+  .grp:last-of-type{margin-bottom:0;}
+  .grp-head{display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:12px;margin-bottom:6px;}
+  .grp-head .g-num{font-family:'Newsreader',serif;font-size:15px;color:var(--accent);letter-spacing:0.08em;}
+  .grp-head h3{font-size:24px;}
+  .grp-head .g-note{margin-left:auto;font-size:13.5px;color:var(--muted);text-align:right;}
+  @media(max-width:640px){.grp-head{flex-wrap:wrap;}.grp-head .g-note{margin-left:0;text-align:left;width:100%;}}
+  .svc{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;}
+  @media(max-width:820px){.svc{grid-template-columns:1fr;}}
+  .svc-item{padding:26px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;}
+  .svc-item .num{font-family:'Newsreader',serif;font-size:16px;color:var(--accent);padding-top:3px;}
+  .svc-item h4{font-family:'Newsreader',serif;font-weight:400;color:var(--ink);font-size:21px;line-height:1.25;margin-bottom:8px;}
+  .svc-item p{font-size:15.5px;color:var(--muted);line-height:1.55;}
+  .svc-item a{color:inherit;text-decoration:none;}
+  .svc-item a:hover h4{color:var(--accent);}
+
+  /* выноска-продукт */
+  .promo{margin-top:56px;border:1px solid var(--line);border-left:3px solid var(--accent);padding:32px 36px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;background:var(--bg);}
+  .promo h3{font-size:22px;margin-bottom:6px;}
+  .promo p{color:var(--muted);font-size:15.5px;max-width:64ch;}
+  .promo a{white-space:nowrap;font-weight:600;color:var(--accent);text-decoration:none;}
+  .promo a:hover{text-decoration:underline;}
+
+  /* ОБУЧЕНИЕ */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  @media(max-width:820px){.edu{grid-template-columns:1fr;}}
+  .edu-card{border:1px solid var(--line);background:var(--bg);padding:36px;}
+  .edu-card .tag{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px;}
+  .edu-card h3{font-size:24px;margin-bottom:14px;}
+  .edu-card p{font-size:15.5px;color:var(--muted);margin-bottom:12px;}
+  .edu-card ul{list-style:none;margin-top:6px;}
+  .edu-card li{position:relative;padding-left:20px;margin-bottom:7px;font-size:15px;color:var(--body);}
+  .edu-card li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--accent);border-radius:50%;}
+
+  /* ПОДХОД */
+  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;}
+  @media(max-width:760px){.why{grid-template-columns:1fr;gap:32px;}}
+  .why-item h3{font-size:20px;margin-bottom:10px;}
+  .why-item p{color:var(--muted);font-size:16px;}
+
+  /* КЕЙСЫ */
+  .cases{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  @media(max-width:820px){.cases{grid-template-columns:1fr;}}
+  .case{border:1px solid var(--line);padding:36px;background:var(--bg);}
+  .case h3{font-size:23px;margin-bottom:18px;}
+  .case .lab{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:18px 0 8px;}
+  .case ul{list-style:none;}
+  .case li{position:relative;padding-left:20px;margin-bottom:7px;font-size:15px;color:var(--body);}
+  .case li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--accent);border-radius:50%;}
+  .case .res li{color:var(--ink);font-weight:500;}
+
+  /* КОМАНДА */
+  .team{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media(max-width:760px){.team{grid-template-columns:1fr;}}
+  .person{border-top:2px solid var(--ink);padding-top:22px;}
+  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin-bottom:20px;}
+  .person h3{font-size:24px;margin-bottom:4px;}
+  .person .role{font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
+  .person p{font-size:15.5px;color:var(--muted);margin-bottom:14px;}
+  .person .exp{font-size:14px;color:var(--ink);font-weight:600;}
+
+  /* КОНТАКТЫ */
+  .contact{background:var(--ink);color:#fff;}
+  .contact h2{color:#fff;font-size:clamp(30px,4.4vw,52px);line-height:1.08;margin-bottom:20px;max-width:18ch;}
+  .contact p{color:rgba(255,255,255,0.7);max-width:52ch;margin-bottom:42px;font-size:18px;}
+  .clinks{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,0.18);max-width:760px;}
+  .clinks a{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:24px 2px;border-bottom:1px solid rgba(255,255,255,0.14);color:#fff;text-decoration:none;transition:padding-left .25s;}
+  .clinks a:hover{padding-left:14px;}
+  .clinks .t{font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55);min-width:130px;}
+  .clinks .v{font-family:'Newsreader',serif;font-size:clamp(19px,2.3vw,26px);text-align:right;}
+  .clinks a:hover .v{color:#7FC4E8;}
+  @media(max-width:560px){
+    .clinks a{flex-direction:column;align-items:flex-start;gap:6px;}
+    .clinks .v{text-align:left;}
+    .brand img{height:38px;}
+  }
+
+  footer{padding:40px 0;border-top:1px solid var(--line);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);}
+  .foot a{color:var(--muted);text-decoration:none;}
+  .foot a:hover{color:var(--accent);}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+</style>
+</head>
+
+<body>
+
+  <header class="head" id="head">
+    <div class="wrap nav">
+      <a href="#top" class="brand"><img src="/logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
+      <nav class="nav-r">
+        <a href="#services">Услуги</a>
+        <a href="#education">Обучение</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#team">Команда</a>
+        <a href="#contacts" class="nav-cta">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow rv">ASM Strategy · Бизнес-архитекторы</span>
+        <h1 class="rv">Превращаем растущий бизнес в управляемую систему</h1>
+        <p class="rv">Помогаем собственникам выйти из операционной перегрузки: <b>выстраиваем систему управления, при которой компания растёт руками управленческой команды — без ежедневного участия владельца.</b></p>
+        <div class="actions rv">
+          <a href="#contacts" class="btn btn-primary">Получить диагностику</a>
+          <a href="#services" class="btn btn-ghost">Что мы делаем</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- СТАТИСТИКА -->
+    <div class="strip">
+      <div class="wrap strip-in">
+        <div class="rv"><div class="n">20+</div><div class="l">лет управленческого опыта у каждого партнёра</div></div>
+        <div class="rv"><div class="n">−80%</div><div class="l">операционной нагрузки на собственника в проектах</div></div>
+        <div class="rv"><div class="n">×1,5</div><div class="l">рост прибыли после внедрения системы управления</div></div>
+      </div>
+    </div>
+
+    <!-- УСЛУГИ -->
+    <section class="block" id="services">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Что мы делаем</span>
+          <h2>Полный цикл построения системы управления</h2>
+          <p>Мы не продаём отдельные услуги — мы ведём компанию по пути: от диагностики к системе, от системы к развитию. Каждый этап усиливает предыдущий.</p>
+        </div>
+
+        <!-- ГРУППА 1 -->
+        <div class="grp rv">
+          <div class="grp-head">
+            <span class="g-num">I</span>
+            <h3 class="serif">Понять</h3>
+            <span class="g-note">точка входа: где бизнес теряет управляемость</span>
+          </div>
+          <div class="svc">
+            <div class="svc-item"><span class="num serif">01</span><div><h4>Диагностика и аудит системы управления</h4><p>Оцениваем управляемость компании, находим узкие места и зависимость бизнеса от собственника. Формируем маршрутную карту систематизации на 3–6 месяцев.</p></div></div>
+            <div class="svc-item"><span class="num serif">02</span><div><h4>Стратегические сессии</h4><p>Помогаем собственнику и команде выработать цели, стратегию и тактические планы — и договориться, кто и как их реализует.</p></div></div>
+          </div>
+        </div>
+
+        <!-- ГРУППА 2 -->
+        <div class="grp rv">
+          <div class="grp-head">
+            <span class="g-num">II</span>
+            <h3 class="serif">Выстроить</h3>
+            <span class="g-note">основной блок: внедрение системы управления</span>
+          </div>
+          <div class="svc">
+            <div class="svc-item"><span class="num serif">03</span><div><h4>Систематизация бизнеса</h4><p>Проектируем и внедряем инструменты управления: оргструктуру, ЦКП и зоны ответственности, статистики и управленческую отчётность, планирование, финансовый контур, управленческий ритм.</p></div></div>
+            <div class="svc-item"><span class="num serif">04</span><div><h4>Реинжиниринг инструментов управления</h4><p>Перестраиваем систему управления, которая была внедрена, но не работает: находим методологические ошибки и возвращаем инструментам управленческую силу.</p></div></div>
+          </div>
+        </div>
+
+        <!-- ГРУППА 3 -->
+        <div class="grp rv">
+          <div class="grp-head">
+            <span class="g-num">III</span>
+            <h3 class="serif">Сопровождать</h3>
+            <span class="g-note">регулярные управленческие функции на аутсорсе</span>
+          </div>
+          <div class="svc">
+            <div class="svc-item"><span class="num serif">05</span><div><h4>Советник по системному управлению</h4><p>Внешний специалист организует управленческий процесс компании на постоянной основе: планирование, координации, показатели, управленческая дисциплина.</p></div></div>
+            <div class="svc-item"><span class="num serif">06</span><div><h4>Независимые директора и совет директоров</h4><p>Входим в совет директоров как независимые директора: помогаем акционерам контролировать стратегию, риски и создание стоимости бизнеса.</p></div></div>
+          </div>
+        </div>
+
+        <!-- ГРУППА 4 -->
+        <div class="grp rv">
+          <div class="grp-head">
+            <span class="g-num">IV</span>
+            <h3 class="serif">Развивать</h3>
+            <span class="g-note">рост стоимости бизнеса и управленческой команды</span>
+          </div>
+          <div class="svc">
+            <div class="svc-item"><span class="num serif">07</span><div><h4>Партнёрские соглашения совладельцев</h4><p>Помогаем совладельцам зафиксировать правила игры: роли, полномочия, распределение прибыли, порядок выхода — до того, как разногласия станут конфликтом.</p></div></div>
+            <div class="svc-item"><span class="num serif">08</span><div><h4>Сделки M&A и организационное развитие</h4><p>Сопровождаем слияния и поглощения с управленческой стороны: оцениваем управляемость актива, интегрируем команды и системы управления.</p></div></div>
+            <div class="svc-item"><span class="num serif">09</span><div><h4>Обучение управлению: mini-MBA и Executive MBA</h4><p>Обучаем владельцев и руководителей системному управлению — в процессе внедрения и на регулярных программах. Знания закрепляются на инструментах вашей же компании.</p></div></div>
+          </div>
+        </div>
+
+        <div class="promo rv">
+          <div>
+            <h3 class="serif">Советник по системному управлению</h3>
+            <p>Флагманский продукт сопровождения — регулярная административная функция управления: внешний советник организует управленческий процесс вашей компании.</p>
+          </div>
+          <a href="/sovetnik">Подробнее о продукте →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОБУЧЕНИЕ -->
+    <section class="block alt" id="education">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Обучение</span>
+          <h2>Система остаётся работать, потому что люди умеют ею пользоваться</h2>
+          <p>Обучение — часть нашей технологии внедрения, а не отдельный курс. Мы готовим и владельца, и его команду — поэтому система управления не «откатывается» после завершения проекта.</p>
+        </div>
+        <div class="edu rv">
+          <div class="edu-card">
+            <span class="tag">Для владельцев</span>
+            <h3 class="serif">Mini-MBA и Executive MBA</h3>
+            <p>Управленческая подготовка собственника в процессе систематизации:</p>
+            <ul>
+              <li>стратегия и целеполагание</li>
+              <li>оргструктура, ЦКП и зоны ответственности</li>
+              <li>финансовое планирование и управленческий учёт</li>
+              <li>управленческий ритм: координации и советы</li>
+              <li>управление через показатели, а не вмешательства</li>
+            </ul>
+          </div>
+          <div class="edu-card">
+            <span class="tag">Для сотрудников и руководителей</span>
+            <h3 class="serif">Обучение работе с системой управления</h3>
+            <p>Дообучаем команду пользоваться внедрёнными инструментами:</p>
+            <ul>
+              <li>планирование и законченная работа сотрудника</li>
+              <li>статистики и работа с показателями</li>
+              <li>участие в координациях и советах</li>
+              <li>регламенты и письменные коммуникации</li>
+              <li>доступ к учебным материалам в личном кабинете</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОДХОД -->
+    <section class="block" id="approach">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Подход</span>
+          <h2>Почему собственники выбирают ASM Strategy</h2>
+        </div>
+        <div class="why rv">
+          <div class="why-item"><h3>Бизнес-архитекторы, а не шаблоны</h3><p>Мы не продаём «одну методику для всех». Партнёры компании — практикующие управленцы, которые проектируют систему под ваш бизнес и сопровождают внедрение на каждом этапе.</p></div>
+          <div class="why-item"><h3>Результат в цифрах</h3><p>Снижение операционной нагрузки собственника, рост прибыли, прозрачные показатели подразделений. Клиент покупает результат, а не список услуг.</p></div>
+          <div class="why-item"><h3>Технология, а не работа «за клиента»</h3><p>Мы передаём технологию управления и обучаем ей владельца и команду — поэтому система продолжает работать после завершения проекта.</p></div>
+          <div class="why-item"><h3>Единая система, а не набор услуг</h3><p>Стратегия, структура, учёт, координации и обучение выстраиваются как одна система управления, с которой компания способна масштабироваться.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КЕЙСЫ -->
+    <section class="block alt" id="cases">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Кейсы</span>
+          <h2>Результаты наших клиентов</h2>
+          <p>Как внедрение системы управления помогло компаниям восстановить управляемость и подготовиться к росту.</p>
+        </div>
+        <div class="cases rv">
+          <div class="case">
+            <h3 class="serif">Сеть автосервисов</h3>
+            <div class="lab">Задача</div>
+            <p style="font-size:15px;color:var(--muted)">Восстановить управляемость, снизить зависимость от собственника, нарастить прибыль.</p>
+            <div class="lab">Что сделано</div>
+            <ul>
+              <li>Диагностика бизнеса и урегулирование структуры собственников</li>
+              <li>Разгрузка собственника, формализация миссии и ЦКП</li>
+              <li>Оргструктура, должностные инструкции, финансовая система с дашбордами</li>
+              <li>Внедрение CRM (Битрикс24) и аудит системы управления</li>
+            </ul>
+            <div class="lab">Результат</div>
+            <ul class="res">
+              <li>Снижение операционной нагрузки собственника на 80%</li>
+              <li>Рост прибыли в 1,5 раза</li>
+              <li>Восстановлена управляемость, устранены конфликты</li>
+              <li>Создана основа для масштабирования</li>
+            </ul>
+          </div>
+          <div class="case">
+            <h3 class="serif">Продажа стройматериалов</h3>
+            <div class="lab">Задача</div>
+            <p style="font-size:15px;color:var(--muted)">Вывести собственника из операционного управления и выстроить управляемую систему.</p>
+            <div class="lab">Что сделано</div>
+            <ul>
+              <li>Диагностика и формирование управленческой модели</li>
+              <li>Подготовка управленческой команды, обучение исполнительного директора</li>
+              <li>Передача операционного управления и контроль через показатели</li>
+              <li>Автоматизация с amoCRM и МойСклад</li>
+            </ul>
+            <div class="lab">Результат</div>
+            <ul class="res">
+              <li>Собственник полностью вышел из операционного управления</li>
+              <li>Управление передано исполнительному директору</li>
+              <li>Компания управляется на основе цифр и показателей</li>
+              <li>Создана база для масштабирования</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОМАНДА -->
+    <section class="block" id="team">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <span class="eyebrow">Команда</span>
+          <h2>Кто выстраивает систему управления в вашей компании</h2>
+        </div>
+        <div class="team rv">
+          <div class="person">
+            <img class="pphoto" src="/team-yurin.png" alt="Максим Юрин — сооснователь ASM Strategy, административный директор" width="180" height="180" loading="lazy">
+            <h3 class="serif">Максим Юрин</h3>
+            <div class="role">Сооснователь · Административный директор</div>
+            <p>Отвечает за координацию руководителей, проведение управленческих координаций, согласование и контроль выполнения планов. Обеспечивает управляемость компании через внедрение оргструктуры, статистик и управленческих инструментов.</p>
+            <div class="exp">20+ лет управленческого опыта</div>
+          </div>
+          <div class="person">
+            <img class="pphoto" src="/team-marakulin.png" alt="Юрий Маракулин — сооснователь ASM Strategy, технический директор, бизнес-архитектор" width="180" height="180" loading="lazy">
+            <h3 class="serif">Юрий Маракулин</h3>
+            <div class="role">Сооснователь · Технический директор</div>
+            <p>Бизнес-архитектор. Отвечает за технологию и методологию систематизации бизнеса: разрабатывает управленческие технологии и инструменты внедрения, контролирует качество консалтингового продукта и развитие базы знаний компании.</p>
+            <div class="exp">20+ лет управленческого опыта</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="block contact" id="contacts">
+      <div class="wrap">
+        <span class="eyebrow rv" style="color:#7FC4E8">Контакты</span>
+        <h2 class="serif rv" style="margin-top:18px">Начните с управленческой диагностики</h2>
+        <p class="rv">Диагностическая встреча (около 90 минут) показывает текущее состояние управления и определяет направление систематизации.</p>
+        <div class="clinks rv">
+          <a href="mailto:sales@asmstrat.com"><span class="t">Email</span><span class="v">sales@asmstrat.com</span></a>
+          <a href="tel:+79777000755"><span class="t">Телефон</span><span class="v">+7 977 700‑07‑55</span></a>
+          <a href="https://t.me/asmstrat" target="_blank" rel="noopener"><span class="t">Telegram</span><span class="v">@asmstrat</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> ASM Strategy — систематизация бизнеса и системное управление</span>
+      <span><a href="/sovetnik">Советник по системному управлению</a> · asmstrat.com</span>
+    </div>
+  </footer>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110362886', 'ym');
+    ym(110362886, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110362886" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const head = document.getElementById('head');
+    addEventListener('scroll', () => head.classList.toggle('scrolled', scrollY > 8));
+    const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.1});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+
+</body>
+</html>
