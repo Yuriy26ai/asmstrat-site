@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <!-- КАРТОЧКА 1: подготовка (сбор данных) -->
+  <rect x="40" y="200" width="200" height="250" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="64" y="226" width="110" height="9" rx="4.5" fill="#0C1B2A"/>
+  <rect x="64" y="252" width="152" height="7" rx="3.5" fill="#C7CDD4"/>
+  <rect x="64" y="270" width="120" height="7" rx="3.5" fill="#DDE1E6"/>
+  <rect x="64" y="288" width="140" height="7" rx="3.5" fill="#C7CDD4"/>
+  <rect x="64" y="306" width="96" height="7" rx="3.5" fill="#DDE1E6"/>
+  <circle cx="100" cy="380" r="30" fill="none" stroke="#1D4D7A" stroke-width="6"/>
+  <line x1="122" y1="402" x2="146" y2="426" stroke="#1D4D7A" stroke-width="9" stroke-linecap="round"/>
+  <rect x="160" y="360" width="56" height="8" rx="4" fill="#66BEE2"/>
+  <rect x="160" y="376" width="40" height="8" rx="4" fill="#37A3D7"/>
+
+  <!-- стрелка 1 -->
+  <line x1="252" y1="325" x2="292" y2="325" stroke="#1D4D7A" stroke-width="3"/>
+  <polygon points="290,316 312,325 290,334" fill="#1D4D7A"/>
+
+  <!-- КАРТОЧКА 2: сессия (доска и команда) -->
+  <rect x="326" y="120" width="280" height="380" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="352" y="146" width="228" height="160" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <!-- стикеры на доске -->
+  <rect x="368" y="164" width="56" height="40" rx="4" fill="#37A3D7"/>
+  <rect x="436" y="164" width="56" height="40" rx="4" fill="#66BEE2"/>
+  <rect x="504" y="164" width="56" height="40" rx="4" fill="#1D4D7A"/>
+  <rect x="368" y="216" width="56" height="40" rx="4" fill="#66BEE2"/>
+  <rect x="436" y="216" width="56" height="40" rx="4" fill="#D98E32"/>
+  <rect x="504" y="216" width="56" height="40" rx="4" fill="#37A3D7"/>
+  <line x1="368" y1="276" x2="560" y2="276" stroke="#C7CDD4" stroke-width="4" stroke-linecap="round"/>
+  <!-- команда -->
+  <g>
+    <circle cx="386" cy="360" r="22" fill="#1D4D7A"/>
+    <path d="M356 420 a30 30 0 0 1 60 0 z" fill="#1D4D7A"/>
+    <circle cx="452" cy="360" r="22" fill="#37A3D7"/>
+    <path d="M422 420 a30 30 0 0 1 60 0 z" fill="#37A3D7"/>
+    <circle cx="518" cy="360" r="22" fill="#66BEE2"/>
+    <path d="M488 420 a30 30 0 0 1 60 0 z" fill="#66BEE2"/>
+  </g>
+  <rect x="368" y="444" width="196" height="8" rx="4" fill="#EDEFF1"/>
+  <rect x="368" y="444" width="120" height="8" rx="4" fill="#37A3D7"/>
+
+  <!-- стрелка 2 -->
+  <line x1="618" y1="325" x2="658" y2="325" stroke="#1D4D7A" stroke-width="3"/>
+  <polygon points="656,316 678,325 656,334" fill="#1D4D7A"/>
+
+  <!-- КАРТОЧКА 3: план и трекинг -->
+  <rect x="690" y="170" width="180" height="310" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="712" y="196" width="100" height="9" rx="4.5" fill="#0C1B2A"/>
+  <g>
+    <circle cx="726" cy="242" r="10" fill="#1D4D7A"/>
+    <path d="M721 242 l3.5 3.5 l7.5 -8" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="744" y="237" width="100" height="7" rx="3.5" fill="#3A4654"/>
+    <circle cx="726" cy="280" r="10" fill="#1D4D7A"/>
+    <path d="M721 280 l3.5 3.5 l7.5 -8" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="744" y="275" width="84" height="7" rx="3.5" fill="#3A4654"/>
+    <circle cx="726" cy="318" r="10" fill="#37A3D7"/>
+    <path d="M721 318 l3.5 3.5 l7.5 -8" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="744" y="313" width="92" height="7" rx="3.5" fill="#3A4654"/>
+    <circle cx="726" cy="356" r="10" fill="none" stroke="#C7CDD4" stroke-width="2.5"/>
+    <rect x="744" y="351" width="72" height="7" rx="3.5" fill="#C7CDD4"/>
+  </g>
+  <line x1="712" y1="392" x2="848" y2="392" stroke="#EDEFF1" stroke-width="2"/>
+  <!-- трекинг: недели -->
+  <g>
+    <rect x="712" y="414" width="18" height="10" rx="3" fill="#1D4D7A"/>
+    <rect x="736" y="414" width="18" height="10" rx="3" fill="#1D4D7A"/>
+    <rect x="760" y="414" width="18" height="10" rx="3" fill="#37A3D7"/>
+    <rect x="784" y="414" width="18" height="10" rx="3" fill="#DDE1E6"/>
+    <rect x="808" y="414" width="18" height="10" rx="3" fill="#DDE1E6"/>
+    <rect x="832" y="414" width="18" height="10" rx="3" fill="#DDE1E6"/>
+  </g>
+  <g>
+    <circle cx="721" cy="448" r="5" fill="#37A3D7"/>
+    <circle cx="745" cy="448" r="5" fill="#37A3D7"/>
+    <circle cx="769" cy="448" r="5" fill="#66BEE2"/>
+    <circle cx="793" cy="448" r="5" fill="#DDE1E6"/>
+    <circle cx="817" cy="448" r="5" fill="#DDE1E6"/>
+    <circle cx="841" cy="448" r="5" fill="#DDE1E6"/>
+  </g>
+</svg>
