@@ -151,8 +151,9 @@
   /* Команда */
   .team{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
   @media(max-width:760px){.team{grid-template-columns:1fr;}}
-  .person{border-top:2px solid var(--ink);padding-top:22px;}
-  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin-bottom:20px;}
+  .person{border-top:2px solid var(--ink);padding-top:26px;text-align:center;}
+  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin:0 auto 20px;}
+  .person p{text-align:left;}
   .person h3{font-size:24px;margin-bottom:4px;}
   .person .role{font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
   .person p{font-size:15.5px;color:var(--muted);margin-bottom:14px;}
@@ -183,6 +184,32 @@
     .brand img{height:38px;}
   }
 
+
+  /* Выпадающее меню (десктоп) */
+  .dd{position:relative;height:74px;display:flex;align-items:center;}
+  .dd>button{font-size:14px;color:var(--body);background:none;border:0;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;padding:0;transition:color .2s;}
+  .dd>button:hover{color:var(--accent);}
+  .dd .car{font-size:9px;transform:translateY(1px);}
+  .dd-menu{position:absolute;top:64px;left:-16px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 34px rgba(12,27,42,0.10);border-radius:4px;padding:8px 0;min-width:300px;display:none;z-index:70;}
+  .dd:hover .dd-menu,.dd.open .dd-menu{display:block;}
+  .dd-menu a{display:block;padding:11px 20px;font-size:14px;color:var(--ink);text-decoration:none;}
+  .dd-menu a:hover{background:var(--paper);color:var(--accent);}
+  /* Бургер и мобильная панель */
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:6px;}
+  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:.25s;}
+  .burger.act span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.act span:nth-child(2){opacity:0;}
+  .burger.act span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .mnav{display:none;}
+  @media(max-width:880px){
+    .nav-r .dd{display:none;}
+    .burger{display:block;}
+    .mnav{position:absolute;left:0;right:0;top:74px;background:#fff;border-bottom:1px solid var(--line);padding:6px 22px 16px;flex-direction:column;box-shadow:0 18px 30px rgba(12,27,42,0.08);}
+    .mnav.open{display:flex;}
+    .mnav a{padding:13px 2px;border-bottom:1px solid var(--line-soft);color:var(--ink);text-decoration:none;font-size:16px;}
+    .mnav a:last-child{border-bottom:0;}
+    .mnav a.sub{padding-left:18px;font-size:15px;color:var(--body);}
+  }
   footer{padding:40px 0;border-top:1px solid var(--line);}
   .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);}
   .foot a{color:var(--muted);text-decoration:none;}
@@ -202,12 +229,22 @@
       <a href="/" class="brand"><img src="/logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
       <nav class="nav-r">
         <a href="/">Главная</a>
+        <div class="dd"><button type="button">Услуги <span class="car">▼</span></button><div class="dd-menu"><a href="/diagnostika/">Диагностика и аудит системы управления</a><a href="/sovetnik/">Советник по системному управлению</a><a href="/#services">Все услуги</a></div></div>
         <a href="#role">Что делает советник</a>
         <a href="#cycle">Управленческий цикл</a>
-        <a href="#team">Эксперты</a>
         <a href="#contacts" class="nav-cta">Получить диагностику</a>
+        <button class="burger" id="burger" type="button" aria-label="Меню"><span></span><span></span><span></span></button>
       </nav>
     </div>
+    <nav class="mnav" id="mnav">
+      <a href="/">Главная</a>
+      <a href="/#services">Все услуги</a>
+      <a class="sub" href="/diagnostika/">Диагностика и аудит</a>
+      <a href="#role">Что делает советник</a>
+      <a href="#cycle">Управленческий цикл</a>
+      <a href="#team">Эксперты</a>
+      <a href="#contacts">Получить диагностику</a>
+    </nav>
   </header>
 
   <main id="top">
@@ -444,6 +481,16 @@
     addEventListener('scroll', () => head.classList.toggle('scrolled', scrollY > 8));
     const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.1});
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+    // Бургер-меню и выпадающие списки
+    const burger=document.getElementById('burger'), mnav=document.getElementById('mnav');
+    if(burger&&mnav){
+      burger.addEventListener('click',()=>{mnav.classList.toggle('open');burger.classList.toggle('act');});
+      mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mnav.classList.remove('open');burger.classList.remove('act');}));
+    }
+    document.querySelectorAll('.dd>button').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.parentElement.classList.toggle('open');}));
+    document.addEventListener('click',e=>{document.querySelectorAll('.dd.open').forEach(d=>{if(!d.contains(e.target))d.classList.remove('open');});});
+
   </script>
 
 </body>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <!-- ЛЕВАЯ КАРТОЧКА: компания под аудитом -->
+  <rect x="50" y="70" width="430" height="430" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <line x1="50" y1="116" x2="480" y2="116" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="78" cy="93" r="6" fill="#1D4D7A"/>
+  <circle cx="102" cy="93" r="6" fill="#37A3D7"/>
+  <circle cx="126" cy="93" r="6" fill="#C7CDD4"/>
+
+  <!-- оргсхема -->
+  <rect x="200" y="140" width="120" height="42" rx="8" fill="#1D4D7A"/>
+  <rect x="216" y="153" width="88" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="216" y="165" width="56" height="5" rx="2.5" fill="#FFFFFF" opacity="0.6"/>
+  <line x1="260" y1="182" x2="260" y2="202" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="140" y1="202" x2="380" y2="202" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="140" y1="202" x2="140" y2="214" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="260" y1="202" x2="260" y2="214" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="380" y1="202" x2="380" y2="214" stroke="#C9D6E2" stroke-width="2"/>
+  <rect x="95" y="214" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="215" y="214" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="335" y="214" width="90" height="38" rx="8" fill="#37A3D7"/>
+  <rect x="109" y="228" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="229" y="228" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <rect x="349" y="228" width="62" height="6" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <line x1="140" y1="252" x2="140" y2="284" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="260" y1="252" x2="260" y2="284" stroke="#C9D6E2" stroke-width="2"/>
+  <line x1="380" y1="252" x2="380" y2="284" stroke="#C9D6E2" stroke-width="2"/>
+  <rect x="95" y="284" width="90" height="34" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="215" y="284" width="90" height="34" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="335" y="284" width="90" height="34" rx="8" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="109" y="297" width="52" height="6" rx="3" fill="#C7CDD4"/>
+  <rect x="229" y="297" width="52" height="6" rx="3" fill="#C7CDD4"/>
+  <rect x="349" y="297" width="52" height="6" rx="3" fill="#C7CDD4"/>
+
+  <!-- строки-показатели внизу -->
+  <rect x="80" y="360" width="340" height="10" rx="5" fill="#EDEFF1"/>
+  <rect x="80" y="360" width="210" height="10" rx="5" fill="#66BEE2"/>
+  <rect x="80" y="388" width="340" height="10" rx="5" fill="#EDEFF1"/>
+  <rect x="80" y="388" width="120" height="10" rx="5" fill="#D98E32"/>
+  <rect x="80" y="416" width="340" height="10" rx="5" fill="#EDEFF1"/>
+  <rect x="80" y="416" width="260" height="10" rx="5" fill="#37A3D7"/>
+
+  <!-- точки проблем -->
+  <circle cx="305" cy="214" r="12" fill="#D98E32" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="200" cy="388" r="12" fill="#D98E32" stroke="#FFFFFF" stroke-width="3"/>
+
+  <!-- лупа -->
+  <circle cx="330" cy="330" r="86" fill="#FFFFFF" fill-opacity="0.35" stroke="#0C1B2A" stroke-width="9"/>
+  <line x1="392" y1="392" x2="452" y2="452" stroke="#0C1B2A" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- СТРЕЛКА -->
+  <line x1="500" y1="285" x2="560" y2="285" stroke="#1D4D7A" stroke-width="3"/>
+  <polygon points="558,276 582,285 558,294" fill="#1D4D7A"/>
+
+  <!-- ПРАВАЯ КАРТОЧКА: программа изменений -->
+  <rect x="600" y="110" width="260" height="360" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="626" y="140" width="150" height="10" rx="5" fill="#0C1B2A"/>
+  <rect x="626" y="160" width="96" height="7" rx="3.5" fill="#C7CDD4"/>
+
+  <g>
+    <circle cx="640" cy="205" r="12" fill="#1D4D7A"/>
+    <path d="M634 205 l4 4 l9 -9" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="662" y="199" width="150" height="8" rx="4" fill="#3A4654"/>
+    <rect x="662" y="213" width="100" height="6" rx="3" fill="#DDE1E6"/>
+
+    <circle cx="640" cy="257" r="12" fill="#1D4D7A"/>
+    <path d="M634 257 l4 4 l9 -9" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="662" y="251" width="132" height="8" rx="4" fill="#3A4654"/>
+    <rect x="662" y="265" width="88" height="6" rx="3" fill="#DDE1E6"/>
+
+    <circle cx="640" cy="309" r="12" fill="#37A3D7"/>
+    <path d="M634 309 l4 4 l9 -9" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="662" y="303" width="144" height="8" rx="4" fill="#3A4654"/>
+    <rect x="662" y="317" width="104" height="6" rx="3" fill="#DDE1E6"/>
+
+    <circle cx="640" cy="361" r="12" fill="#37A3D7"/>
+    <path d="M634 361 l4 4 l9 -9" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="662" y="355" width="120" height="8" rx="4" fill="#3A4654"/>
+    <rect x="662" y="369" width="80" height="6" rx="3" fill="#DDE1E6"/>
+  </g>
+
+  <!-- полоса прогресса из 6 сегментов (6 месяцев) -->
+  <g>
+    <rect x="626" y="414" width="32" height="12" rx="3" fill="#1D4D7A"/>
+    <rect x="663" y="414" width="32" height="12" rx="3" fill="#1D4D7A"/>
+    <rect x="700" y="414" width="32" height="12" rx="3" fill="#37A3D7"/>
+    <rect x="737" y="414" width="32" height="12" rx="3" fill="#37A3D7"/>
+    <rect x="774" y="414" width="32" height="12" rx="3" fill="#66BEE2"/>
+    <rect x="811" y="414" width="32" height="12" rx="3" fill="#66BEE2"/>
+  </g>
+</svg>
