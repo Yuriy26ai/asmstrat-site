@@ -189,8 +189,9 @@
   /* КОМАНДА */
   .team{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
   @media(max-width:760px){.team{grid-template-columns:1fr;}}
-  .person{border-top:2px solid var(--ink);padding-top:22px;}
-  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin-bottom:20px;}
+  .person{border-top:2px solid var(--ink);padding-top:26px;text-align:center;}
+  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin:0 auto 20px;}
+  .person p{text-align:left;}
   .person h3{font-size:24px;margin-bottom:4px;}
   .person .role{font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
   .person p{font-size:15.5px;color:var(--muted);margin-bottom:14px;}
@@ -228,7 +229,7 @@
 
   <header class="head" id="head">
     <div class="wrap nav">
-      <a href="#top" class="brand"><img src="/logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
+      <a href="/" class="brand"><img src="/logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
       <nav class="nav-r">
         <a href="#services">Услуги</a>
         <a href="#education">Обучение</a>
