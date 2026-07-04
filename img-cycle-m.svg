@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 610">
+  <!-- петля цикла: от последнего шага обратно к первому -->
+  <path d="M70,539 H40 V59 H58" fill="none" stroke="#C9D6E2" stroke-width="2" stroke-dasharray="4 6"/>
+  <polygon points="58,52 70,59 58,66" fill="#37A3D7"/>
+
+  <!-- стрелки вниз между шагами -->
+  <g stroke="#C9D6E2" stroke-width="2">
+    <line x1="215" y1="94" x2="215" y2="132"/>
+    <line x1="215" y1="214" x2="215" y2="252"/>
+    <line x1="215" y1="334" x2="215" y2="372"/>
+    <line x1="215" y1="454" x2="215" y2="492"/>
+  </g>
+  <g fill="#37A3D7">
+    <polygon points="207,132 223,132 215,146"/>
+    <polygon points="207,252 223,252 215,266"/>
+    <polygon points="207,372 223,372 215,386"/>
+    <polygon points="207,492 223,492 215,506"/>
+  </g>
+
+  <!-- шаги -->
+  <g>
+    <rect x="70" y="30" width="290" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="92" y="65" font-family="Georgia, serif" font-size="16" fill="#37A3D7">01</text>
+    <text x="122" y="65" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#0C1B2A">Исполнительный совет</text>
+
+    <rect x="70" y="150" width="290" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="92" y="185" font-family="Georgia, serif" font-size="16" fill="#37A3D7">02</text>
+    <text x="122" y="185" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#0C1B2A">Координации по задачам</text>
+
+    <rect x="70" y="270" width="290" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="92" y="305" font-family="Georgia, serif" font-size="16" fill="#37A3D7">03</text>
+    <text x="122" y="305" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#0C1B2A">Рекомендательный совет</text>
+
+    <rect x="70" y="390" width="290" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="92" y="425" font-family="Georgia, serif" font-size="16" fill="#37A3D7">04</text>
+    <text x="122" y="425" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#0C1B2A">Управленческие комитеты</text>
+
+    <rect x="70" y="510" width="290" height="58" rx="10" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <text x="92" y="545" font-family="Georgia, serif" font-size="16" fill="#37A3D7">05</text>
+    <text x="122" y="545" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#0C1B2A">Финансовое планирование</text>
+  </g>
+</svg>

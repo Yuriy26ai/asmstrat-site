@@ -139,7 +139,11 @@
   .cy-item h3{font-size:20px;margin-bottom:7px;}
   .cy-item p{font-size:15px;color:var(--muted);}
   .cycle-img{width:100%;max-width:720px;height:auto;display:block;margin:0 auto 52px;}
-  @media(max-width:720px){.cycle-img{display:none;}}
+  .cycle-img-m{display:none;}
+  @media(max-width:720px){
+    .cycle-img{display:none;}
+    .cycle-img-m{display:block;width:100%;max-width:360px;margin:0 auto 48px;}
+  }
 
   .note-box{margin-top:44px;border:1px solid var(--line);border-left:3px solid var(--accent2);padding:26px 30px;background:var(--bg);font-size:16px;color:var(--body);max-width:900px;}
   .note-box b{color:var(--ink);}
@@ -326,6 +330,7 @@
           <p>В компании организуется регулярный цикл, который обеспечивает согласованную работу руководителей.</p>
         </div>
         <img class="cycle-img rv" src="/img-cycle.svg" alt="Регулярный управленческий цикл: исполнительный совет с собственником, координации по ключевым задачам, рекомендательный совет, управленческие комитеты, финансовое планирование" width="760" height="560">
+        <img class="cycle-img-m rv" src="/img-cycle-m.svg" alt="Регулярный управленческий цикл из пяти видов встреч, повторяющийся по кругу" width="390" height="610">
         <div class="cycle rv">
           <div class="cy-item"><span class="num serif">01</span><div><h3>Исполнительный совет с собственником</h3><p>Стратегические решения и утверждение ключевых направлений развития.</p></div></div>
           <div class="cy-item"><span class="num serif">02</span><div><h3>Координации по ключевым задачам</h3><p>Контроль выполнения стратегических инициатив и критически важных проектов.</p></div></div>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 620">
+  <line x1="52" y1="46" x2="52" y2="574" stroke="#C9D6E2" stroke-width="2"/>
+  <polygon points="43,574 61,574 52,596" fill="#1D4D7A"/>
+
+  <circle cx="52" cy="80" r="30" fill="#FFFFFF" stroke="#1D4D7A" stroke-width="2.5"/>
+  <circle cx="52" cy="222" r="30" fill="#FFFFFF" stroke="#1D4D7A" stroke-width="2.5"/>
+  <circle cx="52" cy="364" r="30" fill="#FFFFFF" stroke="#1D4D7A" stroke-width="2.5"/>
+  <circle cx="52" cy="506" r="30" fill="#FFFFFF" stroke="#1D4D7A" stroke-width="2.5"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#1D4D7A" font-size="22" text-anchor="middle">
+    <text x="52" y="88">I</text>
+    <text x="52" y="230">II</text>
+    <text x="52" y="372">III</text>
+    <text x="52" y="514">IV</text>
+  </g>
+
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#0C1B2A" font-size="23">
+    <text x="102" y="78">Понять</text>
+    <text x="102" y="220">Выстроить</text>
+    <text x="102" y="362">Сопровождать</text>
+    <text x="102" y="504">Развивать</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#697585" font-size="14">
+    <text x="102" y="102">Диагностика · Стратсессии</text>
+    <text x="102" y="244">Систематизация · Реинжиниринг</text>
+    <text x="102" y="386">Советник · Совет директоров</text>
+    <text x="102" y="528">Партнёрства · M&amp;A · Обучение</text>
+  </g>
+</svg>
