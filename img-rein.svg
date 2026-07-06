@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <!-- ЛЕВО: внедрено, но не работает -->
+  <rect x="40" y="120" width="330" height="390" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <line x1="40" y1="166" x2="370" y2="166" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="68" cy="143" r="6" fill="#C7CDD4"/>
+  <circle cx="92" cy="143" r="6" fill="#C7CDD4"/>
+  <circle cx="116" cy="143" r="6" fill="#C7CDD4"/>
+
+  <rect x="70" y="192" width="270" height="56" rx="9" fill="#F4F5F3" stroke="#DDE1E6" transform="rotate(-3 205 220)"/>
+  <rect x="92" y="212" width="120" height="8" rx="4" fill="#C7CDD4" transform="rotate(-3 205 220)"/>
+  <g transform="rotate(-3 205 220)">
+    <path d="M310 206 l16 28 h-32 z" fill="#D98E32"/>
+    <rect x="308.6" y="216" width="3" height="9" rx="1.5" fill="#FFFFFF"/>
+    <circle cx="310.1" cy="229" r="1.8" fill="#FFFFFF"/>
+  </g>
+
+  <rect x="70" y="268" width="270" height="56" rx="9" fill="#F4F5F3" stroke="#DDE1E6" transform="rotate(2.5 205 296)"/>
+  <rect x="92" y="288" width="150" height="8" rx="4" fill="#C7CDD4" transform="rotate(2.5 205 296)"/>
+
+  <rect x="70" y="344" width="270" height="56" rx="9" fill="#F4F5F3" stroke="#DDE1E6" transform="rotate(-2 205 372)"/>
+  <rect x="92" y="364" width="110" height="8" rx="4" fill="#C7CDD4" transform="rotate(-2 205 372)"/>
+  <g transform="rotate(-2 205 372)">
+    <path d="M310 358 l16 28 h-32 z" fill="#D98E32"/>
+    <rect x="308.6" y="368" width="3" height="9" rx="1.5" fill="#FFFFFF"/>
+    <circle cx="310.1" cy="381" r="1.8" fill="#FFFFFF"/>
+  </g>
+
+  <rect x="70" y="420" width="270" height="56" rx="9" fill="#F4F5F3" stroke="#DDE1E6" transform="rotate(3 205 448)"/>
+  <rect x="92" y="440" width="135" height="8" rx="4" fill="#C7CDD4" transform="rotate(3 205 448)"/>
+
+  <!-- ЦЕНТР: перезапуск -->
+  <circle cx="450" cy="315" r="58" fill="#1D4D7A"/>
+  <path d="M 450 277 A 38 38 0 1 1 415 293" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="404,278 424,300 400,304" fill="#FFFFFF"/>
+
+  <!-- ПРАВО: система работает -->
+  <rect x="530" y="120" width="330" height="390" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <line x1="530" y1="166" x2="860" y2="166" stroke="#DDE1E6" stroke-width="1.5"/>
+  <circle cx="558" cy="143" r="6" fill="#1D4D7A"/>
+  <circle cx="582" cy="143" r="6" fill="#37A3D7"/>
+  <circle cx="606" cy="143" r="6" fill="#C7CDD4"/>
+
+  <g>
+    <rect x="560" y="192" width="270" height="56" rx="9" fill="#F4F5F3"/>
+    <circle cx="592" cy="220" r="13" fill="#1D4D7A"/>
+    <path d="M585 220 l5 5 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="618" y="212" width="130" height="8" rx="4" fill="#3A4654"/>
+    <rect x="618" y="228" width="90" height="6" rx="3" fill="#DDE1E6"/>
+
+    <rect x="560" y="268" width="270" height="56" rx="9" fill="#F4F5F3"/>
+    <circle cx="592" cy="296" r="13" fill="#1D4D7A"/>
+    <path d="M585 296 l5 5 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="618" y="288" width="150" height="8" rx="4" fill="#3A4654"/>
+    <rect x="618" y="304" width="104" height="6" rx="3" fill="#DDE1E6"/>
+
+    <rect x="560" y="344" width="270" height="56" rx="9" fill="#F4F5F3"/>
+    <circle cx="592" cy="372" r="13" fill="#37A3D7"/>
+    <path d="M585 372 l5 5 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="618" y="364" width="120" height="8" rx="4" fill="#3A4654"/>
+    <rect x="618" y="380" width="84" height="6" rx="3" fill="#DDE1E6"/>
+
+    <rect x="560" y="420" width="270" height="56" rx="9" fill="#F4F5F3"/>
+    <circle cx="592" cy="448" r="13" fill="#37A3D7"/>
+    <path d="M585 448 l5 5 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="618" y="440" width="140" height="8" rx="4" fill="#3A4654"/>
+    <rect x="618" y="456" width="96" height="6" rx="3" fill="#DDE1E6"/>
+  </g>
+</svg>
