@@ -263,13 +263,28 @@
      и отправившим заявку, не перебиваем открытую форму.
      ============================================================ */
   (function () {
-    if (location.pathname.indexOf('test-upravlyaemosti') !== -1) return; /* на самом тесте не нужен */
+    /* на страницах самих инструментов попап не нужен */
+    if (/test-upravlyaemosti|cena-operacionki/.test(location.pathname)) return;
     var TEST_URL = PRIVACY_URL.replace('privacy/', 'test-upravlyaemosti/');
+    var CALC_URL = PRIVACY_URL.replace('privacy/', 'cena-operacionki/');
     var WEEK = 7 * 24 * 3600 * 1000;
+    var quizDone = false, calcDone = false;
     try {
-      if (localStorage.getItem('asm_quiz_done') || localStorage.getItem('asm_lead_sent')) return;
+      quizDone = !!localStorage.getItem('asm_quiz_done');
+      calcDone = !!localStorage.getItem('asm_calc_done');
+      if (localStorage.getItem('asm_lead_sent')) return;      /* заявка уже есть */
+      if (quizDone && calcDone) return;                        /* оба инструмента пройдены */
       if (Date.now() - (+localStorage.getItem('asm_exit_shown') || 0) < WEEK) return;
     } catch (_) {}
+
+    /* прошёл тест, но не считал операционку → предлагаем калькулятор */
+    var offer = quizDone
+      ? { url: CALC_URL, eyebrow: 'Ещё 30 секунд — и цифра ваша', title: 'Сколько стоит ваша операционка?',
+          sub: 'Вы уже знаете свой балл управляемости. Теперь посчитайте, во сколько рублей в год обходится рутина, — два ползунка, результат сразу.',
+          btn: 'Посчитать' }
+      : { url: TEST_URL, eyebrow: 'Пока вы не ушли — 2 минуты', title: 'Насколько ваш бизнес управляем без вас?',
+          sub: 'Бесплатный тест из 10 вопросов покажет, где компания держится лично на вас, и с чего начать укрепление системы.',
+          btn: 'Пройти тест' };
 
     var armed = false, shown = false;
     var armDelay = /[?&]exitdebug/.test(location.search) ? 300 : 15000; /* exitdebug — для отладки */
@@ -289,11 +304,11 @@
       + '    <circle cx="115" cy="120" r="10" fill="#1D4D7A"/>'
       + '    <line x1="115" y1="120" x2="63" y2="60" stroke="#1D4D7A" stroke-width="6" stroke-linecap="round"/>'
       + '  </svg>'
-      + '  <p class="lf-eyebrow">Пока вы не ушли — 2 минуты</p>'
-      + '  <h3 class="lf-title">Насколько ваш бизнес управляем без вас?</h3>'
-      + '  <p class="lf-sub">Бесплатный тест из 10 вопросов покажет, где компания держится лично на вас, и с чего начать укрепление системы.</p>'
+      + '  <p class="lf-eyebrow">' + offer.eyebrow + '</p>'
+      + '  <h3 class="lf-title">' + offer.title + '</h3>'
+      + '  <p class="lf-sub">' + offer.sub + '</p>'
       + '  <div class="lf-exit-cta">'
-      + '    <a class="lf-exit-go" href="' + TEST_URL + '">Пройти тест</a>'
+      + '    <a class="lf-exit-go" href="' + offer.url + '">' + offer.btn + '</a>'
       + '    <button type="button" class="lf-exit-no">Не сейчас</button>'
       + '  </div>'
       + '  <p class="lf-exit-note">Без регистрации. Результат — сразу на экране.</p>'
