@@ -68,7 +68,21 @@
     + '.lf-cta-inline{display:inline-flex;align-items:center;gap:9px;font:600 16px/1 Inter,system-ui,sans-serif;'
     + 'background:#fff;color:#0C1B2A;border:0;border-radius:4px;padding:15px 30px;cursor:pointer;margin-bottom:34px;transition:transform .2s;}'
     + '.lf-cta-inline:hover{transform:translateY(-1px);}'
-    + 'body.lf-lock{overflow:hidden;}';
+    + 'body.lf-lock{overflow:hidden;}'
+    /* exit-intent попап */
+    + '.lf-exit .lf-card{max-width:480px;text-align:center;padding:40px 36px 34px;}'
+    + '@media(max-width:560px){.lf-exit .lf-card{padding:28px 20px 24px;}}'
+    + '.lf-exit .lf-title{font-size:28px;}'
+    + '.lf-exit .lf-sub{margin-bottom:24px;}'
+    + '.lf-exit-gauge{width:120px;margin:0 auto 14px;display:block;}'
+    + '.lf-exit-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}'
+    + '.lf-exit-go{display:inline-flex;align-items:center;gap:8px;background:#1D4D7A;color:#fff;border:0;border-radius:4px;'
+    + 'padding:15px 28px;font:600 16px/1 Inter,system-ui,sans-serif;cursor:pointer;text-decoration:none;transition:background .2s,transform .2s;}'
+    + '.lf-exit-go:hover{background:#163C5F;transform:translateY(-1px);}'
+    + '.lf-exit-no{background:none;border:1px solid rgba(12,27,42,.18);border-radius:4px;color:#3A4654;'
+    + 'padding:15px 22px;font:600 15px/1 Inter,system-ui,sans-serif;cursor:pointer;}'
+    + '.lf-exit-no:hover{border-color:#1D4D7A;color:#1D4D7A;}'
+    + '.lf-exit-note{font-size:12px;color:#697585;margin-top:16px;}';
 
   var style = document.createElement('style');
   style.textContent = css;
@@ -230,6 +244,7 @@
           form.style.display = 'none';
           done.style.display = 'block';
           form.reset();
+          try { localStorage.setItem('asm_lead_sent', '1'); } catch (_) {} /* заявка есть — exit-попап больше не нужен */
           if (window.ym) { try { ym(110362886, 'reachGoal', 'lead_form_sent'); } catch (_) {} }
         } else { throw new Error((r && r.error) || 'send'); }
       })
@@ -239,4 +254,75 @@
       })
       .then(function () { submitBtn.disabled = false; });
   });
+
+  /* ============================================================
+     Exit-intent: предложение пройти тест управляемости
+     Показываем, когда курсор уходит за верх окна (к закрытию вкладки).
+     Правила вежливости: не раньше 15 сек на странице, максимум 1 раз,
+     повтор не чаще раза в 7 дней, не показываем прошедшим тест
+     и отправившим заявку, не перебиваем открытую форму.
+     ============================================================ */
+  (function () {
+    if (location.pathname.indexOf('test-upravlyaemosti') !== -1) return; /* на самом тесте не нужен */
+    var TEST_URL = PRIVACY_URL.replace('privacy/', 'test-upravlyaemosti/');
+    var WEEK = 7 * 24 * 3600 * 1000;
+    try {
+      if (localStorage.getItem('asm_quiz_done') || localStorage.getItem('asm_lead_sent')) return;
+      if (Date.now() - (+localStorage.getItem('asm_exit_shown') || 0) < WEEK) return;
+    } catch (_) {}
+
+    var armed = false, shown = false;
+    var armDelay = /[?&]exitdebug/.test(location.search) ? 300 : 15000; /* exitdebug — для отладки */
+    setTimeout(function () { armed = true; }, armDelay);
+
+    var pop = document.createElement('div');
+    pop.className = 'lf-overlay lf-exit';
+    pop.setAttribute('role', 'dialog');
+    pop.setAttribute('aria-modal', 'true');
+    pop.setAttribute('aria-label', 'Предложение пройти тест');
+    pop.innerHTML = ''
+      + '<div class="lf-card">'
+      + '  <button type="button" class="lf-close" aria-label="Закрыть">×</button>'
+      + '  <svg class="lf-exit-gauge" viewBox="0 0 230 132" aria-hidden="true">'
+      + '    <path d="M20 120 A95 95 0 0 1 210 120" fill="none" stroke="#EDF0F2" stroke-width="16" stroke-linecap="round"/>'
+      + '    <path d="M20 120 A95 95 0 0 1 115 25" fill="none" stroke="#37A3D7" stroke-width="16" stroke-linecap="round"/>'
+      + '    <circle cx="115" cy="120" r="10" fill="#1D4D7A"/>'
+      + '    <line x1="115" y1="120" x2="63" y2="60" stroke="#1D4D7A" stroke-width="6" stroke-linecap="round"/>'
+      + '  </svg>'
+      + '  <p class="lf-eyebrow">Пока вы не ушли — 2 минуты</p>'
+      + '  <h3 class="lf-title">Насколько ваш бизнес управляем без вас?</h3>'
+      + '  <p class="lf-sub">Бесплатный тест из 10 вопросов покажет, где компания держится лично на вас, и с чего начать укрепление системы.</p>'
+      + '  <div class="lf-exit-cta">'
+      + '    <a class="lf-exit-go" href="' + TEST_URL + '">Пройти тест</a>'
+      + '    <button type="button" class="lf-exit-no">Не сейчас</button>'
+      + '  </div>'
+      + '  <p class="lf-exit-note">Без регистрации. Результат — сразу на экране.</p>'
+      + '</div>';
+    document.body.appendChild(pop);
+
+    function hide() {
+      pop.classList.remove('open');
+      document.body.classList.remove('lf-lock');
+    }
+    function show() {
+      if (shown || !armed) return;
+      if (overlay.classList.contains('open')) return; /* открыта форма заявки — не мешаем */
+      shown = true;
+      try { localStorage.setItem('asm_exit_shown', String(Date.now())); } catch (_) {}
+      pop.classList.add('open');
+      document.body.classList.add('lf-lock');
+      if (window.ym) { try { ym(110362886, 'reachGoal', 'exit_popup_shown'); } catch (_) {} }
+    }
+
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget && e.clientY <= 0) show(); /* курсор ушёл за верх окна */
+    });
+    pop.querySelector('.lf-close').addEventListener('click', hide);
+    pop.querySelector('.lf-exit-no').addEventListener('click', hide);
+    pop.addEventListener('click', function (e) { if (e.target === pop) hide(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && pop.classList.contains('open')) hide(); });
+    pop.querySelector('.lf-exit-go').addEventListener('click', function () {
+      if (window.ym) { try { ym(110362886, 'reachGoal', 'exit_popup_click'); } catch (_) {} }
+    });
+  })();
 })();

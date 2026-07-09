@@ -392,6 +392,7 @@
         box.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
+      try { localStorage.setItem('asm_quiz_done', '1'); } catch (_) {} /* прошедшим тест exit-попап не показываем */
       if (window.ym) { try { ym(110362886, 'reachGoal', 'quiz_completed'); } catch (_) {} }
     }
 
