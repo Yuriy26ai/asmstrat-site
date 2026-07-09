@@ -9,9 +9,12 @@
 (function () {
   'use strict';
 
-  /* URL PHP-обработчика на Timeweb (server/send.php).
-     Пока не настроен — форма покажет прямые контакты. */
+  /* Способ отправки заявок (в порядке приоритета):
+     1) Свой сервер (server/send.php) — впиши URL в DEFAULT_ENDPOINT;
+     2) Web3Forms (https://web3forms.com) — впиши Access Key в WEB3FORMS_KEY.
+     Пока ничего не настроено — форма покажет прямые контакты. */
   var DEFAULT_ENDPOINT = 'REPLACE_WITH_TIMEWEB_URL/send.php';
+  var WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY';
 
   /* URL страницы политики — вычисляем от расположения самого скрипта,
      чтобы работало и на главной, и на подстраницах */
@@ -172,25 +175,52 @@
     }
     if (!ok) return;
 
+    /* honeypot: скрытое поле заполняют только боты — тихо изображаем успех */
+    if (form.website.value) {
+      form.style.display = 'none';
+      done.style.display = 'block';
+      return;
+    }
+
     var ENDPOINT = window.LEAD_FORM_ENDPOINT || DEFAULT_ENDPOINT;
-    if (ENDPOINT.indexOf('REPLACE_WITH') === 0) {
+    var useOwn = ENDPOINT.indexOf('REPLACE_WITH') !== 0;
+    var useW3 = !useOwn && WEB3FORMS_KEY.indexOf('REPLACE_WITH') !== 0;
+    if (!useOwn && !useW3) {
       msg.innerHTML = 'Форма временно недоступна. Напишите нам: <a href="mailto:sales@asmstrat.com" style="color:#1D4D7A;font-weight:600;">sales@asmstrat.com</a> или Telegram <a href="https://t.me/asmstrat" target="_blank" rel="noopener" style="color:#1D4D7A;font-weight:600;">@asmstrat</a>';
       msg.className = 'lf-msg err';
       return;
     }
 
-    var data = new FormData();
-    data.append('name', name);
-    data.append('phone', phone);
-    data.append('email', email);
-    data.append('website', form.website.value); // honeypot
-    data.append('page', location.pathname);
+    var req;
+    if (useOwn) {
+      var data = new FormData();
+      data.append('name', name);
+      data.append('phone', phone);
+      data.append('email', email);
+      data.append('page', location.pathname);
+      req = fetch(ENDPOINT, { method: 'POST', body: data });
+    } else {
+      var payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: 'Заявка с сайта ASM Strategy',
+        from_name: 'Форма на сайте ASM Strategy',
+        'Имя': name,
+        'Телефон': phone,
+        'Страница': location.pathname
+      };
+      if (email) { payload.email = email; } /* email клиента станет Reply-To */
+      req = fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
 
     submitBtn.disabled = true;
-    fetch(ENDPOINT, { method: 'POST', body: data })
+    req
       .then(function (r) { return r.json(); })
       .then(function (r) {
-        if (r && r.ok) {
+        if (r && (r.ok || r.success === true || r.success === 'true')) {
           form.style.display = 'none';
           done.style.display = 'block';
           form.reset();
