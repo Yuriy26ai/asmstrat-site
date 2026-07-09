@@ -13,6 +13,13 @@
      Пока не настроен — форма покажет прямые контакты. */
   var DEFAULT_ENDPOINT = 'REPLACE_WITH_TIMEWEB_URL/send.php';
 
+  /* URL страницы политики — вычисляем от расположения самого скрипта,
+     чтобы работало и на главной, и на подстраницах */
+  var PRIVACY_URL = (function () {
+    var s = document.currentScript;
+    return s ? s.src.replace(/form-modal\.js.*$/, 'privacy/') : 'privacy/';
+  })();
+
   /* ---------- Стили ---------- */
   var css = ''
     + '.lf-fab{position:fixed;right:22px;bottom:22px;z-index:80;display:inline-flex;align-items:center;gap:9px;'
@@ -85,7 +92,7 @@
     + '      <input class="lf-input" name="email" type="email" autocomplete="email" maxlength="120"></div>'
     + '    <div class="lf-hp" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>'
     + '    <label class="lf-consent"><input name="consent" type="checkbox" required>'
-    + '      <span>Соглашаюсь на обработку персональных данных для связи по моей заявке</span></label>'
+    + '      <span>Соглашаюсь на <a href="__PRIVACY__" target="_blank" rel="noopener" style="color:#1D4D7A;">обработку персональных данных</a> для связи по моей заявке</span></label>'
     + '    <button type="submit" class="lf-submit">Отправить заявку</button>'
     + '    <p class="lf-msg"></p>'
     + '  </form>'
@@ -95,6 +102,7 @@
     + '    <p>Спасибо! Свяжемся с вами в ближайшее время.<br>Если срочно — телефон <a href="tel:+79777000755" style="color:#1D4D7A;text-decoration:none;font-weight:600;">+7 977 700-07-55</a></p>'
     + '  </div>'
     + '</div>';
+  overlay.innerHTML = overlay.innerHTML.replace('__PRIVACY__', PRIVACY_URL);
   document.body.appendChild(overlay);
 
   /* ---------- Плавающая кнопка ---------- */
