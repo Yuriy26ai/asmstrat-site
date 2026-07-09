@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================= -->
+<!--  СТРАНИЦА: ТЕСТ «НАСКОЛЬКО УПРАВЛЯЕМ ВАШ БИЗНЕС?»             -->
+<!--  Адрес: asmstrat.com/test-upravlyaemosti                       -->
+<!--  10 вопросов -> шкала 0-100 -> зоны риска -> заявка с          -->
+<!--  результатами через form-modal.js (LEAD_FORM_EXTRA)            -->
+<!-- ============================================================= -->
+
+<title>Тест: насколько управляем ваш бизнес? Бесплатная экспресс-диагностика — ASM Strategy</title>
+<meta name="description" content="Бесплатный тест для собственника: 10 вопросов за 2 минуты покажут, насколько бизнес зависит лично от вас. Шкала управляемости, зоны риска и персональные рекомендации от бизнес-архитекторов ASM Strategy.">
+
+<link rel="canonical" href="https://asmstrat.com/test-upravlyaemosti/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Тест: насколько управляем ваш бизнес? — ASM Strategy">
+<meta property="og:description" content="10 вопросов за 2 минуты: узнайте, насколько компания зависит лично от вас, и получите зоны роста.">
+<meta property="og:url" content="https://asmstrat.com/test-upravlyaemosti/">
+<meta property="og:image" content="https://asmstrat.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Тест: насколько управляем ваш бизнес?",
+      "url": "https://asmstrat.com/test-upravlyaemosti/",
+      "description": "Бесплатная экспресс-диагностика управляемости бизнеса для собственника: 10 вопросов, шкала 0–100, зоны риска."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Главная","item": "https://asmstrat.com/"},
+        {"@type": "ListItem","position": 2,"name": "Тест управляемости бизнеса","item": "https://asmstrat.com/test-upravlyaemosti/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --paper:#F4F5F3;
+    --ink:#0C1B2A;
+    --body:#3A4654;
+    --muted:#697585;
+    --accent:#1D4D7A;
+    --accent2:#37A3D7;
+    --line:rgba(12,27,42,0.14);
+    --line-soft:rgba(12,27,42,0.08);
+    --red:#C0532B;
+    --yellow:#C99A2C;
+    --green:#3E8E5A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--body);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  ::selection{background:var(--accent);color:#fff;}
+  .serif{font-family:'Newsreader',Georgia,serif;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 44px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);}
+  h1,h2,h3{color:var(--ink);font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-0.01em;}
+
+  .head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s;}
+  .head.scrolled{border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;text-decoration:none;}
+  .brand img{height:46px;width:auto;display:block;}
+  .nav-r{display:flex;gap:28px;align-items:center;}
+  .nav-r a{font-size:14px;color:var(--body);text-decoration:none;transition:color .2s;}
+  .nav-r a:hover{color:var(--accent);}
+  .nav-cta{font-weight:600;color:#fff !important;background:var(--accent);padding:9px 18px;border-radius:3px;transition:background .2s;}
+  .nav-cta:hover{background:#163C5F;}
+  @media(max-width:880px){.nav-r a:not(.nav-cta){display:none;}}
+  @media(max-width:560px){.brand img{height:38px;}}
+
+  .crumbs{padding:20px 0 0;font-size:13.5px;color:var(--muted);}
+  .crumbs a{color:var(--muted);text-decoration:none;}
+  .crumbs a:hover{color:var(--accent);}
+  .crumbs span{margin:0 8px;color:#B6BCC4;}
+
+  /* Шапка теста */
+  .t-hero{padding:54px 0 34px;text-align:center;}
+  .t-hero .eyebrow{display:block;margin-bottom:20px;}
+  .t-hero h1{font-size:clamp(30px,4.4vw,52px);line-height:1.1;max-width:24ch;margin:0 auto 18px;}
+  .t-hero p{font-size:clamp(16.5px,1.8vw,19px);color:var(--muted);max-width:52ch;margin:0 auto;}
+
+  /* Карточка квиза */
+  .quiz-wrap{padding:28px 0 96px;}
+  .quiz{max-width:680px;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:38px 40px 40px;box-shadow:0 18px 50px rgba(12,27,42,0.07);}
+  @media(max-width:560px){.quiz{padding:26px 20px 28px;}}
+
+  .q-meta{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--muted);margin-bottom:10px;}
+  .q-bar{height:5px;background:var(--paper);border-radius:3px;overflow:hidden;margin-bottom:30px;}
+  .q-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:3px;transition:width .35s ease;}
+
+  .q-text{font-family:'Newsreader',Georgia,serif;font-size:clamp(21px,2.6vw,27px);color:var(--ink);line-height:1.25;margin-bottom:26px;min-height:2.5em;}
+  .q-opts{display:flex;flex-direction:column;gap:12px;}
+  .q-opt{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:15px 18px;font:400 16px/1.5 Inter,system-ui,sans-serif;color:var(--body);cursor:pointer;transition:border-color .18s,background .18s,transform .18s;}
+  .q-opt:hover{border-color:var(--accent);background:#F6FAFD;transform:translateX(3px);}
+  .q-opt:active{transform:scale(0.99);}
+  .q-back{margin-top:22px;background:none;border:0;font:400 14px Inter,sans-serif;color:var(--muted);cursor:pointer;padding:4px 0;}
+  .q-back:hover{color:var(--accent);}
+  .q-back[hidden]{display:none;}
+
+  .q-step{animation:qin .3s ease;}
+  @keyframes qin{from{opacity:0;transform:translateX(14px);}to{opacity:1;transform:none;}}
+
+  /* Результат */
+  .r-step{text-align:center;animation:qin .4s ease;}
+  .r-gauge{width:230px;margin:6px auto 4px;display:block;}
+  .r-score{font-family:'Newsreader',Georgia,serif;font-size:56px;color:var(--ink);line-height:1;}
+  .r-score small{font-size:22px;color:var(--muted);}
+  .r-zone{font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin:10px 0 6px;}
+  .r-title{font-size:clamp(22px,2.8vw,30px);margin-bottom:12px;}
+  .r-desc{font-size:16px;color:var(--muted);max-width:46ch;margin:0 auto 26px;}
+  .r-risks{text-align:left;background:var(--paper);border-radius:8px;padding:22px 24px;margin-bottom:28px;}
+  .r-risks h3{font-size:16px;font-family:Inter,sans-serif;font-weight:600;color:var(--ink);margin-bottom:12px;}
+  .r-risks li{list-style:none;font-size:15px;color:var(--body);padding-left:24px;position:relative;margin-bottom:9px;}
+  .r-risks li::before{content:"";position:absolute;left:2px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent2);}
+  .r-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;text-decoration:none;padding:15px 28px;border-radius:4px;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;border:0;font-family:Inter,sans-serif;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:#163C5F;transform:translateY(-1px);box-shadow:0 10px 26px rgba(29,77,122,0.25);}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--bg);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+  .r-restart{margin-top:20px;background:none;border:0;font:400 13.5px Inter,sans-serif;color:var(--muted);cursor:pointer;}
+  .r-restart:hover{color:var(--accent);}
+  .r-note{font-size:12.5px;color:var(--muted);margin-top:18px;}
+
+  /* Как это работает */
+  .t-how{background:var(--paper);padding:64px 0;}
+  .t-how .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;max-width:980px;margin:0 auto;}
+  @media(max-width:760px){.t-how .grid{grid-template-columns:1fr;}}
+  .t-how h2{text-align:center;font-size:clamp(24px,3vw,34px);margin-bottom:40px;}
+  .t-how .it{text-align:center;}
+  .t-how .n{font-family:'Newsreader',serif;font-size:30px;color:var(--accent2);display:block;margin-bottom:8px;}
+  .t-how h3{font-size:18px;margin-bottom:8px;}
+  .t-how p{font-size:14.5px;color:var(--muted);}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);}
+  .foot a{color:var(--muted);text-decoration:none;}
+  .foot a:hover{color:var(--accent);}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}.q-step,.r-step{animation:none;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+</style>
+</head>
+
+<body>
+
+  <header class="head" id="head">
+    <div class="wrap nav">
+      <a href="../" class="brand"><img src="../logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
+      <nav class="nav-r">
+        <a href="../">Главная</a>
+        <a href="../#services">Услуги</a>
+        <a href="../diagnostika/">Диагностика</a>
+        <a href="../#contacts" class="nav-cta">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <div class="wrap crumbs">
+      <a href="../">Главная</a><span>→</span>Тест управляемости бизнеса
+    </div>
+
+    <section class="t-hero">
+      <div class="wrap">
+        <span class="eyebrow rv">Бесплатный тест · 10 вопросов · ~2 минуты</span>
+        <h1 class="rv">Насколько управляем ваш бизнес?</h1>
+        <p class="rv">Ответьте честно — и увидите, насколько компания зависит лично от вас, где система уже работает, а где держится на ручном управлении.</p>
+      </div>
+    </section>
+
+    <section class="quiz-wrap">
+      <div class="wrap">
+        <div class="quiz rv" id="quiz" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="t-how">
+      <div class="wrap">
+        <h2 class="serif">Как устроен тест</h2>
+        <div class="grid">
+          <div class="it"><span class="n">01</span><h3>10 вопросов</h3><p>По ключевым контурам управления: решения, структура, цифры, ритм, финансы — та же логика, что в нашей полной диагностике.</p></div>
+          <div class="it"><span class="n">02</span><h3>Шкала 0–100</h3><p>Итоговый балл показывает зону: красная — бизнес держится на владельце, зелёная — система работает без вас.</p></div>
+          <div class="it"><span class="n">03</span><h3>Разбор от партнёров</h3><p>По желанию — бесплатная встреча: разберём ваши ответы и покажем, с чего начать усиление управляемости.</p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> ASM Strategy — систематизация бизнеса и системное управление</span>
+      <span><a href="../">Главная</a> · <a href="../diagnostika/">Диагностика</a> · <a href="../privacy/">Политика ПД</a> · asmstrat.com</span>
+    </div>
+  </footer>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110362886', 'ym');
+    ym(110362886, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110362886" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ---------- Вопросы: текст, варианты (баллы 0/5/10), риск-формулировка ---------- */
+    var QUESTIONS = [
+      { q: 'Кто принимает большинство решений в компании?',
+        opts: [['Практически все решения — я', 0], ['Я и пара ключевых людей', 5], ['Руководители — каждый в своей зоне', 10]],
+        risk: 'Решения замкнуты на владельце — компания не масштабируется' },
+      { q: 'Что произойдёт, если вы уедете на месяц без связи?',
+        opts: [['Бизнес встанет или серьёзно просядет', 0], ['Продержится, но с потерями', 5], ['Продолжит работать по плану', 10]],
+        risk: 'Бизнес не проходит «тест на отпуск» — критическая зависимость от вас' },
+      { q: 'Есть ли оргструктура, по которой компания реально работает?',
+        opts: [['Нет или только «на бумаге»', 0], ['Есть, но работает частично', 5], ['Да, живая и актуальная', 10]],
+        risk: 'Нет работающей оргструктуры — функции и ответственность размыты' },
+      { q: 'Получаете ли вы регулярные цифры по подразделениям?',
+        opts: [['Вижу только выручку и остаток на счету', 0], ['Часть показателей есть', 5], ['Полная управленческая отчётность', 10]],
+        risk: 'Управление без цифр — решения принимаются «по ощущениям»' },
+      { q: 'Сколько вашего времени уходит на операционку?',
+        opts: [['Почти всё', 0], ['Около половины', 5], ['Меньше трети — занимаюсь развитием', 10]],
+        risk: 'Владелец погружён в операционку — некому заниматься стратегией' },
+      { q: 'Есть ли план на квартал/год, который реально выполняется?',
+        opts: [['Плана нет', 0], ['План есть, но не выполняется', 5], ['Есть и контролируется', 10]],
+        risk: 'Планирование не работает — компания живёт «как получится»' },
+      { q: 'Как проходят совещания и координации?',
+        opts: [['Стихийно, «когда прижмёт»', 0], ['Регулярно, но решения теряются', 5], ['Регулярный ритм с контролем исполнения', 10]],
+        risk: 'Нет управленческого ритма — решения не доводятся до результата' },
+      { q: 'Руководители решают вопросы сами — или несут вам?',
+        opts: [['Почти всё несут мне', 0], ['Часть решают сами', 5], ['Решают сами в рамках своих полномочий', 10]],
+        risk: 'Руководители не выросли в управленцев — всё стекается наверх' },
+      { q: 'Регламенты и правила: описаны и соблюдаются?',
+        opts: [['Не описаны', 0], ['Описаны, но не соблюдаются', 5], ['Работают и обновляются', 10]],
+        risk: 'Знания в головах, а не в регламентах — люди незаменимы' },
+      { q: 'Финансовый контур: бюджет и платёжный календарь?',
+        opts: [['Кассовые разрывы случаются внезапно', 0], ['Частично планируем', 5], ['Бюджет и платёжный календарь работают', 10]],
+        risk: 'Финансы без контура планирования — риск внезапных кассовых разрывов' }
+    ];
+
+    var ZONES = [
+      { max: 40, color: 'var(--red)',    hex: '#C0532B', name: 'Красная зона',
+        title: 'Бизнес держится лично на вас',
+        desc: 'Компания управляется вручную: вы — главное узкое место. Рост при такой конструкции будет умножать хаос, а не прибыль. Хорошая новость: это типовая ситуация, и она решается за 6 месяцев систематизации.' },
+      { max: 70, color: 'var(--yellow)', hex: '#C99A2C', name: 'Жёлтая зона',
+        title: 'Система начата, но не держит нагрузку',
+        desc: 'Часть инструментов управления есть, но они работают фрагментами: что-то на цифрах, что-то на ручном контроле. Достроить систему сейчас — дешевле, чем переделывать после сбоя роста.' },
+      { max: 100, color: 'var(--green)', hex: '#3E8E5A', name: 'Зелёная зона',
+        title: 'Управляемость высокая',
+        desc: 'Система управления работает — вы среди немногих. Следующий уровень: контур акционерного контроля, стратегия и рост стоимости бизнеса. Именно здесь совет директоров и M&A дают максимум.' }
+    ];
+
+    var box = document.getElementById('quiz');
+    var idx = 0;
+    var answers = []; /* {score, optText} */
+
+    function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+    function renderQuestion() {
+      var item = QUESTIONS[idx];
+      var html = '<div class="q-step">'
+        + '<div class="q-meta"><span>Вопрос ' + (idx + 1) + ' из ' + QUESTIONS.length + '</span><span>~2 минуты</span></div>'
+        + '<div class="q-bar"><i style="width:' + Math.round(idx / QUESTIONS.length * 100) + '%"></i></div>'
+        + '<div class="q-text">' + esc(item.q) + '</div>'
+        + '<div class="q-opts">';
+      item.opts.forEach(function (o, i) {
+        html += '<button type="button" class="q-opt" data-i="' + i + '">' + esc(o[0]) + '</button>';
+      });
+      html += '</div>'
+        + '<button type="button" class="q-back"' + (idx === 0 ? ' hidden' : '') + '>← Назад</button>'
+        + '</div>';
+      box.innerHTML = html;
+
+      box.querySelectorAll('.q-opt').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var o = item.opts[+btn.dataset.i];
+          answers[idx] = { score: o[1], text: o[0] };
+          idx++;
+          if (idx < QUESTIONS.length) renderQuestion(); else renderResult();
+        });
+      });
+      var back = box.querySelector('.q-back');
+      if (back) back.addEventListener('click', function () { if (idx > 0) { idx--; renderQuestion(); } });
+    }
+
+    function gaugeSVG(score, hex) {
+      /* полукруглая шкала 0-100 */
+      var a = Math.PI * (1 - score / 100);
+      var x = 115 + 95 * Math.cos(a), y = 120 - 95 * Math.sin(a);
+      var large = score > 50 ? 1 : 0;
+      return '<svg class="r-gauge" viewBox="0 0 230 132" aria-hidden="true">'
+        + '<path d="M20 120 A95 95 0 0 1 210 120" fill="none" stroke="#EDF0F2" stroke-width="14" stroke-linecap="round"/>'
+        + '<path d="M20 120 A95 95 0 ' + large + ' 1 ' + x.toFixed(1) + ' ' + y.toFixed(1) + '" fill="none" stroke="' + hex + '" stroke-width="14" stroke-linecap="round"/>'
+        + '</svg>';
+    }
+
+    function renderResult() {
+      var score = answers.reduce(function (s, a) { return s + a.score; }, 0);
+      var zone = ZONES.find(function (z) { return score <= z.max; });
+
+      /* три самых слабых ответа -> зоны роста */
+      var risks = answers
+        .map(function (a, i) { return { score: a.score, risk: QUESTIONS[i].risk }; })
+        .filter(function (r) { return r.score < 10; })
+        .sort(function (a, b) { return a.score - b.score; })
+        .slice(0, 3);
+
+      var html = '<div class="r-step">'
+        + gaugeSVG(score, zone.hex)
+        + '<div class="r-score"><span id="rnum">0</span><small> / 100</small></div>'
+        + '<div class="r-zone" style="color:' + zone.hex + '">' + zone.name + '</div>'
+        + '<h2 class="r-title serif">' + zone.title + '</h2>'
+        + '<p class="r-desc">' + zone.desc + '</p>';
+      if (risks.length) {
+        html += '<div class="r-risks"><h3>Главные зоны роста:</h3><ul>';
+        risks.forEach(function (r) { html += '<li>' + esc(r.risk) + '</li>'; });
+        html += '</ul></div>';
+      }
+      html += '<div class="r-cta">'
+        + '<button type="button" class="btn btn-primary" id="rlead">Получить разбор результатов</button>'
+        + '<a class="btn btn-ghost" href="../diagnostika/">О полной диагностике</a>'
+        + '</div>'
+        + '<button type="button" class="r-restart">Пройти ещё раз</button>'
+        + '<p class="r-note">Разбор — бесплатная встреча ~90 минут с партнёрами ASM Strategy. Ваши ответы придут к нам вместе с заявкой.</p>'
+        + '</div>';
+      box.innerHTML = html;
+
+      /* счётчик набегает */
+      var el = document.getElementById('rnum');
+      var t0 = null;
+      function tick(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 900, 1);
+        el.textContent = Math.round(score * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      setTimeout(function () { el.textContent = score; }, 1000); /* страховка от rAF-троттлинга */
+
+      /* заявка с результатами */
+      document.getElementById('rlead').addEventListener('click', function () {
+        var lines = answers.map(function (a, i) {
+          return (i + 1) + '. ' + QUESTIONS[i].q + ' — ' + a.text + ' (' + a.score + ')';
+        }).join('\n');
+        window.LEAD_FORM_EXTRA = {
+          'Результат теста': score + '/100 — ' + zone.name + ' (' + zone.title + ')',
+          'Ответы теста': lines
+        };
+        if (window.openLeadForm) window.openLeadForm();
+      });
+
+      box.querySelector('.r-restart').addEventListener('click', function () {
+        idx = 0; answers = []; window.LEAD_FORM_EXTRA = null; renderQuestion();
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      if (window.ym) { try { ym(110362886, 'reachGoal', 'quiz_completed'); } catch (_) {} }
+    }
+
+    renderQuestion();
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var head = document.getElementById('head');
+  addEventListener('scroll', function () { head.classList.toggle('scrolled', scrollY > 8); });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  </script>
+
+  <script src="../form-modal.js" defer></script>
+
+</body>
+</html>

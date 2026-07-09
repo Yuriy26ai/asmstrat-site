@@ -148,6 +148,7 @@
   }
 
   fab.addEventListener('click', open);
+  window.openLeadForm = open; /* публичный вызов формы (используется тестом) */
   document.addEventListener('click', function (e) {
     if (e.target.closest && e.target.closest('.lf-open')) open();
   });
@@ -209,6 +210,11 @@
         'Страница': location.pathname
       };
       if (email) { payload.email = email; } /* email клиента станет Reply-To */
+      /* дополнительные данные (например, результаты теста управляемости) */
+      if (window.LEAD_FORM_EXTRA) {
+        for (var k in window.LEAD_FORM_EXTRA) { payload[k] = window.LEAD_FORM_EXTRA[k]; }
+        payload.subject = 'Заявка + результаты теста — ASM Strategy';
+      }
       req = fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
