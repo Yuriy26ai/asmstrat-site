@@ -151,8 +151,9 @@
   /* Команда */
   .team{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
   @media(max-width:760px){.team{grid-template-columns:1fr;}}
-  .person{border-top:2px solid var(--ink);padding-top:26px;text-align:center;}
-  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:2px;display:block;margin:0 auto 20px;}
+  .person{padding-top:6px;text-align:center;}
+  .person .pphoto{width:180px;height:180px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 24px;box-shadow:0 0 0 4px #fff,0 0 0 6px var(--accent2),0 16px 34px rgba(12,27,42,0.18);transition:transform .35s ease;}
+  .person .pphoto:hover{transform:scale(1.05);}
   .person p{text-align:left;}
   .person h3{font-size:24px;margin-bottom:4px;}
   .person .role{font-size:14px;font-weight:600;letter-spacing:0.04em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
