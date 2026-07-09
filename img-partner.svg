@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <!-- Партнёр 1 -->
+  <circle cx="170" cy="200" r="44" fill="#1D4D7A"/>
+  <path d="M86 340 a84 84 0 0 1 168 0 z" fill="#1D4D7A"/>
+
+  <!-- Партнёр 2 -->
+  <circle cx="730" cy="200" r="44" fill="#37A3D7"/>
+  <path d="M646 340 a84 84 0 0 1 168 0 z" fill="#37A3D7"/>
+
+  <!-- Соглашение между партнёрами -->
+  <rect x="320" y="110" width="260" height="340" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="352" y="146" width="150" height="10" rx="5" fill="#3A4654"/>
+
+  <!-- Пункты правил -->
+  <circle cx="362" cy="196" r="7" fill="#1D4D7A"/>
+  <path d="M358.5 196 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="380" y="192" width="150" height="7" rx="3.5" fill="#C7CDD4"/>
+  <circle cx="362" cy="230" r="7" fill="#1D4D7A"/>
+  <path d="M358.5 230 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="380" y="226" width="120" height="7" rx="3.5" fill="#C7CDD4"/>
+  <circle cx="362" cy="264" r="7" fill="#37A3D7"/>
+  <path d="M358.5 264 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="380" y="260" width="136" height="7" rx="3.5" fill="#C7CDD4"/>
+  <circle cx="362" cy="298" r="7" fill="#37A3D7"/>
+  <path d="M358.5 298 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="380" y="294" width="104" height="7" rx="3.5" fill="#C7CDD4"/>
+
+  <!-- Подписи двух сторон -->
+  <line x1="352" y1="390" x2="432" y2="390" stroke="#1D4D7A" stroke-width="2"/>
+  <path d="M358 382 q10 -14 20 0 q8 10 18 -4" fill="none" stroke="#1D4D7A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="468" y1="390" x2="548" y2="390" stroke="#37A3D7" stroke-width="2"/>
+  <path d="M474 384 q12 -12 22 -2 q8 8 20 -6" fill="none" stroke="#37A3D7" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="352" y="404" width="80" height="6" rx="3" fill="#DDE1E6"/>
+  <rect x="468" y="404" width="80" height="6" rx="3" fill="#DDE1E6"/>
+
+  <!-- Связи партнёров с соглашением -->
+  <line x1="238" y1="250" x2="316" y2="268" stroke="#C7CDD4" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+  <line x1="662" y1="250" x2="584" y2="268" stroke="#C7CDD4" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+
+  <!-- Баланс интересов -->
+  <g>
+    <line x1="450" y1="500" x2="450" y2="556" stroke="#3A4654" stroke-width="4" stroke-linecap="round"/>
+    <line x1="360" y1="504" x2="540" y2="504" stroke="#3A4654" stroke-width="4" stroke-linecap="round"/>
+    <path d="M338 528 a22 22 0 0 0 44 0 z" fill="#1D4D7A"/>
+    <line x1="360" y1="504" x2="360" y2="526" stroke="#3A4654" stroke-width="2.5"/>
+    <path d="M518 528 a22 22 0 0 0 44 0 z" fill="#37A3D7"/>
+    <line x1="540" y1="504" x2="540" y2="526" stroke="#3A4654" stroke-width="2.5"/>
+    <rect x="410" y="556" width="80" height="10" rx="5" fill="#3A4654"/>
+  </g>
+</svg>

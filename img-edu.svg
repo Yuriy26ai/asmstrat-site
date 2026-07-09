@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <!-- Доска с инструментами компании -->
+  <rect x="130" y="70" width="480" height="320" rx="12" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+  <rect x="162" y="102" width="150" height="10" rx="5" fill="#3A4654"/>
+
+  <!-- Оргсхема на доске -->
+  <rect x="200" y="150" width="80" height="32" rx="6" fill="#1D4D7A"/>
+  <line x1="240" y1="182" x2="240" y2="204" stroke="#C7CDD4" stroke-width="2"/>
+  <line x1="190" y1="204" x2="290" y2="204" stroke="#C7CDD4" stroke-width="2"/>
+  <line x1="190" y1="204" x2="190" y2="220" stroke="#C7CDD4" stroke-width="2"/>
+  <line x1="290" y1="204" x2="290" y2="220" stroke="#C7CDD4" stroke-width="2"/>
+  <rect x="160" y="220" width="60" height="26" rx="6" fill="#F4F5F3" stroke="#DDE1E6"/>
+  <rect x="260" y="220" width="60" height="26" rx="6" fill="#F4F5F3" stroke="#DDE1E6"/>
+
+  <!-- График-статистика на доске -->
+  <polyline points="380,300 430,268 470,280 520,236 566,214" fill="none" stroke="#37A3D7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="566" cy="214" r="6" fill="#1D4D7A"/>
+  <line x1="380" y1="308" x2="574" y2="308" stroke="#DDE1E6" stroke-width="1.5"/>
+
+  <!-- Пункты на доске -->
+  <circle cx="212" cy="292" r="7" fill="#1D4D7A"/>
+  <path d="M208.5 292 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="230" y="288" width="110" height="7" rx="3.5" fill="#C7CDD4"/>
+  <circle cx="212" cy="326" r="7" fill="#37A3D7"/>
+  <path d="M208.5 326 l3 3 l6 -6.5" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="230" y="322" width="88" height="7" rx="3.5" fill="#C7CDD4"/>
+
+  <!-- Ножка доски -->
+  <line x1="370" y1="390" x2="330" y2="470" stroke="#3A4654" stroke-width="4" stroke-linecap="round"/>
+  <line x1="370" y1="390" x2="410" y2="470" stroke="#3A4654" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Академическая шапочка на углу доски -->
+  <g>
+    <polygon points="610,96 700,66 790,96 700,126" fill="#0C1B2A"/>
+    <path d="M655 110 v34 a45 18 0 0 0 90 0 v-34" fill="none" stroke="#0C1B2A" stroke-width="0"/>
+    <path d="M655 112 v30 q45 26 90 0 v-30" fill="#1D4D7A"/>
+    <line x1="786" y1="100" x2="786" y2="150" stroke="#0C1B2A" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="786" cy="156" r="6" fill="#37A3D7"/>
+  </g>
+
+  <!-- Слушатели: владелец и команда -->
+  <g>
+    <circle cx="560" cy="440" r="26" fill="#1D4D7A"/>
+    <path d="M510 522 a50 50 0 0 1 100 0 z" fill="#1D4D7A"/>
+    <circle cx="660" cy="452" r="22" fill="#37A3D7"/>
+    <path d="M618 522 a42 42 0 0 1 84 0 z" fill="#37A3D7"/>
+    <circle cx="748" cy="452" r="22" fill="#C7CDD4"/>
+    <path d="M706 522 a42 42 0 0 1 84 0 z" fill="#C7CDD4"/>
+  </g>
+
+  <!-- Книга-конспект -->
+  <g>
+    <path d="M80 500 q55 -18 110 0 v66 q-55 -18 -110 0 z" fill="#FFFFFF" stroke="#DDE1E6" stroke-width="1.5"/>
+    <path d="M190 500 q55 -18 110 0 v66 q-55 -18 -110 0 z" fill="#F4F5F3" stroke="#DDE1E6" stroke-width="1.5"/>
+    <line x1="190" y1="500" x2="190" y2="566" stroke="#DDE1E6" stroke-width="1.5"/>
+    <rect x="102" y="508" width="66" height="6" rx="3" fill="#C7CDD4" transform="rotate(-4 135 511)"/>
+    <rect x="102" y="526" width="50" height="6" rx="3" fill="#C7CDD4" transform="rotate(-4 127 529)"/>
+    <rect x="212" y="508" width="66" height="6" rx="3" fill="#37A3D7" transform="rotate(4 245 511)"/>
+  </g>
+</svg>
