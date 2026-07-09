@@ -232,6 +232,11 @@
   .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  /* Компактные контакты + форма */
+  section.block.contact{padding:56px 0;}
+  .contact h2{font-size:clamp(26px,3.2vw,38px);margin-bottom:14px;}
+  .contact p{margin-bottom:26px;font-size:16.5px;}
+  .clinks a{padding:16px 2px;}
 </style>
 </head>
 
@@ -460,5 +465,6 @@
 
   </script>
 
+<script src="../form-modal.js" defer></script>
 </body>
 </html>
