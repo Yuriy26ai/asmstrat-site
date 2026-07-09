@@ -14,7 +14,7 @@
      2) Web3Forms (https://web3forms.com) — впиши Access Key в WEB3FORMS_KEY.
      Пока ничего не настроено — форма покажет прямые контакты. */
   var DEFAULT_ENDPOINT = 'REPLACE_WITH_TIMEWEB_URL/send.php';
-  var WEB3FORMS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY';
+  var WEB3FORMS_KEY = '5e4f25bc-2870-480e-a408-3f05cd577027';
 
   /* URL страницы политики — вычисляем от расположения самого скрипта,
      чтобы работало и на главной, и на подстраницах */
