@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================= -->
+<!--  СТРАНИЦА: КАЛЬКУЛЯТОР «ЦЕНА ОПЕРАЦИОНКИ»                     -->
+<!--  Адрес: asmstrat.com/cena-operacionki                          -->
+<!--  Два ползунка -> потери в год / дни / эквивалент директоров    -->
+<!--  CTA -> форма заявки с расчётом (LEAD_FORM_EXTRA)              -->
+<!-- ============================================================= -->
+
+<title>Калькулятор: сколько стоит операционка собственнику бизнеса — ASM Strategy</title>
+<meta name="description" content="Бесплатный калькулятор для владельца бизнеса: посчитайте, сколько денег и рабочих дней в год съедает операционная рутина — и сколько стоит ваше невернувшееся время развития.">
+
+<link rel="canonical" href="https://asmstrat.com/cena-operacionki/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сколько стоит ваша операционка? Калькулятор для собственника — ASM Strategy">
+<meta property="og:description" content="Два ползунка — и вы видите цену рутины: в рублях за год, в рабочих днях и в неслучившемся развитии бизнеса.">
+<meta property="og:url" content="https://asmstrat.com/cena-operacionki/">
+<meta property="og:image" content="https://asmstrat.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Inter:wght@400;500;600&display=swap"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Калькулятор: сколько стоит операционка собственнику",
+      "url": "https://asmstrat.com/cena-operacionki/",
+      "description": "Интерактивный калькулятор потерь владельца бизнеса от операционной рутины: рубли в год, рабочие дни, эквивалент управленцев."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem","position": 1,"name": "Главная","item": "https://asmstrat.com/"},
+        {"@type": "ListItem","position": 2,"name": "Калькулятор цены операционки","item": "https://asmstrat.com/cena-operacionki/"}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --paper:#F4F5F3;
+    --ink:#0C1B2A;
+    --body:#3A4654;
+    --muted:#697585;
+    --accent:#1D4D7A;
+    --accent2:#37A3D7;
+    --line:rgba(12,27,42,0.14);
+    --line-soft:rgba(12,27,42,0.08);
+    --red:#C0532B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--body);font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  ::selection{background:var(--accent);color:#fff;}
+  .serif{font-family:'Newsreader',Georgia,serif;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 44px;}
+  @media(max-width:640px){.wrap{padding:0 22px;}}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);}
+  h1,h2,h3{color:var(--ink);font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-0.01em;}
+
+  .head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s;}
+  .head.scrolled{border-bottom-color:var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .brand{display:flex;align-items:center;text-decoration:none;}
+  .brand img{height:46px;width:auto;display:block;}
+  .nav-r{display:flex;gap:28px;align-items:center;}
+  .nav-r a{font-size:14px;color:var(--body);text-decoration:none;transition:color .2s;}
+  .nav-r a:hover{color:var(--accent);}
+  .nav-cta{font-weight:600;color:#fff !important;background:var(--accent);padding:9px 18px;border-radius:3px;transition:background .2s;}
+  .nav-cta:hover{background:#163C5F;}
+  @media(max-width:880px){.nav-r a:not(.nav-cta){display:none;}}
+  @media(max-width:560px){.brand img{height:38px;}}
+
+  .crumbs{padding:20px 0 0;font-size:13.5px;color:var(--muted);}
+  .crumbs a{color:var(--muted);text-decoration:none;}
+  .crumbs a:hover{color:var(--accent);}
+  .crumbs span{margin:0 8px;color:#B6BCC4;}
+
+  .t-hero{padding:54px 0 34px;text-align:center;}
+  .t-hero .eyebrow{display:block;margin-bottom:20px;}
+  .t-hero h1{font-size:clamp(30px,4.4vw,52px);line-height:1.1;max-width:22ch;margin:0 auto 18px;}
+  .t-hero p{font-size:clamp(16.5px,1.8vw,19px);color:var(--muted);max-width:54ch;margin:0 auto;}
+
+  /* Калькулятор */
+  .calc-wrap{padding:28px 0 40px;}
+  .calc{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 50px rgba(12,27,42,0.07);overflow:hidden;}
+  .calc-in{padding:38px 42px 34px;background:var(--bg);}
+  @media(max-width:560px){.calc-in{padding:26px 20px 24px;}}
+
+  .c-field{margin-bottom:30px;}
+  .c-label{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:4px;flex-wrap:wrap;}
+  .c-label .t{font-size:15.5px;font-weight:600;color:var(--ink);}
+  .c-label .v{font-family:'Newsreader',Georgia,serif;font-size:24px;color:var(--accent);white-space:nowrap;}
+  .c-hint{font-size:13px;color:var(--muted);margin-bottom:12px;}
+  input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--accent) var(--fill,50%),#E8ECEF var(--fill,50%));outline:none;cursor:pointer;}
+  input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 3px 10px rgba(12,27,42,0.25);cursor:grab;}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--accent);box-shadow:0 3px 10px rgba(12,27,42,0.25);cursor:grab;}
+  .c-scale{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px;}
+
+  /* Результат */
+  .c-res{background:var(--ink);color:#fff;padding:36px 42px 38px;text-align:center;}
+  @media(max-width:560px){.c-res{padding:28px 20px 30px;}}
+  .c-res .cap{font-size:12px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#7FC4E8;margin-bottom:14px;}
+  .c-big{font-family:'Newsreader',Georgia,serif;font-size:clamp(40px,6vw,64px);line-height:1.05;color:#fff;}
+  .c-big small{font-size:0.45em;color:rgba(255,255,255,0.65);}
+  .c-sub{font-size:14.5px;color:rgba(255,255,255,0.7);margin-top:8px;}
+  .c-row{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.16);}
+  @media(max-width:560px){.c-row{grid-template-columns:1fr;gap:18px;}}
+  .c-item .n{font-family:'Newsreader',Georgia,serif;font-size:30px;color:#fff;}
+  .c-item .l{font-size:13.5px;color:rgba(255,255,255,0.65);margin-top:4px;}
+
+  .c-cta{padding:26px 42px 34px;background:var(--paper);text-align:center;}
+  @media(max-width:560px){.c-cta{padding:22px 20px 26px;}}
+  .c-cta p{font-size:15.5px;color:var(--body);max-width:52ch;margin:0 auto 20px;}
+  .c-cta p b{color:var(--ink);}
+  .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;text-decoration:none;padding:15px 28px;border-radius:4px;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer;border:0;font-family:Inter,sans-serif;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:#163C5F;transform:translateY(-1px);box-shadow:0 10px 26px rgba(29,77,122,0.25);}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);background:var(--bg);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  .c-note{max-width:760px;margin:18px auto 0;font-size:12.5px;color:var(--muted);text-align:center;padding:0 10px;}
+
+  /* Как перестать платить */
+  .t-how{background:var(--paper);padding:64px 0;margin-top:56px;}
+  .t-how .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;max-width:980px;margin:0 auto;}
+  @media(max-width:760px){.t-how .grid{grid-template-columns:1fr;}}
+  .t-how h2{text-align:center;font-size:clamp(24px,3vw,34px);margin-bottom:40px;}
+  .t-how .it{text-align:center;}
+  .t-how .n{font-family:'Newsreader',serif;font-size:30px;color:var(--accent2);display:block;margin-bottom:8px;}
+  .t-how h3{font-size:18px;margin-bottom:8px;}
+  .t-how p{font-size:14.5px;color:var(--muted);}
+  .t-how a{color:var(--accent);text-decoration:none;font-weight:600;}
+  .t-how a:hover{text-decoration:underline;}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted);}
+  .foot a{color:var(--muted);text-decoration:none;}
+  .foot a:hover{color:var(--accent);}
+
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+</style>
+</head>
+
+<body>
+
+  <header class="head" id="head">
+    <div class="wrap nav">
+      <a href="../" class="brand"><img src="../logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
+      <nav class="nav-r">
+        <a href="../">Главная</a>
+        <a href="../#services">Услуги</a>
+        <a href="../test-upravlyaemosti/">Тест управляемости</a>
+        <a href="../#contacts" class="nav-cta">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <div class="wrap crumbs">
+      <a href="../">Главная</a><span>→</span>Калькулятор цены операционки
+    </div>
+
+    <section class="t-hero">
+      <div class="wrap">
+        <span class="eyebrow rv">Калькулятор для собственника · 30 секунд</span>
+        <h1 class="rv">Сколько стоит ваша операционка?</h1>
+        <p class="rv">Каждый час, который вы тратите на рутину, — это час, не вложенный в развитие: сделки, продукты, партнёрства. Подвигайте ползунки — и увидите цену.</p>
+      </div>
+    </section>
+
+    <section class="calc-wrap">
+      <div class="wrap">
+        <div class="calc rv">
+          <div class="calc-in">
+            <div class="c-field">
+              <div class="c-label">
+                <span class="t">Сколько часов в неделю уходит на операционку?</span>
+                <span class="v"><span id="vh">30</span> ч/нед</span>
+              </div>
+              <p class="c-hint">Согласования, «разрулить», контроль исполнителей, тушение пожаров, оперативные вопросы сотрудников.</p>
+              <input type="range" id="rh" min="5" max="70" step="1" value="30" aria-label="Часов в неделю на операционку">
+              <div class="c-scale"><span>5 ч</span><span>70 ч</span></div>
+            </div>
+            <div class="c-field" style="margin-bottom:6px;">
+              <div class="c-label">
+                <span class="t">Сколько стоит час вашего времени?</span>
+                <span class="v"><span id="vr">10 000</span> ₽/ч</span>
+              </div>
+              <p class="c-hint">Оцените по вкладу в развитие: сколько приносит час, потраченный на стратегию, ключевых клиентов или новый продукт.</p>
+              <input type="range" id="rr" min="2000" max="50000" step="1000" value="10000" aria-label="Стоимость часа собственника">
+              <div class="c-scale"><span>2 000 ₽</span><span>50 000 ₽</span></div>
+            </div>
+          </div>
+
+          <div class="c-res">
+            <div class="cap">Цена вашей операционки</div>
+            <div class="c-big"><span id="ryear">16,4</span> <small>млн ₽ в год</small></div>
+            <div class="c-sub">столько стоит время собственника, потраченное на рутину вместо развития</div>
+            <div class="c-row">
+              <div class="c-item"><div class="n" id="rdays">203</div><div class="l">рабочих дней в году — на операционке</div></div>
+              <div class="c-item"><div class="n" id="rdir">×4,5</div><div class="l">зарплаты исполнительного директора обходится «бесплатный» труд владельца</div></div>
+            </div>
+          </div>
+
+          <div class="c-cta">
+            <p><b>Эту цену вы платите каждый год.</b> Система управления возвращает владельцу до 80% времени — за 6 месяцев систематизации.</p>
+            <div class="btns">
+              <button type="button" class="btn btn-primary" id="calcLead">Обсудить, как вернуть время</button>
+              <a class="btn btn-ghost" href="../test-upravlyaemosti/">Пройти тест управляемости</a>
+            </div>
+          </div>
+        </div>
+        <p class="c-note rv">Расчёт оценочный: 52 рабочие недели, 8-часовой день, ориентир зарплаты исполнительного директора — 300 тыс. ₽/мес. Ваш точный расклад покажет управленческая диагностика.</p>
+      </div>
+    </section>
+
+    <section class="t-how">
+      <div class="wrap">
+        <h2 class="serif">Как перестать платить эту цену</h2>
+        <div class="grid">
+          <div class="it"><span class="n">01</span><h3>Диагностика</h3><p>Находим, где именно бизнес завязан на вас: решения, цифры, процессы. <a href="../diagnostika/">Бесплатная встреча ~90 минут</a>.</p></div>
+          <div class="it"><span class="n">02</span><h3>Систематизация</h3><p>За 6 месяцев выстраиваем систему управления: структура, показатели, планирование, управленческий ритм. <a href="../sistematizaciya/">Как это устроено</a>.</p></div>
+          <div class="it"><span class="n">03</span><h3>Сопровождение</h3><p>Система работает без вас, время возвращается на развитие. <a href="../sovetnik/">Советник поддерживает ритм</a>.</p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span id="year"></span> ASM Strategy — систематизация бизнеса и системное управление</span>
+      <span><a href="../">Главная</a> · <a href="../test-upravlyaemosti/">Тест управляемости</a> · <a href="../privacy/">Политика ПД</a> · asmstrat.com</span>
+    </div>
+  </footer>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110362886', 'ym');
+    ym(110362886, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/110362886" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <script>
+  (function () {
+    'use strict';
+    var DIR_YEAR = 3600000; /* исполнительный директор ~300 тыс ₽/мес */
+    var rh = document.getElementById('rh'), rr = document.getElementById('rr');
+    var vh = document.getElementById('vh'), vr = document.getElementById('vr');
+    var ryear = document.getElementById('ryear'), rdays = document.getElementById('rdays'), rdir = document.getElementById('rdir');
+    var tracked = false;
+    var current = { hours: 30, rate: 10000, yearTxt: '' };
+
+    function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+    function fill(el) {
+      var p = (el.value - el.min) / (el.max - el.min) * 100;
+      el.style.setProperty('--fill', p + '%');
+    }
+
+    function calc() {
+      var hours = +rh.value, rate = +rr.value;
+      var year = hours * rate * 52;
+      var days = Math.round(hours * 52 / 8);
+      var dirs = year / DIR_YEAR;
+
+      vh.textContent = hours;
+      vr.textContent = fmt(rate);
+
+      var yearTxt;
+      if (year >= 1000000) {
+        yearTxt = (year / 1000000).toLocaleString('ru-RU', { maximumFractionDigits: 1 });
+        ryear.textContent = yearTxt;
+        ryear.nextElementSibling.textContent = 'млн ₽ в год';
+        yearTxt += ' млн ₽/год';
+      } else {
+        yearTxt = fmt(Math.round(year / 1000));
+        ryear.textContent = yearTxt;
+        ryear.nextElementSibling.textContent = 'тыс. ₽ в год';
+        yearTxt += ' тыс. ₽/год';
+      }
+      rdays.textContent = days;
+      rdir.textContent = '×' + dirs.toLocaleString('ru-RU', { maximumFractionDigits: 1 });
+
+      current = { hours: hours, rate: rate, yearTxt: yearTxt, days: days };
+      fill(rh); fill(rr);
+
+      if (!tracked && window.ym) { tracked = true; try { ym(110362886, 'reachGoal', 'calc_used'); } catch (_) {} }
+    }
+
+    rh.addEventListener('input', calc);
+    rr.addEventListener('input', calc);
+    calc();
+    tracked = false; /* первый расчёт при загрузке — не считаем взаимодействием */
+
+    document.getElementById('calcLead').addEventListener('click', function () {
+      window.LEAD_FORM_EXTRA = {
+        'Калькулятор операционки': current.hours + ' ч/нед × ' + fmt(current.rate) + ' ₽/ч → ' + current.yearTxt + ' (' + current.days + ' рабочих дней/год)'
+      };
+      if (window.ym) { try { ym(110362886, 'reachGoal', 'calc_cta_click'); } catch (_) {} }
+      if (window.openLeadForm) window.openLeadForm();
+    });
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var head = document.getElementById('head');
+  addEventListener('scroll', function () { head.classList.toggle('scrolled', scrollY > 8); });
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  </script>
+
+  <script src="../form-modal.js" defer></script>
+
+</body>
+</html>
