@@ -106,24 +106,24 @@
   .crumbs a:hover{color:var(--accent);}
   .crumbs span{margin:0 8px;color:#B6BCC4;}
 
-  .hero{padding:64px 0 80px;}
+  .hero{padding:56px 0 68px;}
   .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;}
   .hero-art{width:100%;height:auto;display:block;}
   @media(max-width:940px){.hero-grid{grid-template-columns:1fr;}.hero-art{max-width:520px;margin:40px auto 0;}}
   .hero .eyebrow{display:block;margin-bottom:26px;}
-  .hero h1{font-size:clamp(34px,4.8vw,60px);line-height:1.08;max-width:22ch;margin-bottom:26px;}
+  .hero h1{font-size:clamp(32px,4.2vw,50px);line-height:1.1;max-width:26ch;margin-bottom:24px;}
   .hero p{font-size:clamp(18px,1.9vw,21px);max-width:62ch;margin-bottom:36px;}
   .hero p b{color:var(--ink);font-weight:600;}
   .actions{display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;text-decoration:none;padding:15px 30px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
   .btn-primary{background:var(--accent);color:#fff;}
   .btn-primary:hover{background:#163C5F;transform:translateY(-1px);box-shadow:0 10px 26px rgba(29,77,122,0.25);}
   .btn-ghost{color:var(--ink);border:1px solid var(--line);}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-  section.block{padding:92px 0;}
+  section.block{padding:76px 0;}
   section.alt{background:var(--paper);}
-  .sec-head{max-width:64ch;margin-bottom:50px;}
+  .sec-head{max-width:64ch;margin-bottom:40px;}
   .sec-head .eyebrow{display:block;margin-bottom:18px;}
   .sec-head h2{font-size:clamp(28px,3.4vw,42px);line-height:1.14;margin-bottom:18px;}
   .sec-head p{color:var(--muted);font-size:18px;max-width:58ch;}
@@ -134,14 +134,14 @@
   @media(max-width:760px){.grid4{grid-template-columns:1fr;gap:28px;}}
   .gi h3{font-size:20px;margin-bottom:9px;}
   .gi p{color:var(--muted);font-size:15.5px;}
-  .gi .gnum{font-family:'Newsreader',serif;color:var(--accent2);font-size:15px;display:block;margin-bottom:8px;}
+  .gi .gnum{font-family:'Newsreader',serif;color:var(--muted);font-size:15px;display:block;margin-bottom:8px;}
 
   /* Этапы */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
   @media(max-width:960px){.steps{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:620px){.steps{grid-template-columns:1fr;}}
   .step{border-top:2px solid var(--ink);padding-top:18px;}
-  .step .snum{font-family:'Newsreader',serif;font-size:28px;color:var(--accent2);display:block;margin-bottom:8px;}
+  .step .snum{font-family:'Newsreader',serif;font-size:26px;color:var(--muted);display:block;margin-bottom:8px;}
   .step h3{font-size:19px;margin-bottom:8px;}
   .step p{font-size:15px;color:var(--muted);}
 
@@ -274,7 +274,6 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-        <span class="eyebrow rv">Услуга ASM Strategy · Правила игры для партнёров</span>
         <h1 class="rv">Партнёрские соглашения совладельцев</h1>
         <p class="rv">Бизнес на двоих или троих работает, пока партнёры «договорились на словах»? <b>Помогаем совладельцам зафиксировать правила игры: роли, полномочия, деньги, порядок выхода — до того, как разногласия станут конфликтом.</b></p>
         <div class="actions rv">
@@ -290,7 +289,6 @@
     <section class="block alt" id="symptoms">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Когда нужно</span>
           <h2>Знакомая картина?</h2>
           <p>Бизнес вырос, а договорённости между партнёрами остались на уровне «как-нибудь разберёмся».</p>
         </div>
@@ -309,7 +307,6 @@
     <section class="block" id="included">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Что делаем</span>
           <h2>Переводим устные ожидания в письменные правила</h2>
           <p>Работаем как модераторы и бизнес-архитекторы: помогаем честно обсудить неудобное и зафиксировать решения, которые устраивают всех.</p>
         </div>
@@ -327,7 +324,6 @@
     <section class="block alt" id="steps">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Как проходит</span>
           <h2>Четыре шага к партнёрскому соглашению</h2>
         </div>
         <div class="steps rv">
@@ -343,7 +339,6 @@
     <section class="block" id="format">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Формат</span>
           <h2>Сроки и условия</h2>
         </div>
         <div class="facts rv">
@@ -359,7 +354,6 @@
     <section class="block alt" id="faq">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Вопросы</span>
           <h2>Частые вопросы о партнёрских соглашениях</h2>
         </div>
         <div class="faq rv">
@@ -386,7 +380,6 @@
     <!-- КОНТАКТЫ -->
     <section class="block contact" id="contacts">
       <div class="wrap">
-        <span class="eyebrow rv" style="color:#7FC4E8">Первый шаг</span>
         <h2 class="serif rv" style="margin-top:18px">Начните разговор, который давно откладываете</h2>
         <p class="rv">Бесплатная встреча ~90 минут: разберём вашу партнёрскую конфигурацию и покажем, какие вопросы стоит зафиксировать в первую очередь.</p>
         <div class="clinks rv">

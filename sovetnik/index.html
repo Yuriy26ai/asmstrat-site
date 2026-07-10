@@ -93,15 +93,15 @@
   .hero p{font-size:clamp(18px,1.9vw,21px);max-width:62ch;margin-bottom:38px;}
   .hero p b{color:var(--ink);font-weight:600;}
   .actions{display:flex;gap:14px;flex-wrap:wrap;}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:16px;text-decoration:none;padding:15px 30px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
   .btn-primary{background:var(--accent);color:#fff;}
   .btn-primary:hover{background:#163C5F;transform:translateY(-1px);box-shadow:0 10px 26px rgba(29,77,122,0.25);}
   .btn-ghost{color:var(--ink);border:1px solid var(--line);}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-  section.block{padding:92px 0;}
+  section.block{padding:76px 0;}
   section.alt{background:var(--paper);}
-  .sec-head{max-width:64ch;margin-bottom:50px;}
+  .sec-head{max-width:64ch;margin-bottom:40px;}
   .sec-head .eyebrow{display:block;margin-bottom:18px;}
   .sec-head h2{font-size:clamp(28px,3.4vw,42px);line-height:1.14;margin-bottom:18px;}
   .sec-head p{color:var(--muted);font-size:18px;max-width:58ch;}
@@ -112,7 +112,7 @@
   @media(max-width:760px){.grid4{grid-template-columns:1fr;gap:28px;}}
   .gi h3{font-size:20px;margin-bottom:9px;}
   .gi p{color:var(--muted);font-size:15.5px;}
-  .gi .gnum{font-family:'Newsreader',serif;color:var(--accent2);font-size:15px;display:block;margin-bottom:8px;}
+  .gi .gnum{font-family:'Newsreader',serif;color:var(--muted);font-size:15px;display:block;margin-bottom:8px;}
 
   /* Причина: схема узкого места */
   .bottleneck{border:1px solid var(--line);background:var(--bg);padding:40px;display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;}
@@ -276,7 +276,6 @@
     <!-- HERO -->
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow rv">Продукт ASM Strategy · Регулярное сопровождение</span>
         <h1 class="rv">Советник по системному управлению бизнесом</h1>
         <p class="rv">Организация управляемости компании через систему планирования, координаций и управленческих инструментов. <b>Внешний специалист берёт на себя административную функцию управления — собственник управляет через систему, а не через операционные вмешательства.</b></p>
         <div class="actions rv">
@@ -290,7 +289,6 @@
     <section class="block alt" id="problems">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Контекст</span>
           <h2>Рост компании создаёт управленческие вызовы</h2>
           <p>Рост неизбежно усложняет управление. На определённом этапе собственник сталкивается с проблемой управляемости, которая требует системного решения.</p>
         </div>
@@ -308,7 +306,6 @@
     <section class="block" id="symptoms">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Симптомы</span>
           <h2>Как проявляется отсутствие системы управления</h2>
         </div>
         <div class="grid4 rv">
@@ -325,7 +322,6 @@
     <section class="block alt" id="cause">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Причина</span>
           <h2>Отсутствие административной функции управления</h2>
           <p>В большинстве компаний никто системно не отвечает за организацию управленческого процесса. Эту роль вынужденно выполняет собственник.</p>
         </div>
@@ -351,7 +347,6 @@
     <section class="block" id="solution">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Решение</span>
           <h2>Советник по системному управлению</h2>
           <p>Внешний управленческий специалист, который помогает собственнику выстроить административную часть системы управления компанией.</p>
         </div>
@@ -368,7 +363,6 @@
     <section class="block alt" id="role">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Функция</span>
           <h2>Что делает советник по системному управлению</h2>
           <p>Советник отвечает за организацию управленческого процесса компании.</p>
         </div>
@@ -386,7 +380,6 @@
     <section class="block" id="cycle">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Управленческий цикл</span>
           <h2>Регулярный цикл управленческих встреч</h2>
           <p>В компании организуется регулярный цикл, который обеспечивает согласованную работу руководителей.</p>
         </div>
@@ -406,7 +399,6 @@
     <section class="block alt" id="results">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Эффект</span>
           <h2>Что меняется после внедрения системы управления</h2>
         </div>
         <div class="grid4 rv">
@@ -423,7 +415,6 @@
     <section class="block" id="team">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Эксперты</span>
           <h2>Кто выполняет функцию советника в вашей компании</h2>
           <p>Над внедрением функции советника работают специалисты по систематизации бизнеса и операционному управлению компании ASM Strategy.</p>
         </div>
@@ -450,7 +441,6 @@
     <section class="block alt" id="diagnostics">
       <div class="wrap">
         <div class="sec-head rv">
-          <span class="eyebrow">Первый шаг</span>
           <h2>Управленческая диагностика</h2>
           <p>Начало работы — диагностическая встреча, которая позволяет понять текущее состояние управления и определить направление систематизации.</p>
         </div>
@@ -466,7 +456,6 @@
     <!-- КОНТАКТЫ -->
     <section class="block contact" id="contacts">
       <div class="wrap">
-        <span class="eyebrow rv" style="color:#7FC4E8">Контакты</span>
         <h2 class="serif rv" style="margin-top:18px">Запишитесь на управленческую диагностику</h2>
         <p class="rv">Обсудим текущее состояние управления в вашей компании и определим, как функция советника решит ваши управленческие задачи.</p>
         <div class="clinks rv">
