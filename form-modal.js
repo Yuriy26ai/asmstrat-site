@@ -191,6 +191,14 @@
   }
 
   fab.addEventListener('click', function () { setChecklistMode(null); open(); });
+  /* Главные CTA-кнопки («Получить диагностику», «Записаться…») открывают форму, а не скроллят вниз */
+  document.addEventListener('click', function (e) {
+    var cta = e.target.closest && e.target.closest('a.btn-primary[href*="#contacts"]');
+    if (!cta) return;
+    e.preventDefault();
+    setChecklistMode(null);
+    open();
+  });
   window.openLeadForm = open; /* публичный вызов формы (используется тестом и калькулятором) */
   window.requestChecklist = function (url, title) { /* вызов с карточек чек-листов */
     setChecklistMode({ url: url, title: title });
@@ -338,7 +346,7 @@
     var offer;
     if (!calcDone) {
       offer = { url: CALC_URL, eyebrow: 'Пока вы не ушли — 30 секунд', title: 'Сколько денег съедает ваша операционка?',
-        sub: 'Два ползунка — и вы увидите, сколько рублей в год стоит рутина, которую вы тащите на себе. Без регистрации, цифра сразу.',
+        sub: 'Два ползунка — и вы увидите, сколько рублей в год стоит рутина, которую вы тащите на себе.',
         btn: 'Посчитать' };
     } else if (!quizDone) {
       offer = { url: TEST_URL, eyebrow: 'Ещё 2 минуты — и картина полная', title: 'Насколько ваш бизнес управляем без вас?',
