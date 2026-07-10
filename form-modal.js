@@ -50,6 +50,9 @@
     + 'font:400 16px/1.4 Inter,system-ui,sans-serif;color:#0C1B2A;background:#fff;transition:border-color .2s;}'
     + '.lf-input:focus{outline:none;border-color:#1D4D7A;box-shadow:0 0 0 3px rgba(29,77,122,.12);}'
     + '.lf-input.err{border-color:#C0392B;}'
+    + '.lf-ch{display:flex;gap:18px;flex-wrap:wrap;padding:4px 2px 0;}'
+    + '.lf-ch label{display:flex;align-items:center;gap:7px;font:400 14.5px/1 Inter,system-ui,sans-serif;color:#3A4654;cursor:pointer;}'
+    + '.lf-ch input{accent-color:#1D4D7A;width:16px;height:16px;cursor:pointer;}'
     + '.lf-consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 18px;font-size:12.5px;color:#697585;line-height:1.5;}'
     + '.lf-consent input{margin-top:2px;accent-color:#1D4D7A;width:16px;height:16px;flex:none;}'
     + '.lf-submit{width:100%;border:0;border-radius:4px;background:#1D4D7A;color:#fff;padding:15px;cursor:pointer;'
@@ -105,6 +108,12 @@
     + '      <input class="lf-input" name="name" type="text" autocomplete="name" maxlength="120" required></div>'
     + '    <div class="lf-field"><label class="lf-label">Телефон</label>'
     + '      <input class="lf-input" name="phone" type="tel" autocomplete="tel" placeholder="+7 ___ ___-__-__" maxlength="40" required></div>'
+    + '    <div class="lf-field"><label class="lf-label">Как удобнее связаться?</label>'
+    + '      <div class="lf-ch">'
+    + '        <label><input type="radio" name="channel" value="Telegram"> Telegram</label>'
+    + '        <label><input type="radio" name="channel" value="WhatsApp"> WhatsApp</label>'
+    + '        <label><input type="radio" name="channel" value="Звонок"> Звонок</label>'
+    + '      </div></div>'
     + '    <div class="lf-field"><label class="lf-label">Email <span>(если удобнее письмом)</span></label>'
     + '      <input class="lf-input" name="email" type="email" autocomplete="email" maxlength="120"></div>'
     + '    <div class="lf-hp" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>'
@@ -254,6 +263,7 @@
       data.append('name', name);
       data.append('phone', phone);
       data.append('email', email);
+      if (form.channel.value) { data.append('channel', form.channel.value); }
       data.append('page', location.pathname);
       if (window.LEAD_FORM_EXTRA) {
         for (var k2 in window.LEAD_FORM_EXTRA) { data.append(k2, window.LEAD_FORM_EXTRA[k2]); }
@@ -269,6 +279,7 @@
         'Страница': location.pathname
       };
       if (email) { payload.email = email; } /* email клиента станет Reply-To */
+      if (form.channel.value) { payload['Как связаться'] = form.channel.value; }
       /* дополнительные данные (например, результаты теста управляемости) */
       if (window.LEAD_FORM_EXTRA) {
         for (var k in window.LEAD_FORM_EXTRA) { payload[k] = window.LEAD_FORM_EXTRA[k]; }
