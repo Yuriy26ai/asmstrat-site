@@ -170,7 +170,7 @@
       <nav class="nav-r">
         <a href="../">Главная</a>
         <div class="dd"><button type="button">Услуги <span class="car">▼</span></button><div class="dd-menu"><a href="../diagnostika/">Диагностика и аудит системы управления</a><a href="../strategicheskie-sessii/">Стратегические сессии</a><a href="../sistematizaciya/">Систематизация бизнеса</a><a href="../reinzhiniring/">Реинжиниринг системы управления</a><a href="../sovetnik/">Советник по системному управлению</a><a href="../sovet-direktorov/">Независимые директора и совет директоров</a><a href="../partnerskie-soglasheniya/">Партнёрские соглашения совладельцев</a><a href="../sdelki-ma/">Сделки M&amp;A и оргразвитие</a><a href="../obuchenie/">Обучение: mini-MBA и Executive MBA</a><a href="../#services">Все услуги</a></div></div>
-        <div class="dd"><button type="button">Тесты <span class="car">▼</span></button><div class="dd-menu"><a href="../test-upravlyaemosti/">Тест: управляем ли ваш бизнес?</a><a href="../cena-operacionki/">Калькулятор: цена операционки</a><a href="../testy/">Все тесты и инструменты</a></div></div>
+        <div class="dd"><button type="button">Тесты <span class="car">▼</span></button><div class="dd-menu"><a href="../test-upravlyaemosti/">Тест: управляем ли ваш бизнес?</a><a href="../cena-operacionki/">Калькулятор: цена операционки</a><a href="../testy/#materials">Чек-листы (PDF)</a><a href="../testy/">Все тесты и инструменты</a></div></div>
         <a href="../#cases">Кейсы</a>
         <a href="../#team">Команда</a>
         <a href="../#contacts" class="nav-cta">Связаться</a>
@@ -192,6 +192,7 @@
       <a href="../testy/">Тесты и инструменты</a>
       <a class="sub" href="../test-upravlyaemosti/">Тест управляемости</a>
       <a class="sub" href="../cena-operacionki/">Калькулятор операционки</a>
+      <a class="sub" href="../testy/#materials">Чек-листы (PDF)</a>
       <a href="../#cases">Кейсы</a>
       <a href="../#team">Команда</a>
       <a href="../#contacts">Связаться</a>
@@ -246,8 +247,35 @@
             <span class="go">Посчитать →</span>
           </a>
 
+          <a class="tool" id="materials" href="../files/checklist-vladelec-direktor.pdf" data-checklist="Разделение функций: владелец и директор">
+            <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="12" y="6" width="40" height="52" rx="6" fill="#F4F5F3" stroke="#DDE1E6" stroke-width="2"/>
+              <circle cx="23" cy="20" r="4" fill="#1D4D7A"/><rect x="31" y="17" width="16" height="5" rx="2.5" fill="#C7CDD4"/>
+              <circle cx="23" cy="33" r="4" fill="#37A3D7"/><rect x="31" y="30" width="12" height="5" rx="2.5" fill="#C7CDD4"/>
+              <circle cx="23" cy="46" r="4" fill="#1D4D7A"/><rect x="31" y="43" width="14" height="5" rx="2.5" fill="#C7CDD4"/>
+            </svg>
+            <span class="tag">Чек-лист · PDF · 5 страниц</span>
+            <h2>Разделение функций: владелец и директор</h2>
+            <p>8 функций владельца против 7 функций директора: где заканчивается ваша работа и начинается работа наёмного управленца. Фундамент выхода из операционки.</p>
+            <span class="go">Скачать бесплатно →</span>
+          </a>
+
+          <a class="tool" href="../files/checklist-audit-kanalov.pdf" data-checklist="Аудит каналов продаж">
+            <svg class="ico" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="12" y="6" width="40" height="52" rx="6" fill="#F4F5F3" stroke="#DDE1E6" stroke-width="2"/>
+              <rect x="20" y="40" width="6" height="10" rx="2" fill="#C7CDD4"/>
+              <rect x="29" y="32" width="6" height="18" rx="2" fill="#37A3D7"/>
+              <rect x="38" y="22" width="6" height="28" rx="2" fill="#1D4D7A"/>
+              <path d="M20 18 l8 -2 l8 3 l8 -5" stroke="#37A3D7" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="tag">Чек-лист · PDF · 25 пунктов</span>
+            <h2>Аудит каналов продаж за 15 минут</h2>
+            <p>5 групп каналов — от рекомендаций до платного трафика: отметьте, что уже работает, и увидите, где бизнес теряет клиентов без затрат на рекламу.</p>
+            <span class="go">Скачать бесплатно →</span>
+          </a>
+
         </div>
-        <p class="soon rv">Раздел пополняется: готовим новые инструменты самодиагностики для собственников. Есть идея, что посчитать? <a href="../#contacts" style="color:var(--accent);font-weight:600;text-decoration:none;">Напишите нам</a>.</p>
+        <p class="soon rv">Чек-листы отправляются в обмен на email. Раздел пополняется — есть идея, что посчитать? <a href="../#contacts" style="color:var(--accent);font-weight:600;text-decoration:none;">Напишите нам</a>.</p>
       </div>
     </section>
 
@@ -285,6 +313,15 @@
   <!-- /Yandex.Metrika counter -->
 
   <script>
+    // Чек-листы: клик открывает форму (email обязателен), скачивание — после отправки
+    document.querySelectorAll('[data-checklist]').forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (!window.requestChecklist) return; /* JS формы не загрузился — отдаём PDF напрямую */
+        e.preventDefault();
+        window.requestChecklist(card.getAttribute('href'), card.dataset.checklist);
+      });
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
     var head = document.getElementById('head');
     addEventListener('scroll', function () { head.classList.toggle('scrolled', scrollY > 8); });
@@ -301,7 +338,7 @@
     document.addEventListener('click',function(e){document.querySelectorAll('.dd.open').forEach(function(d){if(!d.contains(e.target))d.classList.remove('open');});});
   </script>
 
-  <script src="../form-modal.js" defer></script>
+  <script src="../form-modal.js?v=16" defer></script>
 
 </body>
 </html>

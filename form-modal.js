@@ -161,8 +161,41 @@
     if (lastFocus) lastFocus.focus();
   }
 
-  fab.addEventListener('click', open);
-  window.openLeadForm = open; /* публичный вызов формы (используется тестом) */
+  /* ---------- Режим «чек-лист»: email обязателен, после отправки — скачивание ---------- */
+  var checklistReq = null;
+  var tEyebrow = overlay.querySelector('.lf-eyebrow'),
+      tTitle = overlay.querySelector('.lf-title'),
+      tSub = overlay.querySelector('.lf-sub'),
+      tEmailNote = overlay.querySelector('.lf-label span'),
+      tDoneTitle = done.querySelector('h3'),
+      tDoneText = done.querySelector('p');
+  var DEFAULTS = {
+    eyebrow: tEyebrow.textContent, title: tTitle.textContent, sub: tSub.textContent,
+    emailNote: tEmailNote.textContent, doneTitle: tDoneTitle.textContent, doneHtml: tDoneText.innerHTML
+  };
+  function setChecklistMode(req) {
+    checklistReq = req;
+    if (req) {
+      tEyebrow.textContent = 'Чек-лист · PDF · бесплатно';
+      tTitle.textContent = req.title;
+      tSub.textContent = 'Оставьте контакты — скачивание откроется сразу после отправки.';
+      tEmailNote.textContent = '(обязательно — для чек-листа)';
+      window.LEAD_FORM_EXTRA = { 'Чек-лист': req.title };
+    } else {
+      tEyebrow.textContent = DEFAULTS.eyebrow; tTitle.textContent = DEFAULTS.title; tSub.textContent = DEFAULTS.sub;
+      tEmailNote.textContent = DEFAULTS.emailNote;
+      tDoneTitle.textContent = DEFAULTS.doneTitle; tDoneText.innerHTML = DEFAULTS.doneHtml;
+      var oldDl = done.querySelector('.lf-dl'); if (oldDl) oldDl.remove();
+      if (window.LEAD_FORM_EXTRA && window.LEAD_FORM_EXTRA['Чек-лист']) window.LEAD_FORM_EXTRA = null;
+    }
+  }
+
+  fab.addEventListener('click', function () { setChecklistMode(null); open(); });
+  window.openLeadForm = open; /* публичный вызов формы (используется тестом и калькулятором) */
+  window.requestChecklist = function (url, title) { /* вызов с карточек чек-листов */
+    setChecklistMode({ url: url, title: title });
+    open();
+  };
   document.addEventListener('click', function (e) {
     if (e.target.closest && e.target.closest('.lf-open')) open();
   });
@@ -182,7 +215,8 @@
     form.name.classList.toggle('err', !name); if (!name) ok = false;
     var digits = phone.replace(/\D/g, '');
     form.phone.classList.toggle('err', digits.length < 10); if (digits.length < 10) ok = false;
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.email.classList.add('err'); ok = false; }
+    if (checklistReq && !email) { form.email.classList.add('err'); ok = false; }
+    else if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.email.classList.add('err'); ok = false; }
     else form.email.classList.remove('err');
     if (!form.consent.checked) {
       msg.textContent = 'Отметьте согласие на обработку персональных данных.';
@@ -213,6 +247,9 @@
       data.append('phone', phone);
       data.append('email', email);
       data.append('page', location.pathname);
+      if (window.LEAD_FORM_EXTRA) {
+        for (var k2 in window.LEAD_FORM_EXTRA) { data.append(k2, window.LEAD_FORM_EXTRA[k2]); }
+      }
       req = fetch(ENDPOINT, { method: 'POST', body: data });
     } else {
       var payload = {
@@ -245,6 +282,24 @@
           done.style.display = 'block';
           form.reset();
           try { localStorage.setItem('asm_lead_sent', '1'); } catch (_) {} /* заявка есть — exit-попап больше не нужен */
+          if (checklistReq) {
+            tDoneTitle.textContent = 'Готово — забирайте!';
+            tDoneText.innerHTML = 'Чек-лист «' + checklistReq.title + '» ваш.<br>Если кнопка не сработает — напишите нам, пришлём письмом.';
+            var dl = done.querySelector('.lf-dl');
+            if (!dl) {
+              dl = document.createElement('a');
+              dl.className = 'lf-exit-go lf-dl';
+              dl.style.marginTop = '18px';
+              dl.target = '_blank';
+              dl.rel = 'noopener';
+              done.appendChild(dl);
+            }
+            dl.href = checklistReq.url;
+            dl.setAttribute('download', '');
+            dl.textContent = 'Скачать чек-лист (PDF)';
+            try { localStorage.setItem('asm_checklist_done', '1'); } catch (_) {}
+            if (window.ym) { try { ym(110362886, 'reachGoal', 'checklist_lead'); } catch (_) {} }
+          }
           if (window.ym) { try { ym(110362886, 'reachGoal', 'lead_form_sent'); } catch (_) {} }
         } else { throw new Error((r && r.error) || 'send'); }
       })
@@ -267,24 +322,33 @@
     if (/test-upravlyaemosti|cena-operacionki/.test(location.pathname)) return;
     var TEST_URL = PRIVACY_URL.replace('privacy/', 'test-upravlyaemosti/');
     var CALC_URL = PRIVACY_URL.replace('privacy/', 'cena-operacionki/');
+    var HUB_URL = PRIVACY_URL.replace('privacy/', 'testy/#materials');
     var WEEK = 7 * 24 * 3600 * 1000;
-    var quizDone = false, calcDone = false;
+    var quizDone = false, calcDone = false, checklistDone = false;
     try {
       quizDone = !!localStorage.getItem('asm_quiz_done');
       calcDone = !!localStorage.getItem('asm_calc_done');
-      if (localStorage.getItem('asm_lead_sent')) return;      /* заявка уже есть */
-      if (quizDone && calcDone) return;                        /* оба инструмента пройдены */
+      checklistDone = !!localStorage.getItem('asm_checklist_done');
+      if (localStorage.getItem('asm_lead_sent')) return;                 /* заявка уже есть */
+      if (quizDone && calcDone && checklistDone) return;                 /* всё пройдено */
       if (Date.now() - (+localStorage.getItem('asm_exit_shown') || 0) < WEEK) return;
     } catch (_) {}
 
-    /* по умолчанию предлагаем калькулятор; кто уже считал — тест управляемости */
-    var offer = calcDone
-      ? { url: TEST_URL, eyebrow: 'Ещё 2 минуты — и картина полная', title: 'Насколько ваш бизнес управляем без вас?',
-          sub: 'Цену операционки вы уже знаете. Теперь пройдите тест из 10 вопросов — он покажет, где именно компания держится лично на вас.',
-          btn: 'Пройти тест' }
-      : { url: CALC_URL, eyebrow: 'Пока вы не ушли — 30 секунд', title: 'Сколько денег съедает ваша операционка?',
-          sub: 'Два ползунка — и вы увидите, сколько рублей в год стоит рутина, которую вы тащите на себе. Без регистрации, цифра сразу.',
-          btn: 'Посчитать' };
+    /* цепочка предложений: калькулятор → тест → чек-лист */
+    var offer;
+    if (!calcDone) {
+      offer = { url: CALC_URL, eyebrow: 'Пока вы не ушли — 30 секунд', title: 'Сколько денег съедает ваша операционка?',
+        sub: 'Два ползунка — и вы увидите, сколько рублей в год стоит рутина, которую вы тащите на себе. Без регистрации, цифра сразу.',
+        btn: 'Посчитать' };
+    } else if (!quizDone) {
+      offer = { url: TEST_URL, eyebrow: 'Ещё 2 минуты — и картина полная', title: 'Насколько ваш бизнес управляем без вас?',
+        sub: 'Цену операционки вы уже знаете. Теперь пройдите тест из 10 вопросов — он покажет, где именно компания держится лично на вас.',
+        btn: 'Пройти тест' };
+    } else {
+      offer = { url: HUB_URL, eyebrow: 'Напоследок — заберите PDF', title: 'Чек-лист: владелец vs директор',
+        sub: 'Где заканчивается ваша работа и начинается работа директора: 8 функций владельца против 7 функций директора. Заберите бесплатно.',
+        btn: 'Забрать чек-лист' };
+    }
 
     var armed = false, shown = false;
     var armDelay = /[?&]exitdebug/.test(location.search) ? 300 : 15000; /* exitdebug — для отладки */
