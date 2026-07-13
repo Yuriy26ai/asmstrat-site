@@ -40,7 +40,7 @@
     + '.lf-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border:0;background:none;cursor:pointer;'
     + 'font-size:22px;line-height:1;color:#697585;border-radius:4px;}'
     + '.lf-close:hover{color:#0C1B2A;background:#F4F5F3;}'
-    + '.lf-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#1D4D7A;margin:0 0 10px;}'
+    + '.lf-eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#a35c42;margin:0 0 10px;}'
     + '.lf-title{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px;color:#0C1B2A;margin:0 0 8px;letter-spacing:-.01em;}'
     + '.lf-sub{font-size:14.5px;color:#697585;margin:0 0 22px;line-height:1.55;}'
     + '.lf-field{margin-bottom:14px;}'
@@ -48,13 +48,13 @@
     + '.lf-label span{color:#697585;font-weight:400;}'
     + '.lf-input{width:100%;box-sizing:border-box;border:1px solid rgba(12,27,42,.18);border-radius:4px;padding:12px 14px;'
     + 'font:400 16px/1.4 Inter,system-ui,sans-serif;color:#0C1B2A;background:#fff;transition:border-color .2s;}'
-    + '.lf-input:focus{outline:none;border-color:#1D4D7A;box-shadow:0 0 0 3px rgba(29,77,122,.12);}'
+    + '.lf-input:focus{outline:none;border-color:#a35c42;box-shadow:0 0 0 3px rgba(29,77,122,.12);}'
     + '.lf-input.err{border-color:#C0392B;}'
     + '.lf-ch{display:flex;gap:18px;flex-wrap:wrap;padding:4px 2px 0;}'
     + '.lf-ch label{display:flex;align-items:center;gap:7px;font:400 14.5px/1 Inter,system-ui,sans-serif;color:#3A4654;cursor:pointer;}'
-    + '.lf-ch input{accent-color:#1D4D7A;width:16px;height:16px;cursor:pointer;}'
+    + '.lf-ch input{accent-color:#a35c42;width:16px;height:16px;cursor:pointer;}'
     + '.lf-consent{display:flex;gap:10px;align-items:flex-start;margin:16px 0 18px;font-size:12.5px;color:#697585;line-height:1.5;}'
-    + '.lf-consent input{margin-top:2px;accent-color:#1D4D7A;width:16px;height:16px;flex:none;}'
+    + '.lf-consent input{margin-top:2px;accent-color:#a35c42;width:16px;height:16px;flex:none;}'
     + '.lf-submit{width:100%;border:0;border-radius:4px;background:#1D4D7A;color:#fff;padding:15px;cursor:pointer;'
     + 'font:600 16px/1 Inter,system-ui,sans-serif;transition:background .2s;}'
     + '.lf-submit:hover{background:#163C5F;}'
@@ -84,7 +84,7 @@
     + '.lf-exit-go:hover{background:#163C5F;transform:translateY(-1px);}'
     + '.lf-exit-no{background:none;border:1px solid rgba(12,27,42,.18);border-radius:4px;color:#3A4654;'
     + 'padding:15px 22px;font:600 15px/1 Inter,system-ui,sans-serif;cursor:pointer;}'
-    + '.lf-exit-no:hover{border-color:#1D4D7A;color:#1D4D7A;}'
+    + '.lf-exit-no:hover{border-color:#a35c42;color:#a35c42;}'
     + '.lf-exit-note{font-size:12px;color:#697585;margin-top:16px;}';
 
   var style = document.createElement('style');
@@ -118,14 +118,14 @@
     + '      <input class="lf-input" name="email" type="email" autocomplete="email" maxlength="120"></div>'
     + '    <div class="lf-hp" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"></div>'
     + '    <label class="lf-consent"><input name="consent" type="checkbox" required>'
-    + '      <span>Соглашаюсь на <a href="__PRIVACY__" target="_blank" rel="noopener" style="color:#1D4D7A;">обработку персональных данных</a> для связи по моей заявке</span></label>'
+    + '      <span>Соглашаюсь на <a href="__PRIVACY__" target="_blank" rel="noopener" style="color:#a35c42;">обработку персональных данных</a> для связи по моей заявке</span></label>'
     + '    <button type="submit" class="lf-submit">Отправить заявку</button>'
     + '    <p class="lf-msg"></p>'
     + '  </form>'
     + '  <div class="lf-done">'
     + '    <div class="lf-check"></div>'
     + '    <h3>Заявка отправлена</h3>'
-    + '    <p>Спасибо! Свяжемся с вами в ближайшее время.<br>Если срочно — телефон <a href="tel:+79777000755" style="color:#1D4D7A;text-decoration:none;font-weight:600;">+7 977 700-07-55</a></p>'
+    + '    <p>Спасибо! Свяжемся с вами в ближайшее время.<br>Если срочно — телефон <a href="tel:+79777000755" style="color:#a35c42;text-decoration:none;font-weight:600;">+7 977 700-07-55</a></p>'
     + '  </div>'
     + '</div>';
   overlay.innerHTML = overlay.innerHTML.replace('__PRIVACY__', PRIVACY_URL);
@@ -252,7 +252,7 @@
     var useOwn = ENDPOINT.indexOf('REPLACE_WITH') !== 0;
     var useW3 = !useOwn && WEB3FORMS_KEY.indexOf('REPLACE_WITH') !== 0;
     if (!useOwn && !useW3) {
-      msg.innerHTML = 'Форма временно недоступна. Напишите нам: <a href="mailto:sales@asmstrat.com" style="color:#1D4D7A;font-weight:600;">sales@asmstrat.com</a> или Telegram <a href="https://t.me/asmstrat" target="_blank" rel="noopener" style="color:#1D4D7A;font-weight:600;">@asmstrat</a>';
+      msg.innerHTML = 'Форма временно недоступна. Напишите нам: <a href="mailto:sales@asmstrat.com" style="color:#a35c42;font-weight:600;">sales@asmstrat.com</a> или Telegram <a href="https://t.me/asmstrat" target="_blank" rel="noopener" style="color:#a35c42;font-weight:600;">@asmstrat</a>';
       msg.className = 'lf-msg err';
       return;
     }
@@ -323,7 +323,7 @@
         } else { throw new Error((r && r.error) || 'send'); }
       })
       .catch(function () {
-        msg.innerHTML = 'Не получилось отправить. Позвоните <a href="tel:+79777000755" style="color:#1D4D7A;font-weight:600;">+7 977 700-07-55</a> или напишите <a href="mailto:sales@asmstrat.com" style="color:#1D4D7A;font-weight:600;">sales@asmstrat.com</a>';
+        msg.innerHTML = 'Не получилось отправить. Позвоните <a href="tel:+79777000755" style="color:#a35c42;font-weight:600;">+7 977 700-07-55</a> или напишите <a href="mailto:sales@asmstrat.com" style="color:#a35c42;font-weight:600;">sales@asmstrat.com</a>';
         msg.className = 'lf-msg err';
       })
       .then(function () { submitBtn.disabled = false; });
@@ -383,9 +383,9 @@
       + '  <button type="button" class="lf-close" aria-label="Закрыть">×</button>'
       + '  <svg class="lf-exit-gauge" viewBox="0 0 230 132" aria-hidden="true">'
       + '    <path d="M20 120 A95 95 0 0 1 210 120" fill="none" stroke="#EDF0F2" stroke-width="16" stroke-linecap="round"/>'
-      + '    <path d="M20 120 A95 95 0 0 1 115 25" fill="none" stroke="#37A3D7" stroke-width="16" stroke-linecap="round"/>'
-      + '    <circle cx="115" cy="120" r="10" fill="#1D4D7A"/>'
-      + '    <line x1="115" y1="120" x2="63" y2="60" stroke="#1D4D7A" stroke-width="6" stroke-linecap="round"/>'
+      + '    <path d="M20 120 A95 95 0 0 1 115 25" fill="none" stroke="#a35c42" stroke-width="16" stroke-linecap="round"/>'
+      + '    <circle cx="115" cy="120" r="10" fill="#000d10"/>'
+      + '    <line x1="115" y1="120" x2="63" y2="60" stroke="#000d10" stroke-width="6" stroke-linecap="round"/>'
       + '  </svg>'
       + '  <p class="lf-eyebrow">' + offer.eyebrow + '</p>'
       + '  <h3 class="lf-title">' + offer.title + '</h3>'

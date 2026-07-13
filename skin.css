@@ -1,0 +1,593 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ============================================================
+   skin.css — Hyer override layer
+   Loads AFTER each page's inline <style>. Override-only.
+   !important used ONLY where a page or JS sets a property inline
+   (notably the runtime <style> injected by form-modal.js).
+   Palette: deep-ink monochrome + cool_ash + pebble hairlines;
+   clay reserved strictly for the primary CTA.
+   ============================================================ */
+
+/* ---------- 1. Token remap ---------- */
+:root{
+  --bg:        #ffffff;   /* primary white canvas */
+  --paper:     #f2f1ef;   /* warm off-white band surface */
+  --ink:       #000d10;   /* deep-ink: headings, dark bands, footer, ink */
+  --body:      #23292b;   /* lifted deep neutral for body text */
+  --muted:     #636369;   /* cool_ash darkened → ~5.0:1 on white, ~3.5:1 on paper (WCAG AA) */
+  --accent:    #000d10;   /* collapsed to deep-ink → monochrome links/focus */
+  --accent2:   #000d10;   /* neutralized second hue → deep-ink */
+  --line:      #d5d3d4;   /* pebble: solid hairline = elevation mechanism */
+  --line-soft: #e7e5e4;   /* faint pebble: internal dividers */
+  --clay:      #a35c42;   /* darkened primary clay → ~5:1 white-on-clay (WCAG AA) */
+  --clay-hi:   #8f4e37;   /* clay hover */
+}
+
+/* ---------- 2. Global body / base ---------- */
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:18px;
+  line-height:1.6;
+  color:var(--body);
+  background:var(--bg);
+}
+
+/* ---------- 3. Typography: retire Newsreader, one weighty Inter ---------- */
+h1,h2,h3,
+.serif,
+h1.serif,h2.serif,h3.serif,
+.strip .n,
+.c-big,
+.c-item .n,
+.t-how .n,
+.c-label .v{
+  font-family:'Inter',system-ui,sans-serif;
+}
+
+/* Hero h1 */
+h1,
+h1.serif,
+.hero h1,
+.hero-grid h1,
+.hero-inner h1{
+  font-weight:800;
+  letter-spacing:-0.03em;
+  line-height:1.05;
+  font-size:clamp(40px,6vw,84px);
+  max-width:24ch;
+  color:var(--ink);
+}
+
+/* Section h2 */
+h2,
+h2.serif,
+.sec-head h2,
+.contact h2{
+  font-weight:800;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  font-size:clamp(28px,3.6vw,46px);
+  color:var(--ink);
+}
+
+/* h3 / h4 / card titles */
+h3,
+h3.serif,
+.case h3,
+.edu-card h3,
+.hook .ht,
+.svc-item h4{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  line-height:1.2;
+  color:var(--ink);
+}
+
+/* Big stat / calc numerals — single tokens, huge tight numeral flavor.
+   .fact .n / .r-score added: pages set them to Newsreader serif. */
+.strip .n,
+.c-big,
+.c-item .n,
+.fact .n,
+.r-score{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:800;
+  letter-spacing:-0.02em;
+  line-height:1;
+  color:var(--ink);
+}
+.strip .l{ color:var(--muted); }
+
+/* Quiz question text — was Newsreader serif on test-upravlyaemosti */
+.q-text{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:700;
+  letter-spacing:-0.015em;
+  color:var(--ink);
+}
+
+/* Deep-ink circle badge (sovetnik) — was Newsreader serif */
+.bn-center .circle{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:800;
+  letter-spacing:-0.02em;
+}
+
+/* Eyebrow kicker — deep-ink, tight upper */
+.eyebrow{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:700;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+
+/* Uppercase tags — cool_ash */
+.rung .tag,
+.edu-card .tag,
+.tool .tag,
+.case .lab{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:700;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* Decorative numbers — heavy but quiet cool_ash.
+   Two-class selectors (.grp-head .g-num, .cy-item .num) added to
+   out-specify page rules that set them to Newsreader serif. */
+.g-num,
+.svc-item .num,
+.gi .gnum,
+.step .snum,
+.t-how .n,
+.why .n,
+.num,
+.gnum,
+.snum,
+.grp-head .g-num,
+.cy-item .num{
+  font-family:'Inter',system-ui,sans-serif;
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color:var(--muted);
+}
+
+/* Lead paragraphs may stay slightly larger */
+.hero p,
+.lead,
+.hero-inner p{
+  font-size:clamp(18px,1.9vw,21px);
+  line-height:1.55;
+}
+
+/* ---------- 4. Inline text links — deep-ink + underline (clickable, monochrome) ---------- */
+p a,
+.sec-note a,
+.doc a,
+.t-how a,
+.crumbs a,
+li a{
+  color:var(--ink);
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+p a:hover,
+.sec-note a:hover,
+.doc a:hover,
+.t-how a:hover,
+.crumbs a:hover,
+li a:hover{
+  color:var(--ink);
+  text-decoration-thickness:2px;
+}
+
+/* Focus ring — monochrome */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible{
+  outline:2px solid var(--ink);
+  outline-offset:2px;
+}
+
+::selection{ background:var(--ink); color:#fff; }
+
+/* ---------- 5. Buttons — pill, no shadow, color-shift hover ---------- */
+.btn,
+.btn-primary,
+.btn-ghost,
+.nav-cta{
+  border-radius:1000px;
+  font-weight:600;
+  letter-spacing:-0.005em;
+  box-shadow:none;
+  transition:background-color .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn:hover,
+.btn-primary:hover,
+.btn-ghost:hover,
+.nav-cta:hover{
+  transform:none;
+  box-shadow:none;
+}
+
+/* Primary + nav CTA = clay fill (the single warm signal).
+   Resting clay darkened to --clay (#a35c42) so white 600-weight
+   labels clear WCAG AA 4.5:1. */
+.btn-primary,
+.nav-cta,
+.c-cta .btn-primary{
+  background:var(--clay);
+  color:#fff;
+  border:1px solid var(--clay);
+}
+.btn-primary:hover,
+.nav-cta:hover,
+.c-cta .btn-primary:hover{
+  background:var(--clay-hi);
+  border-color:var(--clay-hi);
+  color:#fff;
+}
+
+/* Ghost / secondary = deep-ink outline (never clay) */
+.btn-ghost{
+  background:transparent;
+  border:1px solid var(--ink);
+  color:var(--ink);
+}
+.btn-ghost:hover{
+  background:var(--ink);
+  color:#fff;
+}
+
+/* ---------- 6. Nav / header — hairline instead of shadow ---------- */
+.head,
+.nav{
+  background:var(--bg);
+  box-shadow:none;
+  border-bottom:1px solid var(--line);
+}
+.nav a{ color:var(--ink); }
+.nav a:hover{ color:var(--ink); }
+
+/* ---------- 7. Hero ---------- */
+.hero{
+  background:var(--bg);
+  box-shadow:none;
+}
+.hero .eyebrow{ color:var(--ink); }
+
+/* ---------- 8. Bands: strip / block alternation ---------- */
+.strip{
+  background:var(--paper);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  box-shadow:none;
+}
+.block{ background:var(--bg); box-shadow:none; }
+.block.alt{ background:var(--paper); }
+
+/* Small secondary text sitting on the warm paper band needs a darker
+   ink than --muted to clear contrast on --paper (#f2f1ef). */
+.strip .l,
+.block.alt .rung .tag,
+.block.alt .edu-card .tag,
+.block.alt .tool .tag,
+.block.alt .g-num,
+.block.alt .svc-item .num,
+.block.alt .gi .gnum,
+.block.alt .step .snum,
+.block.alt .t-how .n,
+.strip .g-num{ color:#4f4f55; }
+
+/* ---------- 9. Cards — depth via pebble border, no shadow ---------- */
+.case,
+.facts .fact,
+.arts .art,
+.arts .art .chk,
+.edu-card{
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.case{ border-radius:8px; }
+.case h3{ color:var(--ink); }
+.case .res li{ color:var(--body); font-weight:500; }
+.case .res li::before{ color:var(--muted); }
+.case:hover{ transform:none; box-shadow:none; }
+
+.arts .art .chk{ border-radius:8px; }
+.arts .art .chk .circle,
+.arts .art .chk::before{
+  background:var(--ink);   /* success check circle stays deep-ink, not clay */
+  color:#fff;
+}
+
+.facts .fact{ border-radius:8px; }
+
+/* Hook tiles */
+.hooks .hook,
+.hook{
+  border:1px solid var(--line);
+  border-radius:1000px;
+  box-shadow:none;
+  transition:background-color .18s ease,border-color .18s ease;
+}
+.hooks .hook:hover,
+.hook:hover{
+  transform:none;
+  box-shadow:none;
+  background:var(--paper);
+  border-color:var(--ink);
+}
+.hook .hico{
+  border-radius:50%;
+  background:var(--paper);
+  border:1px solid var(--line);
+  color:var(--ink);
+}
+.hook .arr{ color:var(--ink); }
+.hook .ht{ color:var(--ink); font-weight:700; }
+/* Subtitle sits on white normally and on --paper when the hook is
+   hovered; darker ink clears AA on both surfaces. */
+.hook .hs{ color:#4f4f55; }
+
+/* Tool hub cards (/testy/) — remove shadow entirely */
+.tool{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  box-shadow:none;
+  transition:background-color .18s ease,border-color .18s ease;
+}
+.tool:hover{
+  transform:none;
+  box-shadow:none;
+  background:var(--paper);
+  border-color:var(--ink);
+}
+
+/* Tool-card inline SVG icons hardcode the retired brand blue/cyan as
+   presentation attributes. CSS fill/stroke override presentation
+   attributes, so recolor the primary marks to deep-ink; keep the
+   neutral fills (#C7CDD4/#EDF0F2) untouched. */
+.tool .ico [fill="#1D4D7A"],
+.tool .ico [fill="#37A3D7"]{ fill:var(--ink); }
+.tool .ico [stroke="#1D4D7A"],
+.tool .ico [stroke="#37A3D7"]{ stroke:var(--ink); }
+
+/* Chip-style uppercase tags */
+.rung .tag,
+.edu-card .tag,
+.tool .tag{
+  border:1px solid var(--line);
+  border-radius:1000px;
+  background:transparent;
+  box-shadow:none;
+}
+
+/* ---------- 10. Calculator / quiz containers ---------- */
+.calc,
+.quiz,
+.c-card{
+  box-shadow:none;
+  border:1px solid var(--line);
+  background:#fff;
+}
+
+/* Range slider knobs (cena-operacionki) carry a drop shadow on their
+   pseudo-elements, which named / [class*=shadow] selectors can't reach. */
+input[type=range]::-webkit-slider-thumb{ box-shadow:none; }
+input[type=range]::-moz-range-thumb{ box-shadow:none; }
+
+/* ---------- 11. FAQ accordion ---------- */
+.faq details{
+  box-shadow:none;
+  border:none;
+  border-bottom:1px solid var(--line-soft);
+}
+.faq summary{
+  font-family:'Inter',system-ui,sans-serif;   /* pages set Newsreader here */
+  font-weight:700;
+  color:var(--ink);
+  list-style:none;
+}
+.faq summary::marker,
+.faq summary::-webkit-details-marker{ color:var(--ink); }
+
+/* ---------- 12. Contact — full deep-ink dark band ---------- */
+.contact{
+  background:var(--ink);
+  box-shadow:none;
+}
+.contact h2{ color:#fff; }
+.contact p{ color:rgba(255,255,255,.7); }
+.contact .btn-ghost{
+  border-color:rgba(255,255,255,.5);
+  color:#fff;
+}
+.contact .btn-ghost:hover{
+  background:#fff;
+  color:var(--ink);
+}
+.contact hr,
+.contact .divider,
+.contact [class*="border"]{ border-color:rgba(255,255,255,.14); }
+
+/* Contact link values — pages set them to Newsreader serif and turn
+   them light-blue on hover. Force Inter + keep hover white (monochrome). */
+.contact .clinks .v,
+.clinks .v{
+  font-family:'Inter',system-ui,sans-serif;
+}
+.contact .clinks a:hover .v,
+.clinks a:hover .v{ color:#fff; }
+
+/* ---------- 13. Footer — full-bleed deep-ink ---------- */
+footer,
+.footer{
+  background:var(--ink);
+  color:rgba(255,255,255,.7);
+  border-top:1px solid rgba(255,255,255,.12);
+  box-shadow:none;
+}
+footer h1,footer h2,footer h3,footer h4,
+.footer h1,.footer h2,.footer h3,.footer h4{ color:#fff; }
+footer a,
+.footer a{
+  color:#fff;
+  text-decoration:none;
+}
+footer a:hover,
+.footer a:hover{ text-decoration:underline; text-underline-offset:2px; }
+
+/* ---------- 14. Misc shadow neutralization ---------- */
+.person,
+.person img,
+.dd-menu,
+.mnav,
+.card,
+[class*="shadow"]{
+  box-shadow:none;
+}
+.person img{ border:1px solid var(--line); }
+/* Team portrait wrapper — page sets a two-class rule with drop shadow
+   and a cool-blue gradient background that would show behind cutouts. */
+.person .pphoto{
+  box-shadow:none;
+  background:var(--paper);
+}
+.dd-menu,
+.mnav{ border:1px solid var(--line); }
+
+/* Mobile nav row dividers */
+.mnav a,
+.mnav .row{ border-bottom:1px solid var(--line-soft); }
+
+/* ============================================================
+   15. Lead form — form-modal.js injects a <style> at RUNTIME,
+   AFTER skin.css, with hardcoded blue (#1D4D7A/#163C5F),
+   cool paper (#F4F5F3) and heavy shadows.
+   These overrides therefore REQUIRE !important.
+   ============================================================ */
+
+/* Floating action button → clay */
+.lf-fab{
+  background:var(--clay) !important;
+  box-shadow:none !important;
+  border-radius:1000px !important;
+  color:#fff !important;
+}
+.lf-fab:hover{ background:var(--clay-hi) !important; }
+
+/* Overlay dim kept (the allowed no-shadow exception) */
+.lf-overlay{ background:rgba(0,13,16,.55) !important; }
+
+/* Card — drop the deep drop-shadow, use pebble border */
+.lf-card{
+  border-radius:8px !important;
+  box-shadow:none !important;
+  border:1px solid var(--line) !important;
+  background:#fff !important;
+}
+
+.lf-title{
+  font-family:'Inter',system-ui,sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:-0.02em !important;
+  color:var(--ink) !important;
+}
+
+/* Success-screen heading — form-modal.js sets Newsreader serif */
+.lf-done h3{
+  font-family:'Inter',system-ui,sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:-0.02em !important;
+  color:var(--ink) !important;
+}
+
+/* Form eyebrow — runtime blue → cool_ash */
+.lf-eyebrow{ color:var(--muted) !important; }
+
+/* Checked radios / checkboxes — runtime blue accent → deep-ink */
+.lf-ch input,
+.lf-consent input{ accent-color:var(--ink) !important; }
+
+/* Inputs */
+.lf-input{
+  border:1px solid var(--line) !important;
+  border-radius:4px !important;
+  box-shadow:none !important;
+  color:var(--body) !important;
+}
+.lf-input:focus{
+  border-color:var(--ink) !important;
+  outline:none !important;
+  box-shadow:none !important;
+}
+
+/* Primary form actions → clay pill */
+.lf-submit{
+  background:var(--clay) !important;
+  color:#fff !important;
+  border-radius:1000px !important;
+  box-shadow:none !important;
+  border:1px solid var(--clay) !important;
+}
+.lf-submit:hover{ background:var(--clay-hi) !important; border-color:var(--clay-hi) !important; }
+
+.lf-exit-go{
+  background:var(--clay) !important;
+  color:#fff !important;
+  border-radius:1000px !important;
+  box-shadow:none !important;
+  border:1px solid var(--clay) !important;
+}
+.lf-exit-go:hover{ background:var(--clay-hi) !important; border-color:var(--clay-hi) !important; }
+
+/* Inline lead CTA injected into the .contact band → clay pill
+   (this is the main lead CTA; runtime style makes it a white square). */
+.lf-cta-inline{
+  background:var(--clay) !important;
+  color:#fff !important;
+  border-radius:1000px !important;
+  box-shadow:none !important;
+  border:1px solid var(--clay) !important;
+}
+.lf-cta-inline:hover{
+  background:var(--clay-hi) !important;
+  border-color:var(--clay-hi) !important;
+  transform:none !important;
+}
+
+/* Secondary exit → deep-ink outline */
+.lf-exit-no{
+  background:transparent !important;
+  border:1px solid var(--ink) !important;
+  border-radius:1000px !important;
+  color:var(--ink) !important;
+  box-shadow:none !important;
+}
+.lf-exit-no:hover{ background:var(--ink) !important; color:#fff !important; }
+
+/* Close glyph is real text (×): needs 4.5:1, so use body ink not muted */
+.lf-close{ color:var(--body) !important; }
+.lf-close:hover{ color:var(--ink) !important; }
+
+/* Success check circle → deep-ink (clay reserved for CTAs) */
+.lf-check{
+  background:var(--ink) !important;
+  color:#fff !important;
+}
+
+/* NOTE — residual off-palette that CSS cannot reach and must be fixed
+   in form-modal.js source:
+   (a) exit-intent SVG gauge presentation attributes
+       stroke="#37A3D7" / fill|stroke="#1D4D7A" → swap to #8e8e95 / #000d10;
+   (b) in-modal <a> inline style="color:#1D4D7A" (privacy / tel / mailto /
+       telegram / error links) → replace with color:#000d10 (or clay for CTAs).
+   These are inline/attribute styles that override this stylesheet. */
