@@ -462,7 +462,8 @@
   <!-- /Yandex.Metrika counter -->
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    var _y=document.getElementById('year'); if(_y)_y.textContent=new Date().getFullYear();
+    setTimeout(function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){el.classList.add('in');});},1500); /* защита: контент не остаётся скрытым, даже если IO/JS сбойнёт */
     const head = document.getElementById('head');
     addEventListener('scroll', () => head.classList.toggle('scrolled', scrollY > 8));
     const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.1});
