@@ -288,6 +288,7 @@
   .hook .hs{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;}
   .hook .arr{margin-left:auto;color:var(--accent);font-weight:600;flex:none;}
 </style>
+<link rel="stylesheet" href="footer.css">
 </head>
 
 <body>
@@ -464,7 +465,7 @@
           <div class="edu-card">
             <span class="tag">Для владельцев</span>
             <h3 class="serif">Mini-MBA и Executive MBA</h3>
-            <p>Управленческая подготовка собственника в процессе систематизации:</p>
+            <p>Управленческая подготовка собственника — обучение с сопровождением прямо в процессе систематизации бизнеса:</p>
             <ul>
               <li>стратегия и целеполагание</li>
               <li>оргструктура, ЦКП и зоны ответственности</li>
@@ -595,12 +596,49 @@
 
   </main>
 
-  <footer>
-    <div class="wrap foot">
-      <span>© <span id="year"></span> ASM Strategy — систематизация бизнеса и системное управление</span>
-      <span><a href="sovetnik/">Советник по системному управлению</a> · <a href="privacy/">Политика ПД</a> · asmstrat.com</span>
+  <footer class="site-footer">
+  <div class="wrap sf-grid">
+    <div class="sf-brand">
+      <a href="./" class="sf-logo">ASM Strategy</a>
+      <p class="sf-tag">Бизнес-архитекторы: превращаем растущий бизнес в управляемую систему — без ежедневного участия собственника.</p>
+      <div class="sf-social">
+        <a href="https://t.me/asmstrat" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.8 11.5c-1-.3-1-.9.2-1.4l18.5-7.1c.9-.3 1.6.2 1.4 1.3z"/></svg>Telegram</a>
+        <a href="https://wa.me/79777000755" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 .9c.3.2.5.3.5.4.1.2.1.7-.1 1.4z"/></svg>WhatsApp</a>
+      </div>
     </div>
-  </footer>
+    <nav class="sf-col">
+      <h4>Услуги</h4>
+      <a href="diagnostika/">Диагностика и аудит</a>
+      <a href="strategicheskie-sessii/">Стратегические сессии</a>
+      <a href="sistematizaciya/">Систематизация бизнеса</a>
+      <a href="reinzhiniring/">Реинжиниринг управления</a>
+      <a href="sovetnik/">Советник по управлению</a>
+      <a href="sovet-direktorov/">Совет директоров</a>
+      <a href="partnerskie-soglasheniya/">Партнёрские соглашения</a>
+      <a href="sdelki-ma/">Сделки M&amp;A</a>
+      <a href="obuchenie/">Обучение руководителей</a>
+    </nav>
+    <nav class="sf-col">
+      <h4>Инструменты</h4>
+      <a href="test-upravlyaemosti/">Тест управляемости</a>
+      <a href="cena-operacionki/">Калькулятор операционки</a>
+      <a href="testy/">Тесты и чек-листы</a>
+    </nav>
+    <nav class="sf-col">
+      <h4>Контакты</h4>
+      <a href="mailto:sales@asmstrat.com">sales@asmstrat.com</a>
+      <a href="tel:+79777000755">+7 977 700-07-55</a>
+      <a href="https://t.me/asmstrat" target="_blank" rel="noopener">Telegram @asmstrat</a>
+      <a href="https://wa.me/79777000755" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="privacy/">Политика обработки ПД</a>
+    </nav>
+  </div>
+  <div class="wrap sf-bottom">
+    <span>© <span class="sf-year">2026</span> ASM Strategy — систематизация бизнеса и системное управление</span>
+    <span>asmstrat.com</span>
+  </div>
+  <script>document.querySelectorAll('.sf-year').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
+</footer>
 
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
