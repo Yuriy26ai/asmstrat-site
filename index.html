@@ -144,14 +144,29 @@
   .grp-head h3{font-size:24px;}
   .grp-head .g-note{margin-left:auto;font-size:13.5px;color:var(--muted);text-align:right;}
   @media(max-width:640px){.grp-head{flex-wrap:wrap;}.grp-head .g-note{margin-left:0;text-align:left;width:100%;}}
-  .svc{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;}
+  /* Путь: 4 этапа — чистый степпер вместо перегруженной схемы */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 52px;}
+  @media(max-width:820px){.steps{grid-template-columns:1fr 1fr;}}
+  @media(max-width:460px){.steps{grid-template-columns:1fr;}}
+  .step{position:relative;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:22px 22px 20px;}
+  .step .sn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;margin-bottom:14px;}
+  .step h3{font-size:19px;margin-bottom:4px;}
+  .step p{font-size:13.5px;color:var(--muted);line-height:1.45;}
+  .step::after{content:"";position:absolute;right:-11px;top:50%;width:16px;height:16px;transform:translateY(-50%);background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231D4D7A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='4' y1='8' x2='12' y2='8'/%3E%3Cpolyline points='8 4 12 8 8 12'/%3E%3C/svg%3E");z-index:2;}
+  .step:last-child::after{display:none;}
+  @media(max-width:820px){.step::after{display:none;}}
+
+  /* УСЛУГИ — кликабельные карточки-продукты */
+  .svc{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   @media(max-width:820px){.svc{grid-template-columns:1fr;}}
-  .svc-item{padding:26px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;}
-  .svc-item .num{font-family:'Newsreader',serif;font-size:16px;color:var(--muted);padding-top:3px;}
-  .svc-item h4{font-family:'Newsreader',serif;font-weight:400;color:var(--ink);font-size:21px;line-height:1.25;margin-bottom:8px;}
-  .svc-item p{font-size:15.5px;color:var(--muted);line-height:1.55;}
-  .svc-item a{color:inherit;text-decoration:none;}
-  .svc-item a:hover h4{color:var(--accent);}
+  .svc-item{border:1px solid var(--line);border-radius:12px;background:var(--bg);transition:box-shadow .25s,transform .25s,border-color .25s;}
+  .svc-item a{display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:start;padding:22px 24px;color:inherit;text-decoration:none;}
+  .svc-item:hover{border-color:var(--accent);box-shadow:0 12px 30px rgba(12,27,42,0.10);transform:translateY(-2px);}
+  .svc-item h4{grid-column:1;grid-row:1;font-family:'Newsreader',serif;font-weight:400;color:var(--ink);font-size:20px;line-height:1.25;}
+  .svc-item .go{grid-column:2;grid-row:1;display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:600;white-space:nowrap;padding-top:4px;}
+  .svc-item .go svg{transition:transform .25s;}
+  .svc-item:hover .go svg{transform:translateX(4px);}
+  .svc-item p{grid-column:1/-1;grid-row:2;font-size:15px;color:var(--muted);line-height:1.55;}
 
   /* выноска-продукт */
   .promo{margin-top:56px;border:1px solid var(--line);border-left:3px solid var(--accent);padding:32px 36px;display:flex;justify-content:space-between;gap:24px;align-items:center;flex-wrap:wrap;background:var(--bg);}
@@ -262,8 +277,7 @@
   .contact h2{font-size:clamp(26px,3.2vw,38px);margin-bottom:14px;}
   .contact p{margin-bottom:26px;font-size:16.5px;}
   .clinks a{padding:16px 2px;}
-  .svc-item a h4{color:var(--accent);}
-  .svc-item a:hover h4{text-decoration:underline;text-underline-offset:3px;}
+  .svc-item a:hover h4{color:var(--accent);}
   .sec-note a:not(.btn){text-decoration:underline;text-underline-offset:3px;}
   /* Тайлы инструментов */
   .hooks{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;}
@@ -320,7 +334,7 @@
       <video class="hero-video" id="heroVideo" muted loop playsinline autoplay preload="none" aria-hidden="true" tabindex="-1"></video>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="wrap hero-inner">
-        <span class="eyebrow rv">ASM Strategy · Бизнес-архитекторы</span>
+        <span class="eyebrow rv">Управленческий и стратегический консалтинг · систематизация и автоматизация бизнеса</span>
         <h1 class="rv">Превращаем растущий бизнес в управляемую систему</h1>
         <p class="rv">Помогаем собственникам выйти из операционной перегрузки: <b>выстраиваем систему управления, при которой компания растёт руками управленческой команды — без ежедневного участия владельца.</b></p>
         <div class="actions rv">
@@ -364,11 +378,17 @@
     <section class="block" id="services">
       <div class="wrap">
         <div class="sec-head rv">
+          <span class="eyebrow" style="display:block;margin-bottom:14px;">Наши продукты</span>
           <h2>Полный цикл построения системы управления</h2>
-          <p>Мы не набор разрозненных услуг — мы ведём компанию по пути: от диагностики к системе, от системы к развитию. Каждый этап усиливает предыдущий.</p>
+          <p>Каждый блок ниже — самостоятельный продукт. Можно начать с диагностики или подключить нас на любом этапе. Нажмите на карточку, чтобы открыть страницу услуги.</p>
         </div>
-        <img class="path-img rv" src="img-path.svg" alt="Путь клиента ASM Strategy: понять — диагностика и стратегические сессии; выстроить — систематизация и реинжиниринг; сопровождать — советник и совет директоров; развивать — партнёрства, M&A и обучение" width="1100" height="250">
-        <img class="path-img-m rv" src="img-path-m.svg" alt="Путь клиента ASM Strategy: понять, выстроить, сопровождать, развивать" width="390" height="620">
+        <!-- Путь: 4 этапа — чистый степпер (замена перегруженной схемы img-path) -->
+        <ol class="steps rv" aria-label="Путь построения системы управления: понять, выстроить, сопровождать, развивать">
+          <li class="step"><span class="sn">1</span><h3 class="serif">Понять</h3><p>Диагностика и стратегические сессии</p></li>
+          <li class="step"><span class="sn">2</span><h3 class="serif">Выстроить</h3><p>Систематизация и реинжиниринг</p></li>
+          <li class="step"><span class="sn">3</span><h3 class="serif">Сопровождать</h3><p>Советник и совет директоров</p></li>
+          <li class="step"><span class="sn">4</span><h3 class="serif">Развивать</h3><p>Партнёрства, M&amp;A и обучение</p></li>
+        </ol>
 
         <!-- ГРУППА 1 -->
         <div class="grp rv">
@@ -378,8 +398,8 @@
             <span class="g-note">точка входа: где бизнес теряет управляемость</span>
           </div>
           <div class="svc">
-            <div class="svc-item"><span class="num serif">01</span><div><a href="diagnostika/"><h4>Диагностика и аудит системы управления</h4></a><p>Оцениваем управляемость компании, находим узкие места и зависимость бизнеса от собственника. Выстраиваем дорожную карту на 6 месяцев.</p></div></div>
-            <div class="svc-item"><span class="num serif">02</span><div><a href="strategicheskie-sessii/"><h4>Стратегические сессии</h4></a><p>Классический формат: готовим сессию (сбор данных и предварительная диагностика), проводим, вырабатываем с командой план — и сопровождаем выполнение задач после сессии.</p></div></div>
+            <div class="svc-item"><a href="diagnostika/"><h4>Диагностика и аудит системы управления</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Оцениваем управляемость компании, находим узкие места и зависимость бизнеса от собственника. Выстраиваем дорожную карту на 6 месяцев.</p></a></div>
+            <div class="svc-item"><a href="strategicheskie-sessii/"><h4>Стратегические сессии</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Классический формат: готовим сессию (сбор данных и предварительная диагностика), проводим, вырабатываем с командой план — и сопровождаем выполнение задач после сессии.</p></a></div>
           </div>
         </div>
 
@@ -391,8 +411,8 @@
             <span class="g-note">основной блок: внедрение системы управления</span>
           </div>
           <div class="svc">
-            <div class="svc-item"><span class="num serif">03</span><div><a href="sistematizaciya/"><h4>Систематизация бизнеса</h4></a><p>Проектируем и внедряем инструменты управления: оргструктуру, ЦКП и зоны ответственности, статистики и управленческую отчётность, планирование, финансовый контур, управленческий ритм.</p></div></div>
-            <div class="svc-item"><span class="num serif">04</span><div><a href="reinzhiniring/"><h4>Реинжиниринг инструментов управления</h4></a><p>Перестраиваем систему управления, которая была внедрена, но не работает: находим методологические ошибки и возвращаем инструментам управленческую силу.</p></div></div>
+            <div class="svc-item"><a href="sistematizaciya/"><h4>Систематизация бизнеса</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Проектируем и внедряем инструменты управления: оргструктуру, ЦКП и зоны ответственности, статистики и управленческую отчётность, планирование, финансовый контур, управленческий ритм.</p></a></div>
+            <div class="svc-item"><a href="reinzhiniring/"><h4>Реинжиниринг инструментов управления</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Перестраиваем систему управления, которая была внедрена, но не работает: находим методологические ошибки и возвращаем инструментам управленческую силу.</p></a></div>
           </div>
         </div>
 
@@ -404,8 +424,8 @@
             <span class="g-note">регулярные управленческие функции на аутсорсе</span>
           </div>
           <div class="svc">
-            <div class="svc-item"><span class="num serif">05</span><div><a href="sovetnik/"><h4>Советник по системному управлению</h4></a><p>Внешний специалист организует управленческий процесс компании на постоянной основе: планирование, координации, показатели, управленческая дисциплина.</p></div></div>
-            <div class="svc-item"><span class="num serif">06</span><div><a href="sovet-direktorov/"><h4>Независимые директора и совет директоров</h4></a><p>Входим в совет директоров как независимые директора: помогаем акционерам контролировать стратегию, риски и создание стоимости бизнеса.</p></div></div>
+            <div class="svc-item"><a href="sovetnik/"><h4>Советник по системному управлению</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Внешний специалист организует управленческий процесс компании на постоянной основе: планирование, координации, показатели, управленческая дисциплина.</p></a></div>
+            <div class="svc-item"><a href="sovet-direktorov/"><h4>Независимые директора и совет директоров</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Входим в совет директоров как независимые директора: помогаем акционерам контролировать стратегию, риски и создание стоимости бизнеса.</p></a></div>
           </div>
         </div>
 
@@ -417,9 +437,9 @@
             <span class="g-note">рост стоимости бизнеса и управленческой команды</span>
           </div>
           <div class="svc">
-            <div class="svc-item"><span class="num serif">07</span><div><a href="partnerskie-soglasheniya/"><h4>Партнёрские соглашения совладельцев</h4></a><p>Помогаем совладельцам зафиксировать правила игры: роли, полномочия, распределение прибыли, порядок выхода — до того, как разногласия станут конфликтом.</p></div></div>
-            <div class="svc-item"><span class="num serif">08</span><div><a href="sdelki-ma/"><h4>Сделки M&A и организационное развитие</h4></a><p>Сопровождаем слияния и поглощения с управленческой стороны: оцениваем управляемость актива, интегрируем команды и системы управления.</p></div></div>
-            <div class="svc-item"><span class="num serif">09</span><div><a href="obuchenie/"><h4>Обучение управлению в школе руководителей</h4></a><p>Школа руководителей: владельцы и управленческие команды осваивают системное управление — в процессе внедрения и на регулярных программах. Знания закрепляются на инструментах вашей же компании.</p></div></div>
+            <div class="svc-item"><a href="partnerskie-soglasheniya/"><h4>Партнёрские соглашения совладельцев</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Помогаем совладельцам зафиксировать правила игры: роли, полномочия, распределение прибыли, порядок выхода — до того, как разногласия станут конфликтом.</p></a></div>
+            <div class="svc-item"><a href="sdelki-ma/"><h4>Сделки M&A и организационное развитие</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Сопровождаем слияния и поглощения с управленческой стороны: оцениваем управляемость актива, интегрируем команды и системы управления.</p></a></div>
+            <div class="svc-item"><a href="obuchenie/"><h4>Обучение управлению в школе руководителей</h4><span class="go">Открыть <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><p>Школа руководителей: владельцы и управленческие команды осваивают системное управление — в процессе внедрения и на регулярных программах. Знания закрепляются на инструментах вашей же компании.</p></a></div>
           </div>
         </div>
 
