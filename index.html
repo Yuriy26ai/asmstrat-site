@@ -83,37 +83,76 @@
 
   h1,h2,h3{color:var(--ink);font-family:'Newsreader',Georgia,serif;font-weight:400;letter-spacing:-0.01em;}
 
-  /* ШАПКА */
-  .head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,0.88);backdrop-filter:blur(12px);
-    border-bottom:1px solid transparent;transition:border-color .3s;}
-  .head.scrolled{border-bottom-color:var(--line);}
+  /* ШАПКА — двухъярусная, прозрачная поверх hero, сплошная при скролле */
+  .head{position:sticky;top:0;z-index:60;background:transparent;
+    border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s;}
+  .head.scrolled{background:rgba(12,27,42,0.94);backdrop-filter:blur(12px);border-bottom-color:rgba(255,255,255,0.14);}
+  .util-bar{border-bottom:1px solid rgba(255,255,255,0.16);}
+  .util-bar-in{display:flex;align-items:center;justify-content:space-between;height:34px;font-size:11.5px;}
+  .util-l{display:flex;align-items:center;gap:20px;}
+  .util-l a{color:rgba(255,255,255,.82);text-decoration:none;font-weight:600;transition:color .2s;}
+  .util-l a:hover{color:#fff;}
+  .util-r{display:flex;align-items:center;gap:16px;}
+  .util-r .u-tag{color:rgba(255,255,255,.6);letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;}
+  .util-r a{color:rgba(255,255,255,.82);display:inline-flex;transition:color .2s;}
+  .util-r a:hover{color:#fff;}
+  .util-r svg{width:13px;height:13px;}
+  @media(max-width:900px){.util-bar{display:none;}}
   .nav{display:flex;align-items:center;justify-content:space-between;height:74px;}
   .brand{display:flex;align-items:center;text-decoration:none;}
-  .brand img{height:46px;width:auto;display:block;}
+  .brand img{height:42px;width:auto;display:block;}
   .nav-r{display:flex;gap:28px;align-items:center;}
-  .nav-r a{font-size:14px;color:var(--body);text-decoration:none;transition:color .2s;}
-  .nav-r a:hover{color:var(--accent);}
+  .nav-r a{font-size:14px;color:#fff;text-decoration:none;transition:color .2s;font-weight:500;}
+  .nav-r a:hover{color:var(--accent2);}
   .nav-cta{font-weight:600;color:#fff !important;background:var(--accent);padding:9px 18px;border-radius:3px;transition:background .2s;}
   .nav-cta:hover{background:#163C5F;}
   @media(max-width:880px){.nav-r a:not(.nav-cta){display:none;}}
 
-  /* HERO с видеофоном */
-  .hero{position:relative;overflow:hidden;padding:96px 0 84px;background:var(--paper);}
+  /* HERO — полноэкранный, видеофон + слайдер из 4 материалов внизу */
+  .hero{position:relative;overflow:hidden;margin-top:-110px;background:var(--ink);}
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity 1.4s ease;}
   .hero-video.on{opacity:1;}
-  .hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,0.97) 0%,rgba(255,255,255,0.9) 44%,rgba(255,255,255,0.55) 100%);}
-  @media(max-width:940px){.hero-video,.hero-shade{display:none;}.hero{background:var(--bg);}}
-  .hero-inner{position:relative;z-index:2;max-width:820px;}
-  .path-img{width:100%;height:auto;display:block;margin:-6px 0 50px;}
-  .path-img-m{display:none;}
-  @media(max-width:720px){
-    .path-img{display:none;}
-    .path-img-m{display:block;width:100%;max-width:360px;margin:0 auto 46px;}
+  .hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(12,27,42,0.90) 0%,rgba(12,27,42,0.72) 32%,rgba(12,27,42,0.30) 56%,rgba(12,27,42,0) 74%);}
+  .hero-bottom-shade{position:absolute;left:0;right:0;bottom:0;height:230px;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(12,27,42,0) 0%,rgba(12,27,42,0.18) 28%,rgba(12,27,42,0.74) 70%,rgba(12,27,42,0.95) 100%);}
+  @media(max-width:940px){
+    .hero-shade{background:linear-gradient(180deg,rgba(12,27,42,0.55) 0%,rgba(12,27,42,0.35) 45%,rgba(12,27,42,0.55) 100%);}
+    .hero-video{opacity:1;} /* видео-источник на мобильном не грузим (трафик) — сразу показываем постер, без ожидания JS */
   }
-  .hero .eyebrow{display:block;margin-bottom:30px;}
-  .hero h1{font-size:clamp(36px,5vw,60px);line-height:1.08;max-width:26ch;margin-bottom:26px;}
-  .hero p{font-size:clamp(18px,1.9vw,21px);color:var(--body);max-width:62ch;margin-bottom:40px;}
-  .hero p b{color:var(--ink);font-weight:600;}
+  .hero-in{position:relative;z-index:2;min-height:min(760px,100vh);display:flex;flex-direction:column;justify-content:center;padding:114px 0 190px;}
+  .hero-copy{max-width:600px;}
+  .hero .eyebrow{display:block;margin-bottom:22px;color:#fff;transition:opacity .35s ease,transform .35s ease;}
+  .hero h1{color:#fff;font-size:clamp(34px,4.6vw,58px);line-height:1.1;max-width:16ch;margin-bottom:28px;transition:opacity .35s ease,transform .35s ease;}
+  .hero-more{display:inline-flex;align-items:center;gap:16px;color:#fff;text-decoration:none;font-size:13.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;transition:opacity .35s ease,transform .35s ease;}
+  .hero-more svg{width:38px;height:14px;transition:transform .2s;}
+  .hero-more:hover svg{transform:translateX(8px);}
+  .hero-more:hover{color:var(--accent2);}
+  .hero-fade-out{opacity:0;transform:translateY(10px);}
+
+  /* Слайдер-навигация внизу hero */
+  .hero-slidenav{position:absolute;left:0;right:0;bottom:0;z-index:3;padding-bottom:40px;}
+  .slidenav-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+  .slide-tabs{display:flex;gap:40px;overflow-x:auto;flex:1;scrollbar-width:none;}
+  .slide-tabs::-webkit-scrollbar{display:none;}
+  .slide-tab{position:relative;flex:none;background:none;border:0;cursor:pointer;font-family:inherit;font-size:16px;font-weight:600;
+    color:rgba(255,255,255,0.55);padding:0 0 28px;transition:color .25s;white-space:nowrap;}
+  .slide-tab:hover{color:rgba(255,255,255,0.85);}
+  .slide-tab.active{color:#fff;}
+  .slide-tab .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--accent2);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+  .slide-tab.active .bar{transform:scaleX(1);}
+  .scroll-down{flex:none;display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:rgba(255,255,255,.75);font-size:12px;padding:0 0 4px;}
+  .scroll-down .dot{width:40px;height:40px;border-radius:50%;border:1.4px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;transition:background .2s;animation:scrollbob 2.4s ease-in-out infinite;}
+  .scroll-down:hover .dot{background:rgba(255,255,255,.14);}
+  .scroll-down svg{width:15px;height:15px;}
+  @keyframes scrollbob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+  @media(prefers-reduced-motion:reduce){.scroll-down .dot{animation:none;}}
+  @media(max-width:760px){
+    .hero-in{padding:100px 0 150px;justify-content:flex-end;}
+    .hero h1{font-size:clamp(30px,7.5vw,42px);max-width:14ch;}
+    .slide-tab{font-size:14px;padding-bottom:22px;}
+    .scroll-down{display:none;}
+  }
   .actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:3px;transition:transform .2s,background .2s,box-shadow .2s;}
   .btn-primary{background:var(--accent);color:#fff;}
@@ -260,8 +299,8 @@
 
   /* Выпадающее меню (десктоп) */
   .dd{position:relative;height:74px;display:flex;align-items:center;}
-  .dd>button{font-size:14px;color:var(--body);background:none;border:0;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;padding:0;transition:color .2s;}
-  .dd>button:hover{color:var(--accent);}
+  .dd>button{font-size:14px;color:#fff;background:none;border:0;cursor:pointer;font-family:inherit;font-weight:500;display:flex;align-items:center;gap:6px;padding:0;transition:color .2s;}
+  .dd>button:hover{color:var(--accent2);}
   .dd .car{font-size:9px;transform:translateY(1px);}
   .dd-menu{position:absolute;top:64px;left:-16px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 34px rgba(12,27,42,0.10);border-radius:4px;padding:8px 0;min-width:300px;display:none;z-index:70;}
   .dd:hover .dd-menu,.dd.open .dd-menu{display:block;}
@@ -269,7 +308,7 @@
   .dd-menu a:hover{background:var(--paper);color:var(--accent);}
   /* Бургер и мобильная панель */
   .burger{display:none;background:none;border:0;cursor:pointer;padding:8px;margin-left:6px;}
-  .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;transition:.25s;}
+  .burger span{display:block;width:22px;height:2px;background:#fff;margin:5px 0;transition:.25s;}
   .burger.act span:nth-child(1){transform:translateY(7px) rotate(45deg);}
   .burger.act span:nth-child(2){opacity:0;}
   .burger.act span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
@@ -292,6 +331,7 @@
   .rv.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .head :focus-visible,.hero :focus-visible{outline-color:#fff;} /* var(--accent) на тёмной шапке/hero даёт контраст ~2:1 (< WCAG 1.4.11 3:1) — на этих зонах рамка белая */
   /* Компактные контакты + форма */
   section.block.contact{padding:56px 0;}
   .contact h2{font-size:clamp(26px,3.2vw,38px);margin-bottom:14px;}
@@ -314,16 +354,29 @@
 <body>
 
   <header class="head" id="head">
+    <div class="util-bar">
+      <div class="wrap util-bar-in">
+        <div class="util-l">
+          <a href="mailto:sales@asmstrat.com">sales@asmstrat.com</a>
+          <a href="tel:+79777000755">+7 977 700-07-55</a>
+        </div>
+        <div class="util-r">
+          <span class="u-tag">20+ лет управленческого опыта</span>
+          <a href="https://t.me/asmstrat" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.6 20c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13 1.8 11.5c-1-.3-1-.9.2-1.4l18.5-7.1c.9-.3 1.6.2 1.4 1.3z"/></svg></a>
+          <a href="https://wa.me/79777000755" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.5-1.2-2.9 0-1.4.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.2.1.4.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 .9c.3.2.5.3.5.4.1.2.1.7-.1 1.4z"/></svg></a>
+        </div>
+      </div>
+    </div>
     <div class="wrap nav">
-      <a href="./" class="brand"><img src="logo.svg" alt="ASM Strategy — систематизация бизнеса" height="46"></a>
+      <a href="./" class="brand"><img src="logo-white.svg" alt="ASM Strategy — систематизация бизнеса" height="42"></a>
       <nav class="nav-r">
         <a href="./">Главная</a>
-        <div class="dd"><button type="button">Услуги <span class="car">▼</span></button><div class="dd-menu"><a href="diagnostika/">Диагностика и аудит системы управления</a><a href="strategicheskie-sessii/">Стратегические сессии</a><a href="sistematizaciya/">Систематизация бизнеса</a><a href="reinzhiniring/">Реинжиниринг системы управления</a><a href="sovetnik/">Советник по системному управлению</a><a href="sovet-direktorov/">Независимые директора и совет директоров</a><a href="partnerskie-soglasheniya/">Партнёрские соглашения совладельцев</a><a href="sdelki-ma/">Сделки M&amp;A и оргразвитие</a><a href="obuchenie/">Обучение в школе руководителей</a><a href="delegirovanie-reglamenty/">Делегирование и регламенты (мастер-класс)</a><a href="#services">Все услуги</a></div></div>
-        <div class="dd"><button type="button">Тесты <span class="car">▼</span></button><div class="dd-menu"><a href="test-upravlyaemosti/">Тест: управляем ли ваш бизнес?</a><a href="cena-operacionki/">Калькулятор: цена операционки</a><a href="testy/#materials">Чек-листы (PDF)</a><a href="testy/">Все тесты и инструменты</a></div></div>
+        <div class="dd"><button type="button" aria-haspopup="true" aria-expanded="false">Услуги <span class="car">▼</span></button><div class="dd-menu"><a href="diagnostika/">Диагностика и аудит системы управления</a><a href="strategicheskie-sessii/">Стратегические сессии</a><a href="sistematizaciya/">Систематизация бизнеса</a><a href="reinzhiniring/">Реинжиниринг системы управления</a><a href="sovetnik/">Советник по системному управлению</a><a href="sovet-direktorov/">Независимые директора и совет директоров</a><a href="partnerskie-soglasheniya/">Партнёрские соглашения совладельцев</a><a href="sdelki-ma/">Сделки M&amp;A и оргразвитие</a><a href="obuchenie/">Обучение в школе руководителей</a><a href="delegirovanie-reglamenty/">Делегирование и регламенты (мастер-класс)</a><a href="#services">Все услуги</a></div></div>
+        <div class="dd"><button type="button" aria-haspopup="true" aria-expanded="false">Тесты <span class="car">▼</span></button><div class="dd-menu"><a href="test-upravlyaemosti/">Тест: управляем ли ваш бизнес?</a><a href="cena-operacionki/">Калькулятор: цена операционки</a><a href="testy/#materials">Чек-листы (PDF)</a><a href="testy/">Все тесты и инструменты</a></div></div>
         <a href="#cases">Кейсы</a>
         <a href="#team">Команда</a>
         <a href="#contacts" class="nav-cta">Связаться</a>
-        <button class="burger" id="burger" type="button" aria-label="Меню"><span></span><span></span><span></span></button>
+        <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><span></span><span></span><span></span></button>
       </nav>
     </div>
     <nav class="mnav" id="mnav">
@@ -351,17 +404,28 @@
 
   <main id="top">
 
-    <!-- HERO: видеофон — Москва-Сити, таймлапс (hero-bg.mp4 ~725 КБ, грузится только на десктопе) -->
-    <section class="hero">
-      <video class="hero-video" id="heroVideo" muted loop playsinline autoplay preload="none" aria-hidden="true" tabindex="-1"></video>
+    <!-- HERO: полноэкранный, видеофон (Москва-Сити) + слайдер из 4 материалов внизу.
+         По мотивам bain.com (референс + ТЗ), палитра — наша синяя, не красная Bain. -->
+    <section class="hero" id="hero">
+      <video class="hero-video" id="heroVideo" muted loop playsinline autoplay preload="none" poster="hero-poster.jpg" aria-hidden="true" tabindex="-1"></video>
       <div class="hero-shade" aria-hidden="true"></div>
-      <div class="wrap hero-inner">
-        <span class="eyebrow rv">Управленческий и стратегический консалтинг · систематизация и автоматизация бизнеса</span>
-        <h1 class="rv">Превращаем растущий бизнес в управляемую систему</h1>
-        <p class="rv">Помогаем собственникам выйти из операционной перегрузки: <b>выстраиваем систему управления, при которой компания растёт руками управленческой команды — без ежедневного участия владельца.</b></p>
-        <div class="actions rv">
-          <a href="#contacts" class="btn btn-primary">Получить диагностику</a>
-          <a href="#services" class="btn btn-ghost">Что мы делаем</a>
+      <div class="hero-bottom-shade" aria-hidden="true"></div>
+      <div class="hero-in wrap">
+        <div class="hero-copy" id="heroPanel" role="tabpanel" aria-labelledby="slideTab0">
+          <span class="eyebrow" id="heroEyebrow">Управленческая диагностика</span>
+          <h1 id="heroTitle">Диагностика и аудит системы управления</h1>
+          <a href="diagnostika/" class="hero-more" id="heroMore">Подробнее <svg viewBox="0 0 40 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="0" y1="7" x2="34" y2="7"/><polyline points="27 1 34 7 27 13"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-slidenav">
+        <div class="wrap slidenav-row">
+          <div class="slide-tabs" id="slideTabs" role="tablist" aria-label="Материалы на главной">
+            <button class="slide-tab active" type="button" role="tab" id="slideTab0" aria-selected="true" aria-controls="heroPanel" tabindex="0" data-i="0">Диагностика<span class="bar"></span></button>
+            <button class="slide-tab" type="button" role="tab" id="slideTab1" aria-selected="false" aria-controls="heroPanel" tabindex="-1" data-i="1">Систематизация<span class="bar"></span></button>
+            <button class="slide-tab" type="button" role="tab" id="slideTab2" aria-selected="false" aria-controls="heroPanel" tabindex="-1" data-i="2">Делегирование<span class="bar"></span></button>
+            <button class="slide-tab" type="button" role="tab" id="slideTab3" aria-selected="false" aria-controls="heroPanel" tabindex="-1" data-i="3">Сопровождение<span class="bar"></span></button>
+          </div>
+          <button class="scroll-down" type="button" id="scrollDown" aria-label="Листайте — прокрутить к следующему блоку">Листайте<span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
         </div>
       </div>
     </section>
@@ -718,7 +782,7 @@
     var _y=document.getElementById('year'); if(_y)_y.textContent=new Date().getFullYear();
     setTimeout(function(){document.querySelectorAll('.rv:not(.in)').forEach(function(el){el.classList.add('in');});},1500); /* защита: контент не остаётся скрытым, даже если IO/JS сбойнёт */
     const head = document.getElementById('head');
-    addEventListener('scroll', () => head.classList.toggle('scrolled', scrollY > 8));
+    if(head) addEventListener('scroll', () => head.classList.toggle('scrolled', scrollY > 80));
     const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.1});
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
@@ -734,6 +798,86 @@
       v.appendChild(s); v.load();
       v.addEventListener('canplay',function(){v.classList.add('on');var p=v.play();if(p&&p.catch)p.catch(function(){});},{once:true});
     })();
+
+    // Слайдер hero: 4 материала, автопрокрутка (пауза при наведении/фокусе/после ручного клика),
+    // клавиатура (стрелки), учитывает prefers-reduced-motion
+    (function(){
+      var tabsWrap=document.getElementById('slideTabs');
+      var heroEl=document.getElementById('hero');
+      var eyebrowEl=document.getElementById('heroEyebrow'), titleEl=document.getElementById('heroTitle'), moreEl=document.getElementById('heroMore');
+      if(!tabsWrap||!heroEl||!eyebrowEl||!titleEl||!moreEl)return;
+      var tabs=[].slice.call(tabsWrap.querySelectorAll('.slide-tab'));
+      var slides=[
+        {eyebrow:'Управленческая диагностика', title:'Диагностика и аудит системы управления', href:'diagnostika/'},
+        {eyebrow:'Внедрение системы управления', title:'Систематизация бизнеса: оргструктура, показатели, ритм', href:'sistematizaciya/'},
+        {eyebrow:'Мастер-класс и внедрение', title:'Делегирование и система регламентов', href:'delegirovanie-reglamenty/'},
+        {eyebrow:'Флагманский продукт', title:'Советник по системному управлению', href:'sovetnik/'}
+      ];
+      var i=0, timer=null, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function render(idx){
+        var s=slides[idx];
+        eyebrowEl.textContent=s.eyebrow;
+        titleEl.textContent=s.title;
+        moreEl.href=s.href;
+      }
+      var heroPanel=document.getElementById('heroPanel');
+      function setActiveTab(idx){
+        tabs.forEach(function(t,k){
+          var on=k===idx;
+          t.classList.toggle('active',on);
+          t.setAttribute('aria-selected',on?'true':'false');
+          t.tabIndex=on?0:-1;
+        });
+        if(heroPanel) heroPanel.setAttribute('aria-labelledby', tabs[idx].id);
+      }
+      function activate(idx, userInitiated){
+        i=(idx+slides.length)%slides.length;
+        setActiveTab(i);
+        if(reduced){
+          render(i);
+        } else {
+          [eyebrowEl,titleEl,moreEl].forEach(function(el){el.classList.add('hero-fade-out');});
+          setTimeout(function(){
+            render(i);
+            [eyebrowEl,titleEl,moreEl].forEach(function(el){el.classList.remove('hero-fade-out');});
+          },220);
+        }
+        if(userInitiated) stopAutoplay();
+      }
+      function startAutoplay(){
+        if(reduced)return;
+        stopAutoplay();
+        timer=setInterval(function(){ activate(i+1,false); },7000);
+      }
+      function stopAutoplay(){ if(timer){clearInterval(timer); timer=null;} }
+
+      tabs.forEach(function(t){
+        t.addEventListener('click',function(){ activate(+t.dataset.i, true); });
+      });
+      tabsWrap.addEventListener('keydown', function(e){
+        var idx=tabs.indexOf(document.activeElement);
+        if(idx===-1)return;
+        if(e.key==='ArrowRight'){ e.preventDefault(); activate(idx+1,true); tabs[i].focus(); }
+        if(e.key==='ArrowLeft'){ e.preventDefault(); activate(idx-1,true); tabs[i].focus(); }
+        if(e.key==='Home'){ e.preventDefault(); activate(0,true); tabs[i].focus(); }
+        if(e.key==='End'){ e.preventDefault(); activate(slides.length-1,true); tabs[i].focus(); }
+      });
+      heroEl.addEventListener('mouseenter', stopAutoplay);
+      heroEl.addEventListener('mouseleave', startAutoplay);
+      heroEl.addEventListener('focusin', stopAutoplay);
+
+      var scrollBtn=document.getElementById('scrollDown');
+      if(scrollBtn){
+        scrollBtn.addEventListener('click', function(){
+          var nextSection=heroEl.nextElementSibling;
+          if(nextSection) nextSection.scrollIntoView({behavior: reduced?'auto':'smooth'});
+        });
+      }
+
+      startAutoplay();
+    })();
+
     // Анимация цифр статистики: набегают при появлении в вьюпорте
     (function(){
       var els=document.querySelectorAll('[data-target]');
@@ -757,11 +901,23 @@
     // Бургер-меню и выпадающие списки
     const burger=document.getElementById('burger'), mnav=document.getElementById('mnav');
     if(burger&&mnav){
-      burger.addEventListener('click',()=>{mnav.classList.toggle('open');burger.classList.toggle('act');});
-      mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mnav.classList.remove('open');burger.classList.remove('act');}));
+      burger.addEventListener('click',()=>{
+        const open=mnav.classList.toggle('open');
+        burger.classList.toggle('act',open);
+        burger.setAttribute('aria-expanded',open?'true':'false');
+      });
+      mnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        mnav.classList.remove('open');burger.classList.remove('act');burger.setAttribute('aria-expanded','false');
+      }));
     }
-    document.querySelectorAll('.dd>button').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();b.parentElement.classList.toggle('open');}));
-    document.addEventListener('click',e=>{document.querySelectorAll('.dd.open').forEach(d=>{if(!d.contains(e.target))d.classList.remove('open');});});
+    document.querySelectorAll('.dd>button').forEach(b=>b.addEventListener('click',e=>{
+      e.stopPropagation();
+      const open=b.parentElement.classList.toggle('open');
+      b.setAttribute('aria-expanded',open?'true':'false');
+    }));
+    document.addEventListener('click',e=>{document.querySelectorAll('.dd.open').forEach(d=>{
+      if(!d.contains(e.target)){d.classList.remove('open');var btn=d.querySelector('button');if(btn)btn.setAttribute('aria-expanded','false');}
+    });});
 
   </script>
 
