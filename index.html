@@ -138,9 +138,12 @@
     color:rgba(255,255,255,0.55);padding:0 0 28px;transition:color .25s;white-space:nowrap;}
   .slide-tab:hover{color:rgba(255,255,255,0.85);}
   .slide-tab.active{color:#fff;}
-  .slide-tab .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--accent2);
-    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
-  .slide-tab.active .bar{transform:scaleX(1);}
+  .slide-tab .bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.22);overflow:hidden;}
+  .slide-tab .bar::after{content:"";position:absolute;inset:0;background:var(--accent2);transform:scaleX(0);transform-origin:left;}
+  .slide-tab.active .bar::after{animation:slideFill 7000ms linear forwards;}
+  .slide-tab.active .bar.paused::after{animation-play-state:paused;}
+  @keyframes slideFill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @media(prefers-reduced-motion:reduce){.slide-tab.active .bar::after{animation:none;transform:scaleX(1);}}
   .scroll-down{flex:none;display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;color:rgba(255,255,255,.75);font-size:12px;padding:0 0 4px;}
   .scroll-down .dot{width:40px;height:40px;border-radius:50%;border:1.4px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;transition:background .2s;animation:scrollbob 2.4s ease-in-out infinite;}
   .scroll-down:hover .dot{background:rgba(255,255,255,.14);}
@@ -813,7 +816,8 @@
         {eyebrow:'Мастер-класс и внедрение', title:'Делегирование и система регламентов', href:'delegirovanie-reglamenty/'},
         {eyebrow:'Флагманский продукт', title:'Советник по системному управлению', href:'sovetnik/'}
       ];
-      var i=0, timer=null, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var i=0, reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var activeBar=null, paused=false;
 
       function render(idx){
         var s=slides[idx];
@@ -831,9 +835,31 @@
         });
         if(heroPanel) heroPanel.setAttribute('aria-labelledby', tabs[idx].id);
       }
+      // Полоска-индикатор ".bar" заполняется на активной вкладке за то же время, что и
+      // автопрокрутка (см. @keyframes slideFill, 7000ms) — по её завершении сама включает
+      // следующий слайд, поэтому визуальный прогресс и переключение никогда не расходятся.
+      function onBarEnd(e){
+        if(e.target!==activeBar)return;
+        activate((i+1)%slides.length, false);
+      }
+      function armBar(idx){
+        if(activeBar) activeBar.removeEventListener('animationend', onBarEnd);
+        activeBar=null;
+        if(reduced)return; /* без автопрокрутки — полоска статично залита (см. CSS reduced-motion) */
+        var bar=tabs[idx].querySelector('.bar');
+        if(!bar)return;
+        bar.classList.toggle('paused',paused);
+        bar.addEventListener('animationend', onBarEnd);
+        activeBar=bar;
+      }
+      function setPaused(p){
+        paused=p;
+        if(activeBar) activeBar.classList.toggle('paused',p);
+      }
       function activate(idx, userInitiated){
         i=(idx+slides.length)%slides.length;
         setActiveTab(i);
+        armBar(i);
         if(reduced){
           render(i);
         } else {
@@ -843,14 +869,7 @@
             [eyebrowEl,titleEl,moreEl].forEach(function(el){el.classList.remove('hero-fade-out');});
           },220);
         }
-        if(userInitiated) stopAutoplay();
       }
-      function startAutoplay(){
-        if(reduced)return;
-        stopAutoplay();
-        timer=setInterval(function(){ activate(i+1,false); },7000);
-      }
-      function stopAutoplay(){ if(timer){clearInterval(timer); timer=null;} }
 
       tabs.forEach(function(t){
         t.addEventListener('click',function(){ activate(+t.dataset.i, true); });
@@ -863,9 +882,10 @@
         if(e.key==='Home'){ e.preventDefault(); activate(0,true); tabs[i].focus(); }
         if(e.key==='End'){ e.preventDefault(); activate(slides.length-1,true); tabs[i].focus(); }
       });
-      heroEl.addEventListener('mouseenter', stopAutoplay);
-      heroEl.addEventListener('mouseleave', startAutoplay);
-      heroEl.addEventListener('focusin', stopAutoplay);
+      heroEl.addEventListener('mouseenter', function(){ setPaused(true); });
+      heroEl.addEventListener('mouseleave', function(){ setPaused(false); });
+      heroEl.addEventListener('focusin', function(){ setPaused(true); });
+      heroEl.addEventListener('focusout', function(){ if(!heroEl.contains(document.activeElement)) setPaused(false); });
 
       var scrollBtn=document.getElementById('scrollDown');
       if(scrollBtn){
@@ -875,7 +895,7 @@
         });
       }
 
-      startAutoplay();
+      armBar(i); /* запускаем полоску для стартового (первого) слайда */
     })();
 
     // Анимация цифр статистики: набегают при появлении в вьюпорте
