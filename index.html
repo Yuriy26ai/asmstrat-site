@@ -170,7 +170,11 @@
   .strip-lead b{color:var(--accent);font-weight:500;}
   .strip-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
   @media(max-width:760px){.strip-nums{grid-template-columns:1fr;gap:24px;}}
-  .strip .n{font-family:'Newsreader',serif;font-size:40px;color:var(--ink);line-height:1;}
+  .strip .n{font-family:'Newsreader',serif;font-size:40px;color:var(--ink);line-height:1;display:inline-block;font-variant-numeric:tabular-nums;}
+  .strip .n.landed{animation:statSettle .5s ease;}
+  @keyframes statSettle{0%{transform:scale(1);}35%{transform:scale(1.06);}100%{transform:scale(1);}}
+  .strip .underline{display:block;height:2px;width:0;background:var(--accent2);margin-top:10px;transition:width .5s ease;}
+  .strip .underline.on{width:34px;}
   .strip .l{font-size:14.5px;color:var(--muted);margin-top:8px;}
 
   /* «шахматная» раскладка: иллюстрация ↔ текст */
@@ -438,9 +442,9 @@
       <div class="wrap strip-in2">
         <p class="strip-lead rv">Строим и автоматизируем систему управления — <b>в связке с собственником, а не вместо него.</b> Снимаем операционную перегрузку, наводим порядок в процессах и убираем зависимость бизнеса от ручного управления.</p>
         <div class="strip-nums">
-          <div class="rv"><div class="n" data-target="20" data-suffix="+">20+</div><div class="l">лет управленческого опыта у каждого партнёра</div></div>
-          <div class="rv"><div class="n" data-target="80" data-prefix="−" data-suffix="%">−80%</div><div class="l">операционной нагрузки на собственника в проектах</div></div>
-          <div class="rv"><div class="n" data-target="1.5" data-start="1" data-dec="1" data-prefix="×">×1,5</div><div class="l">рост прибыли после внедрения системы управления</div></div>
+          <div class="rv"><div class="n" data-target="20" data-suffix="+">20+</div><span class="underline"></span><div class="l">лет управленческого опыта у каждого партнёра</div></div>
+          <div class="rv"><div class="n" data-target="80" data-prefix="−" data-suffix="%">−80%</div><span class="underline"></span><div class="l">операционной нагрузки на собственника в проектах</div></div>
+          <div class="rv"><div class="n" data-target="1.5" data-start="1" data-dec="1" data-prefix="×">×1,5</div><span class="underline"></span><div class="l">рост прибыли после внедрения системы управления</div></div>
         </div>
       </div>
     </div>
@@ -898,21 +902,36 @@
       armBar(i); /* запускаем полоску для стартового (первого) слайда */
     })();
 
-    // Анимация цифр статистики: набегают при появлении в вьюпорте
+    // Анимация цифр статистики: набегают при появлении в вьюпорте,
+    // на финале — лёгкий пульс числа и короткая подчёркивающая линия
     (function(){
       var els=document.querySelectorAll('[data-target]');
-      if(!els.length||!('IntersectionObserver' in window))return;
-      if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      if(!els.length)return;
+      var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduced){
+        els.forEach(function(el){
+          var u=el.parentElement.querySelector('.underline');
+          if(u)u.classList.add('on');
+        });
+        return;
+      }
+      if(!('IntersectionObserver' in window))return;
       var io2=new IntersectionObserver(function(es){es.forEach(function(en){
         if(!en.isIntersecting)return; io2.unobserve(en.target);
         var el=en.target,t=parseFloat(el.dataset.target),s=parseFloat(el.dataset.start||0),
             d=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null;
+        var underline=el.parentElement.querySelector('.underline');
+        function finish(){
+          el.textContent=pre+t.toFixed(d).replace('.',',')+suf;
+          el.classList.add('landed');
+          if(underline)underline.classList.add('on');
+        }
         function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1300,1);
           var v=s+(t-s)*(1-Math.pow(1-p,3));
           el.textContent=pre+v.toFixed(d).replace('.',',')+suf;
-          if(p<1)requestAnimationFrame(step);}
+          if(p<1)requestAnimationFrame(step); else finish();}
         requestAnimationFrame(step);
-        setTimeout(function(){el.textContent=pre+t.toFixed(d).replace('.',',')+suf;},1500); /* страховка от rAF-троттлинга */
+        setTimeout(finish,1500); /* страховка от rAF-троттлинга */
       });},{threshold:0.6});
       els.forEach(function(e){io2.observe(e);});
     })();
