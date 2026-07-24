@@ -181,14 +181,15 @@
   .chess{display:flex;flex-direction:column;gap:32px;}
   .chess-row{display:grid;grid-template-columns:0.85fr 1.15fr;gap:46px;align-items:center;}
   .chess-row:nth-child(even) .chess-ill{order:2;}
-  .chess-ill{background:var(--paper);border:1px solid var(--line-soft);border-radius:16px;display:flex;align-items:center;justify-content:center;padding:32px;min-height:210px;color:var(--accent);}
-  .chess-ill svg{width:100%;max-width:230px;height:auto;display:block;}
+  .chess-ill{position:relative;border:1px solid var(--line-soft);border-radius:16px;overflow:hidden;min-height:210px;}
+  .chess-ill img{width:100%;height:100%;min-height:210px;object-fit:cover;display:block;filter:grayscale(88%) contrast(1.05) brightness(1.03);}
+  .chess-ill::after{content:"";position:absolute;inset:0;background:var(--accent);mix-blend-mode:multiply;opacity:0.22;pointer-events:none;}
   .chess-txt h3{font-size:24px;margin-bottom:10px;}
   .chess-txt p{color:var(--muted);font-size:16px;line-height:1.62;}
   @media(max-width:760px){
     .chess-row{grid-template-columns:1fr;gap:18px;}
     .chess-row:nth-child(even) .chess-ill{order:0;}
-    .chess-ill{min-height:160px;padding:26px;}
+    .chess-ill{min-height:200px;}
   }
 
   /* СЕКЦИИ */
@@ -575,15 +576,15 @@
         </div>
         <div class="chess">
           <div class="chess-row rv">
-            <div class="chess-ill" aria-hidden="true"><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="40" width="46" height="34" rx="4"/><line x1="34" y1="60" x2="98" y2="18"/><polyline points="80,18 98,18 98,36"/><circle cx="34" cy="60" r="3.4" fill="currentColor" stroke="none"/></svg></div>
+            <div class="chess-ill"><img src="outcome-owner.jpg" alt="Собственник, вышедший из операционного управления, спокойно смотрит в будущее" width="640" height="427" loading="lazy"></div>
             <div class="chess-txt"><h3 class="serif">Собственник выходит из операционки</h3><p>Рутинные решения принимает команда — по регламентам и показателям. Вы занимаетесь стратегией и развитием, а не тушением ежедневных пожаров.</p></div>
           </div>
           <div class="chess-row rv">
-            <div class="chess-ill" aria-hidden="true"><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="20" r="9"/><circle cx="26" cy="66" r="8"/><circle cx="60" cy="66" r="8"/><circle cx="94" cy="66" r="8"/><line x1="55" y1="28" x2="31" y2="58"/><line x1="60" y1="29" x2="60" y2="58"/><line x1="65" y1="28" x2="89" y2="58"/></svg></div>
+            <div class="chess-ill"><img src="outcome-team.jpg" alt="Управленческая команда обсуждает планы за столом переговоров" width="640" height="427" loading="lazy"></div>
             <div class="chess-txt"><h3 class="serif">Компания растёт руками команды</h3><p>Оргструктура, зоны ответственности и управленческий ритм выстроены так, что бизнес управляем без вашего ежедневного участия.</p></div>
           </div>
           <div class="chess-row rv">
-            <div class="chess-ill" aria-hidden="true"><svg viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="14" width="84" height="62" rx="6"/><path d="M36 60 A26 26 0 0 1 84 60"/><line x1="60" y1="60" x2="75" y2="40"/><circle cx="60" cy="60" r="3.4" fill="currentColor" stroke="none"/></svg></div>
+            <div class="chess-ill"><img src="outcome-data.jpg" alt="Анализ управленческих показателей и графиков вместо решений по интуиции" width="640" height="427" loading="lazy"></div>
             <div class="chess-txt"><h3 class="serif">Решения — по цифрам, а не по интуиции</h3><p>Статистики, управленческая отчётность и планирование дают прозрачную картину: где рост, где узкие места и куда направить ресурсы.</p></div>
           </div>
         </div>
